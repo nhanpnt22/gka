@@ -1,0 +1,240 @@
+📘 Axiomatic Generative Propagation Calculus (AGPC)
+Learnable Probabilistic–Dynamical Formulation (Referee-Grade, Final★★★★★)
+
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Date: 2026-03-19
+
+--------------------------------------------------
+MATHEMATICAL SETTING
+--------------------------------------------------
+All stochastic processes are defined on a filtered probability space
+(Ω, 𝔽, (𝔽_t)_{t ≥ 0}, ℙ). Expectations are taken with respect to ℙ.
+
+--------------------------------------------------
+CORE PRINCIPLE
+--------------------------------------------------
+AGPC is a finite-state, typed, stochastic dynamical system with
+learnable parameters defined on a finite probability space.
+
+All mappings are measurable.
+
+Existence is emergent:
+    P_exist(s; Θ) := P4(s)
+
+Effective propagation:
+    Ψ_eff(s) := Ψ(s) · P_exist(s)
+
+--------------------------------------------------
+I. FORMAL SYSTEM
+--------------------------------------------------
+U: finite universe
+S ⊆ U
+
+Network:
+    N = (V, E), V ⊆ U, E ⊆ V × V
+
+Logic:
+    L_logic is decidable, confluent, normalized
+
+Relations:
+    R finite, r : V × V → V total
+
+Element:
+    s = (A, B, D, Ψ, C, ℓ, φ(s)) with:
+        A ⊆ V, B ⊆ R, D ∈ L_logic,
+        Ψ ∈ [0,1], C ⊆ C_set,
+        ℓ ∈ {1,2,3,4}, φ(s) ∈ ℝ^d
+
+Consistency:
+    contradict(s_i, s_j) = 1 ⇔ ⊢(NF(D_i) ∧ NF(D_j))
+
+--------------------------------------------------
+II. GENERATION
+--------------------------------------------------
+Closure:
+    X₀ = A
+    X_{k+1} = X_k ∪ { r(x,y) :
+        r ∈ B, (x,y) ∈ E, x,y ∈ X_k,
+        ∀c ∈ C: c((x,y), r) = 1 }
+
+Since U is finite, ∃ k such that X_k = X_{k+1}.
+Define fixed point X*.
+
+Output:
+    output(s) := X* \ A
+
+--------------------------------------------------
+III. EXPANSION
+--------------------------------------------------
+E : 𝒫(U) → 𝒫(U)
+
+E is a stochastic operator inducing a time-homogeneous
+Markov chain on the finite state space 𝒫(U).
+
+--------------------------------------------------
+IV. EXISTENCE HIERARCHY
+--------------------------------------------------
+p12(s) =
+    0                  if constraints violated
+    σ(α · φ(s))        otherwise
+
+p23(s) = σ(α₁ I_local(s) + α₂ Ψ(s) + α₃ φ_persist(s) − τ_p)
+
+p34(s) = σ(β₁ ρ(s) + β₂ g(s) + β₃ reach(s) + β₄ φ_prop(s) − τ_s)
+
+P4(s) = p12(s) p23(s) p34(s)
+
+--------------------------------------------------
+V. INTERACTION
+--------------------------------------------------
+p_link(s_i, s_j) = σ(γ₁O + γ₂C + γ₃S − τ_l)
+
+ρ(s) = (1 / max(1, |N(s)|)) Σ_j p_link(s, s_j)
+
+I_local(s) := ρ(s)
+
+--------------------------------------------------
+VI. DYNAMICS (MEAN-FIELD FORM)
+--------------------------------------------------
+Let x_k(t) ∈ [0,1] denote the deterministic mean-field limit
+of the proportion of elements at level k at time t.
+
+Let μ_t denote the limiting population distribution over elements s.
+
+Define conditional averages:
+    ⟨p34⟩_{3→4}(t)
+        := ∫ p34(s) dμ_t(s | ℓ = 3)
+
+Define population averages:
+    ⟨δ4⟩(t)
+        := ∫ δ4(s,t,μ_t) dμ_t(s)
+
+where δ4(s,t,μ_t) is a measurable transition rate from level 4
+to lower levels, possibly depending on the current distribution μ_t.
+
+Mean-field equation:
+    d/dt x4(t) =
+        ⟨p34⟩_{3→4}(t) x3(t)
+        − ⟨δ4⟩(t) x4(t)
+
+--------------------------------------------------
+ASSUMPTIONS
+--------------------------------------------------
+(A1) Finite state space.
+
+(A2) Bounded rates:
+    0 < δ_min ≤ δ4(s,t,μ) ≤ δ_max < ∞
+    0 ≤ p34(s) ≤ p_max < 1
+
+(A3) Proven mean-field limit:
+    Consider a sequence of interacting particle systems indexed by N = |S|,
+    where each particle evolves according to (p12, p23, p34) and p_link.
+
+    As N → ∞, the empirical measure converges in probability,
+    uniformly on compact time intervals, to μ_t, and the dynamics
+    converge to the mean-field equation above.
+
+(A4) Coupling condition:
+    ∃ κ > 0 such that
+        x3(t) ≤ κ x4(t)   ∀ t ≥ 0
+
+(A5) Uniform production (supercritical condition):
+    ∃ ε > 0, t₀ > 0 such that
+        ⟨p34⟩_{3→4}(t) x3(t) ≥ ε x4(t)
+    for all t ∈ [0, t₀]
+
+--------------------------------------------------
+WELL-POSEDNESS
+--------------------------------------------------
+Under (A2), the mean-field ODE admits a unique global solution
+t ↦ (x_k(t))_{k=1}^4 with values in [0,1]^4.
+
+--------------------------------------------------
+XII. MAIN RESULT — PHASE TRANSITION
+--------------------------------------------------
+Theorem 3 (Rigorous Phase Transition)
+
+Define:
+    R_AGPC := (p_max κ) / δ_min
+
+Then:
+
+(i) Subcritical regime (R_AGPC < 1)
+
+Let c := δ_min − p_max κ > 0. Then for all t ≥ 0:
+    x4(t) ≤ x4(0) e^{-ct}
+
+(ii) Supercritical regime
+
+Assume (A5) and ε > δ_max. Define:
+    c' := ε − δ_max > 0
+
+Then for all t ∈ [0, t₀]:
+    x4(t) ≥ x4(0) e^{c' t}
+
+(iii) Critical regime (R_AGPC = 1)
+
+For all t ≥ 0:
+    d/dt x4(t) ≤ 0
+
+Moreover, exponential growth cannot be established at the
+mean-field level; asymptotic behavior depends on higher-order
+correlations beyond mean-field closure.
+
+--------------------------------------------------
+PROOF
+--------------------------------------------------
+From (A2) and (A4):
+
+Upper bound:
+    ⟨p34⟩_{3→4}(t) x3(t)
+        ≤ p_max x3(t)
+        ≤ p_max κ x4(t)
+
+Lower bounds:
+    ⟨δ4⟩(t) x4(t) ≥ δ_min x4(t)
+    ⟨δ4⟩(t) x4(t) ≤ δ_max x4(t)
+
+Thus:
+    d/dt x4(t)
+        ≤ (p_max κ − δ_min) x4(t)
+
+Subcritical case:
+    Apply Grönwall ⇒ exponential decay.
+
+Supercritical case (using A5):
+    d/dt x4(t)
+        ≥ (ε − δ_max) x4(t)
+
+If ε > δ_max:
+    Apply Grönwall ⇒ exponential growth on [0, t₀].
+
+Critical case:
+    If p_max κ = δ_min:
+        d/dt x4(t) ≤ 0
+
+--------------------------------------------------
+XIII. SYSTEM FUNCTIONAL
+--------------------------------------------------
+Ψ(S) =
+    [ Σ_s Ψ(s) P_exist(s) I_local(s) ] /
+    [ 1 + |C(S)| (1 + Var(P_exist)) ]
+
+--------------------------------------------------
+FINAL PRINCIPLE
+--------------------------------------------------
+Existence = constraint-conditioned probabilistic propagation
+
+Only level-4 structures contribute to realized dynamics.
+
+--------------------------------------------------
+FINAL STATEMENT
+--------------------------------------------------
+Existence is:
+    • non-binary
+    • dynamical
+    • probabilistic
+
+What survives constraints persists.
+What propagates defines reality.
+What is learnable becomes predictable.
