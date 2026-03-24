@@ -1,0 +1,199 @@
+UNIVERSAL MOTIVATION THEORY (UMT)
+A Minimal, Complete, Closed, and Optimization-Complete Theory of Motivational Dynamics
+
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Date: March 24, 2026
+
+--------------------------------------------------
+1. CORE AXIOM
+
+All non-random action arises from agents selecting actions that maximize an objective composed of expected net value regularized by information gain and policy entropy over perceived possibilities, under uncertainty, identity constraints, and finite resources.
+
+--------------------------------------------------
+2. CORE DEFINITION
+
+Motivation is the gradient of an agent’s objective function, directing action selection toward maximizing expected net value while balancing information acquisition and maintaining adaptive behavioral diversity.
+
+--------------------------------------------------
+3. CANONICAL OBJECTIVE
+
+J(a_t; P_t) =
+    E_{s ~ P_t} [ V(s, a_t) - C(a_t) ]
+    + λ₁ · IG(a_t)
+    + λ₂ · H(π_t)
+
+Where:
+IG(a_t) = expected information gain  
+H(π_t) = policy entropy  
+Ω_t = feasible action space  
+C(a_t) = cost function over resources  
+
+--------------------------------------------------
+4. DECISION RULE (POLICY FORM)
+
+Deterministic:
+a_t = argmax_{a ∈ Ω_t} J(a; P_t)
+
+Stochastic:
+π(a_t | P_t) = exp(β · J(a_t; P_t)) / Z(P_t)
+
+Z(P_t) = ∑_{a ∈ Ω_t} exp(β · J(a; P_t))
+
+β ≥ 0 = inverse temperature (rationality parameter)
+
+Note:
+H(π_t) appears explicitly in J and also acts as an implicit regularizer over the policy class.
+
+--------------------------------------------------
+5. FUNDAMENTAL COMPONENTS
+
+P_t = Perception  
+V_t = Value  
+Ω_t = Possibility  
+
+Motivation = f(P_t, V_t, Ω_t)
+
+--------------------------------------------------
+6. PERCEPTION (BOUNDED INFERENCE)
+
+P_t = argmin_Q [
+    D_KL(Q || P*(s_t)) + λ · 𝓘(Q, I_t)
+]
+
+Where:
+P*(s_t) = true (unknown) state distribution  
+𝓘(Q, I_t) = information/computation cost  
+
+--------------------------------------------------
+7. VALUE (IDENTITY-CONSTRAINED)
+
+V_t = Proj_{V_identity}(V_raw)
+
+r_t = f(s_t, internal_t, social_t)
+
+--------------------------------------------------
+8. COST FUNCTION
+
+C(a_t) = effort(a_t) + time(a_t) + cognitive_load(a_t) + risk(a_t)
+
+NV(a_t) = V(s, a_t) - C(a_t)
+
+--------------------------------------------------
+9. MOTIVATION FUNCTION
+
+M_t = ∇_{a_t} J(a_t; P_t)
+
+--------------------------------------------------
+10. TEMPORAL STRUCTURE
+
+E[V] = E_{s ~ P_t} [ Σ γ^k · r_{t+k} ]
+
+γ ∈ [0,1] = temporal discount factor
+
+--------------------------------------------------
+11. DYNAMICAL SYSTEM
+
+s_t → P_t → V_t → J → π → a_t → s_{t+1}
+
+--------------------------------------------------
+12. ENVIRONMENT
+
+s_{t+1} ~ T(s_t, a_t, a_{-i})
+
+--------------------------------------------------
+13. SOCIAL COUPLING
+
+V_i ← f(V_i, V_{-i})  
+
+a_i ~ π_i(a_i | P_i, Ω_i, V_i)
+
+--------------------------------------------------
+14. CONTROL
+
+Control ⇔
+
+E[||Δ(P, V, Ω)_external||] >
+E[||Δ(P, V, Ω)_self||]
+
+--------------------------------------------------
+15. STABILITY
+
+D_KL(P_t || P*(s_t)) < ε  
+V_t ∈ V_identity  
+|Ω_t| ≥ Ω_min  
+H(π_t) ≥ H_min  
+
+--------------------------------------------------
+16. FAILURE MODES
+
+- Perceptual error  
+- Value misalignment  
+- Constraint collapse  
+- Identity drift  
+- Overload (𝓘 > capacity)  
+- Exploration failure  
+- Entropy collapse  
+
+--------------------------------------------------
+17. RESOURCE CONSTRAINT
+
+Σ C(a_t) ≤ Budget
+
+--------------------------------------------------
+18. META-ADAPTATION
+
+(P, V, Ω) → Update → Update_meta
+
+--------------------------------------------------
+19. META-STABILITY
+
+Update_meta ∈ StableSet
+
+--------------------------------------------------
+20. FALSIFIABILITY
+
+Invalid if:
+- ∂Behavior/∂P = 0  
+- ∂Behavior/∂V = 0  
+- ∂Behavior/∂Ω = 0  
+- ∂Behavior/∂C = 0  
+- ∂Behavior/∂Budget = 0  
+- Removing IG does not reduce learning  
+- Removing entropy does not reduce adaptability  
+
+--------------------------------------------------
+21. EXPLORATION
+
+IG(a_t) = E [ D_KL(P_{t+1} || P_t) ]
+
+--------------------------------------------------
+22. FINAL MASTER FORM
+
+π(a_t | P_t) = exp{β J(a_t; P_t)} / Z(P_t)
+
+Where:
+J(a_t; P_t) =
+    E_{s ~ P_t} [ V(s, a_t) - C(a_t) ]
+    + λ₁ · IG(a_t)
+    + λ₂ · H(π_t)
+
+Z(P_t) = ∑_{a ∈ Ω_t} exp{β J(a; P_t)}
+
+Subject to:
+- a_t ∈ Ω_t  
+- P_t bounded by inference constraints  
+- V_t ∈ V_identity  
+- Σ C(a_t) ≤ Budget  
+- meta-updates ∈ StableSet  
+
+--------------------------------------------------
+FINAL STATEMENT
+
+Motivation is the emergent gradient of an information-regularized objective over expected net value in resource-bounded, identity-constrained, self-modifying agents under uncertainty.
+
+--------------------------------------------------
+ONE-LINE
+
+Motivation = ∇ (Expected Net Value + Information Gain + Entropy) under constraints.
+
+--------------------------------------------------

@@ -1,0 +1,197 @@
+GENERAL THEORY OF MOTIVATED SYSTEMS 
+A Minimal, Complete, and Falsifiable Theory of Behavior and Emergence
+
+--------------------------------------------------
+
+1. CORE AXIOM
+
+All non-random behavior arises from agents selecting actions to maximize expected value over perceived possibilities, under resource constraints and uncertainty.
+
+--------------------------------------------------
+
+2. MINIMAL CANONICAL FORM
+
+a_t ~ π(a | P_t, Ω_t, V_t)
+
+π(a) ∝ exp(β · Q(P_t, a))
+
+Q(P_t, a) = E_{s ~ P_t} [ Σ (γ^k · r_{t+k}) ]
+
+Core Identity:
+Behavior = f(P, Ω, V)
+
+Where:
+P = Perception (belief over states)
+Ω = Possibility (action space)
+V = Value (preferences)
+
+Note:
+All expectations are taken over the agent’s belief distribution unless otherwise specified.
+
+--------------------------------------------------
+
+3. ENVIRONMENT (DYNAMICS)
+
+s_{t+1} ~ T(s_t, a_t, a_{-i})
+
+- Environment evolves dynamically
+- Includes multi-agent interaction
+
+--------------------------------------------------
+
+4. PERCEPTION (BOUNDED INFERENCE)
+
+P_t ≈ P(s_t | I_t)
+
+P_t = argmin [ Inference Error + λ · Information Cost ]
+
+- Perception is a probabilistic belief over reality
+- Limited by attention, bandwidth, and computation
+
+--------------------------------------------------
+
+5. VALUE (STRUCTURE OF MOTIVATION)
+
+V_t = V_identity + V_adaptive
+
+r_t = f(s_t, internal_t, social_t)
+
+Components:
+- Biological (survival, reward)
+- Internal (goals, identity)
+- Social (status, incentives)
+
+--------------------------------------------------
+
+6. CONSTRAINTS (ACTION SPACE)
+
+Ω_t ⊆ A(K_t, R_t)
+
+- Limited by knowledge, resources, and rules
+
+--------------------------------------------------
+
+7. RESOURCE-BOUNDED POLICY
+
+π ∈ Constraints(memory, attention, compute)
+
+- Agents optimize under cognitive and computational limits
+
+--------------------------------------------------
+
+8. LEARNING DYNAMICS
+
+V_{t+1} = V_t + α (r_t - r̂_t)
+P_{t+1} = Update(P_t, I_t)
+Ω_{t+1} = Expand(K_t) - Constraints
+
+--------------------------------------------------
+
+9. MULTI-AGENT INTERACTION
+
+a_i ~ π_i(a_i | P_i, Ω_i, V_i)
+
+- Agents act probabilistically
+- Environment co-evolves through interaction
+
+--------------------------------------------------
+
+10. CONTROL THEORY
+
+Control ⇔ E[|Δ(P, V, Ω)_external|] > E[|Δ(P, V, Ω)_self|]
+
+Control channels:
+- Perception (information shaping)
+- Value (incentive shaping)
+- Possibility (constraint shaping)
+
+--------------------------------------------------
+
+11. EMERGENCE (MICRO → MACRO)
+
+M_t = Φ({P_i, Ω_i, V_i})
+
+M_{t+1} = F(M_t, {a_i})
+
+Where:
+Φ = aggregation function
+F = macro-dynamics function
+
+- Macro systems emerge from agent interaction
+- Includes markets, cultures, and institutions
+
+--------------------------------------------------
+
+12. EQUILIBRIUM & ATTRACTORS
+
+Equilibrium:
+a_i* = argmax V_i(a_i, a_{-i}*)
+
+Attractors:
+State → Stable(P, V, Ω)
+
+Types:
+- Stable
+- Metastable
+- Unstable
+
+--------------------------------------------------
+
+13. FAILURE MODES
+
+- P ≠ s (misperception)
+- argmax V ≠ optimal (value misalignment)
+- |Ω| ↓ (constraint lock-in)
+- V_identity → external control (identity corruption)
+- Information cost > capacity (cognitive overload)
+
+--------------------------------------------------
+
+14. FALSIFIABILITY
+
+GTMS is invalid if:
+
+- Changing P does not change behavior
+- Changing V does not change decisions
+- Changing Ω does not affect behavior diversity
+
+--------------------------------------------------
+
+15. AUTONOMY PRINCIPLE
+
+Autonomy = Control(P) + Control(V_identity) + Expansion(Ω) - Overload
+
+--------------------------------------------------
+
+16. SCOPE CONDITIONS
+
+Applies to:
+- Humans
+- AI agents
+- Organizations
+- Societies
+
+Does NOT apply to:
+- Purely random systems
+- Systems without value optimization
+- Systems without perception-action loops
+
+--------------------------------------------------
+
+17. FINAL MASTER FORM
+
+P(a_t) ∝ exp [ β · E_{s ~ P_t} ( Σ γ^k · f(s_t, internal_t, social_t) ) ]
+
+Subject to:
+- s_{t+1} ~ T(s_t, a_t, a_{-i})
+- P_t minimizes inference + information cost
+- a_t ∈ Ω_t
+- Policy constrained by resource limits
+
+--------------------------------------------------
+
+FINAL STATEMENT
+
+Behavior and macro-level systems emerge from resource-bounded agents who probabilistically optimize identity-constrained value over belief-weighted possibilities, where perception defines reality, constraints define action, and interaction produces stable and unstable structures.
+
+--------------------------------------------------

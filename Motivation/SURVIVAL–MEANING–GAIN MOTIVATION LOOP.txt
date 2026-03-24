@@ -1,0 +1,151 @@
+SURVIVAL–MEANING–GAIN MOTIVATION LOOP (SMG Loop)
+
+A Closed-Loop Theory of Motivational Dynamics
+
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Date: March 24, 2026
+
+--------------------------------------------------
+
+1. CORE PRINCIPLE
+
+All motivation emerges from a closed-loop interaction of three irreducible drives:
+
+- Survival (S): preserves system viability
+- Meaning (M): constrains value selection
+- Gain (G): optimizes expected net value
+
+These drives form a dynamically coupled recursive system.
+
+--------------------------------------------------
+
+2. LOOP STRUCTURE
+
+S → M → G → S
+
+More precisely:
+
+- Survival constrains feasible states and actions
+- Meaning constrains the value function
+- Gain selects actions via optimization
+- Outcomes update survival conditions
+
+--------------------------------------------------
+
+3. FORMAL INTEGRATION (UMT-COMPATIBLE)
+
+Let:
+
+S_t = survival state (viability constraints)
+M_t = meaning structure (value constraints)
+V_t = value function
+Ω_t = feasible action space
+C(a_t) = cost function
+
+Then:
+
+M_t → defines V_t  
+S_t → defines Ω_t and C(a_t)
+
+G_t = argmax_a J(a | V_t, Ω_t, C)
+
+S_{t+1} = T(s_t, a_t)
+
+Closed loop:
+
+S_t → M_t → G_t → S_{t+1}
+
+--------------------------------------------------
+
+4. FUNCTIONAL DEFINITIONS
+
+4.1 Survival (S) — Constraint Layer
+
+Preserves system viability across time.
+
+Imposes constraints on:
+- feasible states (Ω_t)
+- allowable transitions
+- resource limits (C)
+
+--------------------------------------------------
+
+4.2 Meaning (M) — Value-Selection Layer
+
+Constrains what is considered valuable.
+
+Implements:
+
+V_t = Proj_{V_identity}(V_raw)
+
+Ensures coherence of identity and preference structure.
+
+--------------------------------------------------
+
+4.3 Gain (G) — Optimization Layer
+
+Selects actions to maximize expected net value.
+
+Implements:
+
+argmax_a J(a; P_t)
+
+Where J includes reward, cost, information gain, and entropy.
+
+--------------------------------------------------
+
+5. SYSTEM LAW
+
+Motivation = argmax Gain
+subject to:
+    Survival constraints
+    Meaning constraints
+
+--------------------------------------------------
+
+6. STABILITY CONDITION
+
+System is stable if:
+
+- Survival is preserved (no collapse)
+- Meaning remains coherent (identity-consistent)
+- Gain is bounded by Survival and Meaning
+
+--------------------------------------------------
+
+7. FAILURE MODES
+
+- Survival failure → system collapse
+- Meaning failure → incoherent or random behavior
+- Gain runaway → destructive over-optimization
+
+--------------------------------------------------
+
+8. CRITICAL BALANCE LAW
+
+- Survival dominance → stagnation
+- Meaning dominance → extremism
+- Gain dominance → collapse
+
+Stability requires dynamic equilibrium among all three.
+
+--------------------------------------------------
+
+9. MASTER STATEMENT
+
+Motivation is a closed-loop constrained optimization process in which:
+
+- Survival defines feasibility
+- Meaning defines value
+- Gain selects action
+
+and each continuously updates the others over time.
+
+--------------------------------------------------
+
+10. ONE-LINE FORM
+
+Motivation = Constrained optimization of value (Gain),
+where constraints are defined by Survival and Meaning in a closed loop.
+
+--------------------------------------------------
