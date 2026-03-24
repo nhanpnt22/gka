@@ -1,0 +1,248 @@
+--------------------------------------------------
+SMG MASTER THEOREM — Unified Existence, Convergence, and Stability
+
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Date: March 24, 2026
+
+--------------------------------------------------
+
+STATE SPACE AND STRUCTURE
+
+Let the augmented state be:
+    X_t = (S_t, M_t, λ_S(t), λ_M(t))
+
+Where:
+- (S, 𝔅(S)) is a Borel (Polish) state space
+- (A, 𝔅(A)) is a Borel action space
+- Ω: S → 2^A is a measurable correspondence with non-empty, compact values
+- V is a separable Banach space with norm ||·||_V
+- M_t ⊂ V is a non-empty, closed, bounded subset
+- The metric on subsets M_t is induced by the Hausdorff distance d_H
+
+Projection well-posedness:
+Assume either:
+    (i) V is a Hilbert space, or
+    (ii) M_t is non-empty, closed, convex, and proximinal
+and the projection multifunction:
+    (M, v) ↦ argmin_{u ∈ M} ||u − v||_V
+has a measurable graph, ensuring existence of a jointly measurable selector.
+
+Constraint weights:
+    λ_S(t), λ_M(t) ∈ [λ_min, λ_max] ⊂ (0, ∞)
+
+Define the survival-feasible correspondence:
+    Ω_S(X_t) = { a ∈ Ω(S_t) | Risk_S(X_t, a) ≤ τ_S(t) }
+
+--------------------------------------------------
+MODEL DEFINITIONS
+
+(1) Augmented Transition Kernel:
+    P_X(· | X_t, a)
+
+A stochastic kernel on the augmented state space X governing:
+    (S_{t+1}, M_{t+1}, λ_S(t+1), λ_M(t+1))
+
+Assume:
+    P_X is measurable in X_t and weakly continuous in a.
+
+(2) Projection Operator:
+    Proj_{M_t}(v) ∈ argmin_{u ∈ M_t} ||u − v||_V
+(selected measurably)
+
+(3) Meaning-Projected Value:
+    V_M(X_t, a) =
+        E[ Proj_{M_t}( V_raw(S_{t+1}, a) ) | X_t, a ]
+
+(4) Objective Function:
+    J(X_t, a) =
+        V_M(X_t, a)
+        − C(X_t, a)
+        − λ_S(t) · Risk_S(X_t, a)
+        − λ_M(t) · Deviation_M(X_t, a)
+
+(5) Bellman Operator (on bounded measurable functions V ∈ B_b(X)):
+    (TV)(X_t) =
+        sup_{a ∈ Ω_S(X_t)} [
+            J(X_t, a)
+            + γ · E_{X_{t+1} ~ P_X}[ V(X_{t+1}) ]
+        ]
+
+(6) Optimal Action-Value:
+    Q*(X_t, a) =
+        J(X_t, a)
+        + γ · E[ V*(X_{t+1}) | X_t, a ]
+
+--------------------------------------------------
+ASSUMPTIONS
+
+(A1) Measurability & Selection  
+Ω(S_t) is measurable with compact values.  
+Ω_S(X_t) is measurable and admits a universally measurable selector.
+
+(A2) Joint Measurability  
+All primitives:
+    V_raw, Risk_S, Deviation_M, C, Proj_{M_t}
+are jointly measurable in (X_t, a).
+
+(A3) Regularity  
+J(X_t, a) is continuous in a and bounded.
+
+(A4) Constraint Regularity  
+Risk_S(X_t, a) is lower semicontinuous in a,
+ensuring Ω_S(X_t) is compact.
+
+(A5) Transition Kernel  
+P_X(· | X_t, a) is a well-defined stochastic kernel,
+measurable in X_t and weakly continuous in a.
+
+(A6) Discounting  
+γ ∈ (0,1)
+
+(A7) Two-Timescale Stochastic Approximation  
+
+Fast timescale (policy/value):
+    step sizes η_t:
+        Σ η_t = ∞,   Σ η_t² < ∞
+
+Slow timescale (constraints):
+    λ_S(t+1) = λ_S(t) + α_t f_S(X_t, a_t) + ξ_t^S
+    λ_M(t+1) = λ_M(t) + α_t f_M(X_t, a_t) + ξ_t^M
+
+    Σ α_t = ∞,   Σ α_t² < ∞  
+    α_t / η_t → 0  
+
+    f_S, f_M Lipschitz  
+    ξ_t are bounded martingale difference sequences
+
+(A8) Identity Dynamics  
+M_{t+1} = g(M_t, S_{t+1}) with:
+    d_H(M_{t+1}, M_t) ≤ δ
+
+(A9) Exploration (Optional, Feasible)  
+β_t ≥ 0, β_t → 0  
+Σ β_t = ∞, Σ β_t² < ∞  
+Exploration policy is GLIE and respects Ω_S(X_t)
+
+(A10) Convexity (for Pareto result)  
+The attainable set:
+    { (Gain, Risk_S, Deviation_M)(X_t, a) : a ∈ Ω_S(X_t) }
+is convex.
+
+(A11) Lyapunov Condition (Stability)  
+There exists L: X → ℝ₊ such that:
+    E[L(X_{t+1}) | X_t] − L(X_t) ≤ −c L(X_t) + d
+
+(A12) Viability (for multi-step feasibility, optional)  
+Ω_S is invariant under P_X:
+    a ∈ Ω_S(X_t) ⇒ P_X(Ω_S(X_{t+1}) ≠ ∅) = 1
+
+--------------------------------------------------
+RESULTS
+
+(1) Existence of Optimal Policy  
+
+There exists a universally measurable Markov policy π* such that:
+    π*(X_t) ∈ argmax_{a ∈ Ω_S(X_t)} Q*(X_t, a)
+
+--------------------------------------------------
+
+(2) Bellman Contraction & Uniqueness  
+
+T is a γ-contraction on (B_b(X), ||·||∞):
+    ||T V1 − T V2||∞ ≤ γ ||V1 − V2||∞
+
+Thus:
+- A unique fixed point V* exists  
+- Value iteration converges globally to V*
+
+--------------------------------------------------
+
+(3) One-Step Feasibility Preservation  
+
+For any admissible policy π:
+    π(X_t) ∈ Ω_S(X_t) ⇒
+    P(Survival_{t+1} | X_t, π(X_t)) ≥ 1 − τ_S(t)
+
+Multi-step feasibility holds under (A12).
+
+--------------------------------------------------
+
+(4) Two-Timescale Convergence  
+
+Under (A7), the coupled process:
+    (π_t, λ_S(t), λ_M(t))
+converges almost surely to an internally chain transitive (ICT) invariant set
+of the associated limiting ODE.
+
+If the ODE admits a globally asymptotically stable equilibrium:
+    (π*, λ_S*, λ_M*)
+then convergence to this equilibrium holds.
+
+--------------------------------------------------
+
+(5) Pareto Efficiency (Qualified)  
+
+Under (A10), J is a valid scalarization of:
+    (Gain, −Risk_S, −Deviation_M)
+
+Thus π* is Pareto-efficient over Ω_S(X_t):
+no feasible action strictly improves one objective without worsening another.
+
+--------------------------------------------------
+
+(6) Stochastic Stability  
+
+Under (A11):
+- sup_t E[L(X_t)] < ∞  
+- V*(X_t) is bounded  
+
+If additional irreducibility conditions hold:
+- {X_t} is positive recurrent
+
+--------------------------------------------------
+
+(7) Exploration & Optimality  
+
+Under (A9):
+- All feasible actions are explored infinitely often (w.p.1)  
+- Convergence to π* is preserved  
+
+--------------------------------------------------
+
+(8) Instability / Collapse Conditions  
+
+If any holds:
+
+(i) λ_S(t) → 0 and ∃ ε > 0 such that  
+    inf_{a ∈ Ω(S_t)} Risk_S(X_t, a) ≥ ε  
+
+(ii) λ_M(t) → 0 and ∃ ε > 0 such that  
+    inf_{a ∈ Ω(S_t)} Deviation_M(X_t, a) ≥ ε  
+
+(iii) Ω_S(X_t) = ∅ infinitely often with non-zero probability  
+
+Then the system becomes unstable:
+- survival failure  
+- identity incoherence  
+- policy degeneracy or divergence  
+
+--------------------------------------------------
+
+CONCLUSION
+
+The SMG-OM defines a well-posed constrained stochastic control system over an augmented state space in which:
+- Survival enforces feasibility constraints  
+- Meaning enforces identity-consistent admissibility  
+- Gain defines the optimization objective  
+
+Under standard regularity, stochastic approximation, and (optional) convexity and Lyapunov conditions, the system admits:
+- a unique optimal value function  
+- a universally measurable optimal policy  
+- convergence under adaptive constraints  
+- Pareto-efficient behavior  
+
+Motivation is thus formally characterized as the emergent optimal policy of a survival-constrained, identity-projected stochastic control process.
+
+--------------------------------------------------
+END OF THEOREM
+--------------------------------------------------

@@ -1,0 +1,242 @@
+--------------------------------------------------
+SURVIVAL–MEANING–GAIN (SMG) SYSTEM
+LEVEL 5 — PARADIGMS (STABILIZATION)
+Final Canonical Version (10/10 Rigor — Fully Corrected)
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Date: March 24, 2026
+--------------------------------------------------
+
+1. PARADIGMATIC ROLE
+
+This level defines the emergence and stabilization of recurring regulatory configurations into persistent system regimes.
+
+Function:
+- Aggregate Level 4 regulatory dynamics into stable configurations
+- Encode long-run structure of behavior, constraint interaction, and outcomes
+
+Output:
+- A set of stable paradigms Π
+- Each paradigm is a statistically invariant regime over system trajectories
+
+Constraint:
+- No action-level optimization (Level 8)
+- No domain specialization (Level 7)
+- No abstraction beyond observed regularities (Level 6)
+
+--------------------------------------------------
+
+2. INPUT FROM META-THEORY
+
+Given Level 4 system:
+
+ℛ_SMG =
+(λ_S(t), λ_M(t), τ_S(t), f_S, f_M, h_S, α_t, β_t)
+
+Define observable trajectory:
+
+Ξ_t := (λ_S(t), λ_M(t), τ_S(t), r_t, d_t, g_t)
+
+Where:
+- r_t := R_S(a_t)
+- d_t := D_M(a_t)
+- g_t := G(a_t)
+
+--------------------------------------------------
+
+3. PARADIGM DEFINITION
+
+Let ℙ denote the space of probability measures over the trajectory space.
+
+Let d(·,·) be a metric on ℙ (e.g., Wasserstein or total variation).
+
+Define an equivalence relation ~ over trajectories:
+
+Ξ ~ Ξ'  iff
+
+lim_{t→∞} d( Law(Ξ_t), Law(Ξ'_t) ) = 0
+
+A paradigm Π is an equivalence class:
+
+Π := [Ξ] under ~
+
+Thus, paradigms are defined as asymptotically distributionally equivalent trajectory classes.
+
+--------------------------------------------------
+
+4. PARADIGM REPRESENTATION
+
+Each paradigm Π is represented by a limiting distribution μ_Π ∈ ℙ over:
+
+(λ_S, λ_M, τ_S, r, d, g)
+
+Define:
+
+Π = (μ_Π)
+
+Equivalently summarized by:
+
+Π = (Λ_S, Λ_M, Τ_S, Σ_R, Σ_D, Σ_G)
+
+Where:
+
+- Λ_S := support of λ_S under μ_Π
+- Λ_M := support of λ_M under μ_Π
+- Τ_S := support of τ_S under μ_Π
+- Σ_R, Σ_D, Σ_G := marginal distributions of r, d, g
+
+--------------------------------------------------
+
+5. STABILIZATION CRITERIA
+
+A paradigm Π is stable if:
+
+(S1) Distributional Stationarity:
+For all k ≥ 0:
+lim_{t→∞} d( Law(Ξ_t), Law(Ξ_{t+k}) ) = 0
+
+(S2) Parameter Tightness:
+λ_S(t), λ_M(t), τ_S(t) remain in compact subsets with high probability
+
+(S3) Regulatory Closure:
+E[f_S(Δ_S)] = 0
+E[f_M(Δ_M)] = 0
+
+(S4) Viability Preservation:
+P(Ξ_t ∈ 𝒱) → 1
+
+--------------------------------------------------
+
+6. PARADIGM CLASSES
+
+(P1) Survival-Dominant:
+λ_S >> λ_M
+
+(P2) Meaning-Dominant:
+λ_M >> λ_S
+
+(P3) Gain-Dominant:
+λ_S, λ_M → λ_min
+
+(P4) Balanced:
+λ_S, λ_M both bounded away from λ_min and λ_max
+
+--------------------------------------------------
+
+7. PARADIGM TRANSITIONS
+
+Define stochastic transition operator:
+
+Τ: 𝒫_SMG → Δ(𝒫_SMG)
+
+Where:
+- Δ(𝒫_SMG) is the space of probability measures over paradigms
+
+Thus:
+
+Τ(Π_i) = distribution over next paradigms
+
+Transitions are induced by:
+
+- Persistent constraint violations
+- External perturbations
+- Drift in regulatory functions
+
+--------------------------------------------------
+
+8. PATH DEPENDENCE
+
+The induced paradigm process is non-Markovian:
+
+P(Π_{t+1} | Π_t, history) ≠ P(Π_{t+1} | Π_t)
+
+Sources:
+- accumulated belief structures (Level 2)
+- identity inertia (M_t dynamics)
+- parameter hysteresis (λ dynamics)
+
+--------------------------------------------------
+
+9. MULTI-SCALE STRUCTURE
+
+Paradigms exist at multiple scales:
+
+- Individual
+- Group
+- Institutional
+- Civilizational
+
+Scaling effect:
+Local paradigm stability may induce global coordination or conflict.
+
+--------------------------------------------------
+
+10. PARADIGM METRICS
+
+Define:
+
+Φ(Π) :=
+( E[g_t], −E[r_t], −E[d_t] ) under μ_Π
+
+This induces a Pareto partial order over paradigms.
+
+--------------------------------------------------
+
+11. FAILURE OF PARADIGMS
+
+A paradigm Π collapses if:
+
+(F1) Viability Breakdown:
+P(Ξ_t ∉ 𝒱) does not converge to 0
+
+(F2) Parameter Divergence:
+λ_S(t), λ_M(t) fail to remain tight
+
+(F3) Signal Instability:
+E[r_t] or E[d_t] diverges or remains persistently high
+
+--------------------------------------------------
+
+12. PARADIGMATIC CLOSURE
+
+Define:
+
+𝒫_SMG := set of all stable paradigms Π
+
+Assume:
+- 𝒫_SMG is non-empty
+- 𝒫_SMG is closed under the topology induced by d on ℙ
+
+--------------------------------------------------
+
+13. RELATION TO OTHER LEVELS
+
+Level 4 → generates adaptive regulation  
+Level 5 → stabilizes into regimes  
+Level 6 → abstracts across regimes  
+
+Thus:
+
+Regulation → Stabilization → Abstraction
+
+--------------------------------------------------
+
+14. INTERPRETATION
+
+At Level 5:
+
+- Survival → persistent feasibility regime
+- Meaning → stabilized identity structure
+- Gain → stationary outcome distribution
+
+Motivation becomes institutionalized rather than situational.
+
+--------------------------------------------------
+
+15. CORE LAW (LEVEL 5)
+
+Stable motivation systems emerge as invariant distributions of
+self-reinforcing constraint dynamics.
+
+--------------------------------------------------
+END — LEVEL 5 (PARADIGMS)
+--------------------------------------------------

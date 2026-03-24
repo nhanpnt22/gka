@@ -1,0 +1,160 @@
+SURVIVAL–MEANING–GAIN (SMG) SYSTEM
+LEVEL 0 — GENERATIVE REALITY (PROCESS)
+
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Date: March 24, 2026
+
+--------------------------------------------------
+1. GENERATIVE ROLE
+
+This level defines the pre-ontological generative process from which all SMG structures emerge.
+
+Function:
+- Generates conditions of existence
+- Produces the possibility of structure, value, and constraint
+
+Output:
+- The necessary preconditions for Level 1 (Ontology)
+
+Property:
+- Pre-epistemic
+- Pre-structural
+- Non-representational
+
+No objects, sets, mappings, or formal relations are defined at this level.
+
+--------------------------------------------------
+2. GENERATIVE PROCESS
+
+Reality is defined as a continuous generative process:
+
+𝒢
+
+such that:
+
+𝒢 ⇒ emergence of distinctions
+
+These distinctions are not predefined entities, but arise through differentiation internal to the process.
+
+There is no fixed state space, action space, boundary, or separable structure—only ongoing generation.
+
+--------------------------------------------------
+3. EMERGENCE OF DISTINCTION
+
+The primary outcome of 𝒢 is distinguishability:
+
+𝒢 ⇒ (difference)
+
+From difference, the following proto-conditions become possible:
+
+- separation (proto-state)
+- variation (proto-action)
+- comparability (proto-value)
+
+These are not formal objects, but preconditions for their later definition.
+
+--------------------------------------------------
+4. PRECONDITIONS FOR ONTOLOGY
+
+Level 0 generates the minimal conditions required for Level 1:
+
+- Persistent distinctions enable the formation of a state space S
+- Transformable variation enables the formation of an action space A
+- Comparable outcomes enable the formation of a value space V
+
+Identity (M) emerges from stabilized patterns of distinction.
+Constraint structures (e.g., Survival, Meaning) emerge from persistent regularities.
+
+None of these are defined at this level; only their possibility is generated.
+
+--------------------------------------------------
+5. CONTINUITY AND OPEN-ENDEDNESS
+
+The generative process 𝒢 is:
+
+- continuous (not discretely indexed)
+- non-terminating
+- non-teleological
+- unconstrained
+
+There is no objective, selection principle, or evaluation mechanism at this level.
+
+--------------------------------------------------
+6. PRE-AXIOLOGICAL CONDITION
+
+No value exists at Level 0.
+
+There is:
+- no preference
+- no utility
+- no ordering over outcomes
+
+Value (Gain) becomes definable only after structure (Level 1) and representation (Level 2).
+
+--------------------------------------------------
+7. PRE-CONSTRAINT CONDITION
+
+No constraints exist at Level 0.
+
+There is:
+- no survival requirement
+- no identity restriction
+- no feasibility boundary
+
+Constraint parameters (e.g., λ_S, λ_M, τ_S) arise only after structural formation.
+
+--------------------------------------------------
+8. PRE-CAUSAL CONDITION
+
+No formalized causal structure exists at this level.
+
+There is:
+- no state transition system
+- no temporal indexing
+- no deterministic or stochastic law
+
+Causality becomes definable only after the introduction of structured states and relations.
+
+--------------------------------------------------
+9. REPRESENTATIONAL INDEPENDENCE
+
+The generative process 𝒢 is not defined in terms of any representation.
+
+All higher-level constructs (S, A, V, M, Ω, etc.) are:
+
+- derived from 𝒢
+- not intrinsic to 𝒢
+
+Thus, structure is emergent rather than fundamental.
+
+--------------------------------------------------
+10. TRANSITION TO LEVEL 1 (ONTOLOGY)
+
+Level 1 begins when distinctions satisfy stabilization conditions:
+
+- persistence: distinctions endure across generation
+- repeatability: distinctions can be re-identified
+- separability: distinctions can be treated as discrete elements
+
+Formally:
+
+𝒢 ⇒ stabilization ⇒ (S, A, V, M, Ω, ...)
+
+This marks the transition from generative process to structured ontology.
+
+--------------------------------------------------
+11. INTERPRETATION
+
+Level 0 defines reality as pure generative potential.
+
+- It contains no Survival, Meaning, or Gain
+- It enables their emergence as structural constraints at higher levels
+
+Thus:
+
+SMG is not fundamental at Level 0,
+but arises as a structured system beginning at Level 1.
+
+--------------------------------------------------
+END — LEVEL 0 (GENERATIVE REALITY)
+--------------------------------------------------

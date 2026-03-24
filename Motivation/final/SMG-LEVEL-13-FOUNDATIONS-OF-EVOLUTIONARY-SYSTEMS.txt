@@ -1,0 +1,244 @@
+--------------------------------------------------
+LEVEL 13 — FOUNDATIONS OF EVOLUTIONARY SYSTEMS
+Meta-Theory of Selection and Necessity (Canonical)
+Final Canonical Version (.txt)
+--------------------------------------------------
+
+0. PURPOSE
+
+Establish minimal necessary and sufficient conditions
+under which selection necessarily emerges in any system,
+with full measure-theoretic and dynamical rigor.
+
+--------------------------------------------------
+
+1. WORLD
+
+A world is a constrained stochastic dynamical system:
+
+ω = (X, ℬ(X), Φ, ℛ)
+
+Where:
+
+X        := measurable state space
+ℬ(X)     := σ-algebra on X
+Φ        := Markov kernel Φ: X × ℬ(X) → [0,1]
+ℛ ⊂ X    := non-empty measurable feasible region
+
+--------------------------------------------------
+
+2. TRAJECTORIES
+
+Let (X_t)_{t ≥ 0} be the stochastic process induced by Φ.
+
+For x ∈ X, denote:
+
+P_x := law of trajectories with initial condition X₀ = x.
+
+--------------------------------------------------
+
+3. PERSISTENCE
+
+Let A ⊂ ℛ be measurable, A ≠ ∅.
+
+Define:
+
+Pers(A) := { x ∈ X : P_x( X_t ∈ A ∀ t ≥ 0 ) > 0 }
+
+A is persistent ⇔ Pers(A) ≠ ∅
+
+--------------------------------------------------
+
+4. VARIATION
+
+Variation holds on A if:
+
+∃ x₁ ≠ x₂ ∈ A such that:
+
+Law((X_t) | X₀ = x₁) ≠ Law((X_t) | X₀ = x₂)
+
+--------------------------------------------------
+
+5. NON-TRIVIAL CONSTRAINTS
+
+ℛ ⊂ X (strict inclusion)
+
+--------------------------------------------------
+
+6. CONSTRAINT REACHABILITY
+
+∃ x ∈ ℛ such that:
+
+P_x( X_t ∉ ℛ for some t ≥ 0 ) > 0
+
+Interpretation:
+constraints are dynamically active.
+
+--------------------------------------------------
+
+7. SURVIVAL FUNCTIONAL
+
+Define:
+
+F: X → [0,1]
+
+F(x) := P_x( X_t ∈ A ∀ t ≥ 0 )
+
+Then:
+
+- F is measurable (probability of a measurable path event)
+- F is bounded
+- F(x) > 0 ⇔ x ∈ Pers(A)
+
+--------------------------------------------------
+
+8. LEMMAS
+
+Lemma 1 (Distinguishability):
+Variation ⇒ ∃ x₁, x₂ with distinct trajectory laws.
+
+Lemma 2 (Constraint Exposure):
+Constraint reachability ⇒ ∃ trajectories exiting ℛ.
+
+Lemma 3 (Survival Separation):
+Persistence + Lemma 1 + Lemma 2 ⇒
+∃ x₁, x₂ such that F(x₁) ≠ F(x₂)
+
+--------------------------------------------------
+
+9. THEOREM — NECESSITY OF SELECTION
+
+If:
+
+(i) A ⊂ ℛ is persistent (Pers(A) ≠ ∅)
+(ii) variation holds on A
+(iii) ℛ ⊂ X
+(iv) constraint reachability holds
+
+Then:
+
+F is non-constant on Pers(A)
+
+Hence:
+
+∃ x₁, x₂ ∈ Pers(A) such that F(x₁) ≠ F(x₂)
+
+Define preorder:
+
+x ≼ y  ⇔  F(x) ≤ F(y)
+
+Then (Pers(A), ≼) is a preordered space.
+
+Conclusion:
+
+Selection necessarily emerges as an ordering
+induced by differential survival probabilities.
+
+--------------------------------------------------
+
+10. INTERPRETATION
+
+Selection is differential persistence under constraints.
+
+It arises intrinsically from constrained stochastic dynamics,
+not as an externally imposed mechanism.
+
+--------------------------------------------------
+
+11. DYNAMICAL SYSTEM
+
+Let μ_t ∈ Δ(X) such that:
+
+∫_X F(x) μ_t(dx) > 0
+
+Define evolution:
+
+μ_{t+1}(A) =
+∫_X F(x) Φ(x, A) μ_t(dx)
+--------------------------------
+∫_X F(x) μ_t(dx)
+
+This defines a nonlinear operator on Δ(X)
+combining propagation (Φ) and selection (F).
+
+--------------------------------------------------
+
+12. STABILITY
+
+A system is dynamically stable if:
+
+μ_t → μ* under iteration of the above operator,
+
+where μ* satisfies:
+
+μ*(A) =
+∫_X F(x) Φ(x, A) μ*(dx)
+--------------------------------
+∫_X F(x) μ*(dx)
+
+Then:
+
+supp(μ*) ⊆ { x ∈ X : x is maximal under ≼ }
+
+Thus:
+
+stability corresponds to concentration
+on maximal survival classes.
+
+--------------------------------------------------
+
+13. META-SELECTION
+
+Let Ω be the class of all worlds.
+
+Define:
+
+Ω_evo := { ω ∈ Ω : F is non-constant }
+
+Then:
+
+viability ⇒ ω ∈ Ω_evo
+
+Equivalently:
+
+any viable world admits a non-degenerate
+survival ordering.
+
+--------------------------------------------------
+
+14. RECURSION
+
+Selection operates on:
+
+- states X
+- dynamics Φ
+- constraints ℛ
+
+Thus:
+
+systems evolve over their own generative structure.
+
+--------------------------------------------------
+
+15. CORE LAW
+
+Selection necessarily emerges from:
+
+(persistence + variation + constraints + reachability)
+
+and dynamically concentrates systems onto
+maximally persistent structures.
+
+--------------------------------------------------
+
+16. CONCLUSION
+
+Evolution is not contingent or domain-specific.
+
+It is a necessary structural property of any
+persistent, constrained stochastic dynamical system
+with active constraint exposure.
+
+--------------------------------------------------
+END — LEVEL 13
+--------------------------------------------------

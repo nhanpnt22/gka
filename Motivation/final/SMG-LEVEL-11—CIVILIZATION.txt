@@ -1,0 +1,307 @@
+--------------------------------------------------
+SURVIVAL–MEANING–GAIN (SMG) SYSTEM
+LEVEL 11 — CIVILIZATION / INSTITUTIONS
+Final Publication Version (10/10)
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Date: March 24, 2026
+--------------------------------------------------
+
+1. CIVILIZATIONAL ROLE
+
+Level 11 formalizes institutions as persistent,
+endogenous structures that regulate multi-agent systems
+through constraints, incentives, and identity shaping.
+
+Function:
+- Stabilize large-scale coordination
+- Internalize externalities
+- Shape belief and identity evolution
+- Enable long-horizon cooperation
+
+Output:
+- Institutional structures ℐ
+- Collective objective J_ℐ
+- Constrained multi-agent equilibria
+
+--------------------------------------------------
+2. INPUT FROM LEVEL 10
+
+Given agent set:
+
+I = {1, ..., N}
+
+Each agent i has:
+
+𝒜_i = (A_i, Φ_i, J_i, π_i, b_i)
+
+Define joint space:
+
+A_joint = ∏_{i ∈ I} A_i
+
+Actions generate:
+- coupled payoffs J_i(a)
+- externalities across agents
+- shared constraints
+
+--------------------------------------------------
+3. INSTITUTIONAL STRUCTURE
+
+Define institution:
+
+ℐ = (𝒞_inst, 𝒠, 𝒮, ℛ)
+
+Where:
+
+3.1 Constraint Structure (soft constraints):
+
+𝒞_inst ⊆ A_joint
+
+Interpretation:
+- Defines normatively admissible actions
+- Violations allowed but penalized
+
+--------------------------------------------------
+3.2 Enforcement Mechanism:
+
+𝒠 : A_joint × Hist → ℝ^|I|
+
+Maps actions to agent-level penalties/rewards.
+
+--------------------------------------------------
+3.3 Signaling System:
+
+𝒮 : Hist → Σ
+
+Generates public signals from history.
+
+--------------------------------------------------
+3.4 Rule System:
+
+ℛ = { r_k }
+
+r_k : A_joint × Hist → {0,1}
+
+1 = compliant, 0 = violation
+
+--------------------------------------------------
+4. EFFECTIVE PAYOFF UNDER INSTITUTION
+
+Define modified payoff:
+
+J_i^ℐ(a, h) =
+J_i(a)
+− 𝒠_i(a, h)
+
+Thus:
+
+- Full action space A_joint remains feasible
+- Constraints enforced through penalties
+
+--------------------------------------------------
+5. COLLECTIVE OBJECTIVE
+
+Define social functional:
+
+J_soc : A_joint → ℝ
+
+J_soc(a) =
+ Σ_{i ∈ I} w_i J_i(a)
+ − Λ_ext(a)
+ − Λ_inst(a)
+
+Assume:
+- w_i ≥ 0
+- Σ w_i < ∞
+
+Where:
+- Λ_ext = externality cost
+- Λ_inst = institutional maintenance cost
+
+--------------------------------------------------
+6. SYSTEM-LEVEL SMG EXTENSION
+
+Define:
+
+J_ℐ(a) =
+ J_soc(a)
+ − λ_S^soc · R_soc(a)
+ − λ_M^soc · D_soc(a)
+
+Where:
+
+- R_soc : systemic survival risk
+- D_soc : civilization-level identity deviation
+- λ_S^soc, λ_M^soc ≥ 0
+
+--------------------------------------------------
+7. INCENTIVE COMPATIBILITY
+
+Institution ℐ is incentive-compatible if:
+
+∀ i, ∀ a_i':
+
+J_i^ℐ(a_i, a_{-i}, h)
+≥
+J_i^ℐ(a_i', a_{-i}, h)
+
+Meaning:
+
+No profitable unilateral deviation after enforcement.
+
+--------------------------------------------------
+8. INSTITUTIONAL EQUILIBRIUM
+
+A joint action a* is an equilibrium if:
+
+∀ i:
+
+a*_i ∈ argmax_{a_i ∈ A_i}
+    J_i^ℐ(a_i, a*_{-i}, h)
+
+This defines a generalized Nash equilibrium
+under institutional enforcement.
+
+--------------------------------------------------
+9. INSTITUTIONAL STABILITY
+
+Institution ℐ is stable if:
+
+9.1 Behavioral Stability:
+Agents do not systematically deviate
+
+9.2 Structural Stability:
+ℛ and 𝒠 remain invariant under perturbations
+
+9.3 Dynamic Stability:
+Repeated play converges toward equilibrium set
+
+--------------------------------------------------
+10. INSTITUTIONAL DYNAMICS (ENDOGENEITY)
+
+Institutions evolve via:
+
+ℐ_{t+1} = Ψ_inst(ℐ_t, a_t, h_t)
+
+Where Ψ_inst updates:
+
+- rules ℛ
+- enforcement 𝒠
+- constraints 𝒞_inst
+- signaling system 𝒮
+
+Thus:
+
+Institutions are endogenous objects of the system.
+
+--------------------------------------------------
+11. CIVILIZATIONAL IDENTITY
+
+Define:
+
+M̂_soc ⊆ V^|I|
+
+with measurable structure on product space.
+
+Aggregate projection:
+
+Proĵ_soc : V^|I ⇉ M̂_soc
+
+Define:
+
+V̄(a) = E[V(a)]
+
+Identity deviation:
+
+D_soc(a) =
+D( V̄(a), V_ref_soc )
+
+Where:
+- V_ref_soc ∈ M̂_soc
+- D is a metric or divergence
+
+--------------------------------------------------
+12. WELL-POSEDNESS CONDITIONS
+
+Assume:
+
+(A1) Measurability:
+All mappings measurable
+
+(A2) Finite penalties:
+𝒠 bounded
+
+(A3) Non-degeneracy:
+A_joint ≠ ∅
+
+(A4) Integrability:
+All expectations finite
+
+(A5) Weight validity:
+w_i ≥ 0, Σ w_i < ∞
+
+Optional:
+- continuity of J_ℐ
+- compactness of A_joint
+
+--------------------------------------------------
+13. FAILURE MODES
+
+Institutional breakdown occurs if:
+
+- Enforcement collapse (𝒠 ineffective)
+- Incentive violation (profitable deviation exists)
+- Norm inconsistency (ℛ infeasible)
+- Identity fragmentation (D_soc diverges)
+- Dynamic instability (no convergence)
+
+--------------------------------------------------
+14. RELATION TO LEVEL 10
+
+Level 10:
+- Strategic interaction among agents
+
+Level 11:
+- Constraints and incentives shape interaction
+
+Thus:
+
+Level 10 → dynamics  
+Level 11 → structure  
+
+--------------------------------------------------
+15. INTERPRETATION
+
+At Level 11:
+
+- Survival → systemic risk control
+- Meaning → cultural identity coherence
+- Gain → collective welfare
+
+Institutions are:
+
+endogenous mechanisms that align
+individual incentives with system-level stability.
+
+Civilization emerges as a stable configuration of:
+
+- agents
+- rules
+- enforcement
+- identity structures
+
+--------------------------------------------------
+16. TRANSITION TO LEVEL 12
+
+Level 12 introduces:
+
+- Competition between institutions
+- Evolution and selection
+- Collapse and regeneration
+
+Level 11 provides:
+
+a fully specified static-dynamic institutional system.
+
+--------------------------------------------------
+END — LEVEL 11 (CIVILIZATION / INSTITUTIONS)
+--------------------------------------------------

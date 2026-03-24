@@ -1,0 +1,231 @@
+--------------------------------------------------
+LEVEL 13.2 — CONTROL AND DECISION FORMULATION
+Agents Optimizing Within Evolution (Canonical)
+--------------------------------------------------
+
+0. PURPOSE
+
+Extend Levels 13 and 13.1 by introducing agents that
+actively control system dynamics.
+
+Establish that optimal behavior corresponds to
+entropy-regularized control under constraints,
+as the active counterpart to evolutionary selection.
+
+--------------------------------------------------
+
+1. CONTROLLED WORLD
+
+A controlled world is:
+
+ω = (X, ℬ(X), A, Φ, ℛ)
+
+Where:
+
+X        := measurable state space
+ℬ(X)     := σ-algebra on X
+A        := measurable action space
+Φ        := controlled Markov kernel:
+            Φ: X × A × ℬ(X) → [0,1]
+ℛ ⊂ X    := non-empty measurable feasible region
+
+State evolution:
+
+X_{t+1} ~ Φ(X_t, a_t, ·)
+
+--------------------------------------------------
+
+2. POLICIES
+
+A policy is a measurable mapping:
+
+π: X → Δ(A)
+
+such that:
+
+a_t ~ π(· | X_t)
+
+Induced transition:
+
+Φ^π(x, B) := ∫_A Φ(x, a, B) π(da | x)
+
+--------------------------------------------------
+
+3. OBJECTIVE
+
+Let r: X × A → ℝ be bounded measurable.
+
+For γ ∈ (0,1), define:
+
+V^π(x) := E_x^π [ Σ_{t=0}^∞ γ^t r(X_t, a_t) ]
+
+Optimal value:
+
+V*(x) := sup_π V^π(x)
+
+--------------------------------------------------
+
+4. ENTROPY REGULARIZATION
+
+Define:
+
+H(π(·|x)) := - ∫_A log π(a|x) π(da|x)
+
+For τ > 0:
+
+V^π_τ(x) := E_x^π [
+Σ_{t=0}^∞ γ^t ( r(X_t, a_t) + τ H(π(·|X_t)) )
+]
+
+Optimal value:
+
+V*_τ(x) := sup_π V^π_τ(x)
+
+--------------------------------------------------
+
+5. ASSUMPTIONS
+
+Assume:
+
+- r bounded measurable
+- Φ measurable in (x,a)
+- A σ-finite or compact
+- policies measurable
+
+Then:
+
+- V*_τ is finite
+- optimal policies exist (possibly stochastic)
+
+--------------------------------------------------
+
+6. SOFT BELLMAN EQUATION
+
+V*_τ(x) =
+τ log ∫_A exp(
+[ r(x,a) + γ E_{x'} V*_τ(x') ] / τ
+) da
+
+where:
+
+x' ~ Φ(x,a,·)
+
+--------------------------------------------------
+
+7. OPTIMAL POLICY
+
+Define:
+
+Q*_τ(x,a) := r(x,a) + γ E_{x'} V*_τ(x')
+
+Then:
+
+π*_τ(a|x) =
+exp( Q*_τ(x,a) / τ )
+--------------------------------
+∫_A exp( Q*_τ(x,a') / τ ) da'
+
+Thus:
+
+π*_τ(a|x) ∝ exp( Q*_τ(x,a) / τ )
+
+--------------------------------------------------
+
+8. KL-REGULARIZED FORM
+
+Let π₀ be a reference policy.
+
+Then the problem can be expressed as:
+
+min_π E_x^π [
+Σ_{t=0}^∞ γ^t (
+- r(X_t,a_t)
++ τ D( π(·|X_t) || π₀(·|X_t) )
+)
+]
+
+where:
+
+D(π || π₀) := ∫ log(π/π₀) dπ
+
+--------------------------------------------------
+
+9. VIABILITY
+
+Define:
+
+𝒱 := { x ∈ X : ∃ π such that
+P_x^π( X_t ∈ ℛ ∀ t ≥ 0 ) > 0 }
+
+Admissible control requires trajectories remain in ℛ.
+
+--------------------------------------------------
+
+10. CONNECTION TO LEVEL 13.1
+
+Level 13.1:
+
+μ*(x) ∝ exp( f(x) / τ )
+
+Level 13.2:
+
+π*(a|x) ∝ exp( Q*(x,a) / τ )
+
+Thus:
+
+state selection ⇔ action selection
+
+--------------------------------------------------
+
+11. TRAJECTORY FORMULATION
+
+Let P^π denote the trajectory measure induced by π.
+
+Then:
+
+dP^π ∝ exp( Σ_{t=0}^∞ γ^t r(X_t,a_t) / τ )
+
+(relative to a reference measure)
+
+Thus:
+
+control = exponential tilting of trajectory measures.
+
+--------------------------------------------------
+
+12. META-INTERPRETATION
+
+- Evolution (13): ordering of states
+- Information (13.1): reweighting of distributions
+- Control (13.2): shaping of trajectories
+
+Agents internalize selection and optimize behavior
+to increase expected value under constraints.
+
+--------------------------------------------------
+
+13. CORE LAW (CONTROL FORM)
+
+Optimal behavior satisfies:
+
+π*(a|x) ∝ exp( Q*(x,a) / τ )
+
+and induces trajectory distributions:
+
+P^π ∝ exp( cumulative reward / τ )
+
+--------------------------------------------------
+
+14. CONCLUSION
+
+Control is the active counterpart of selection.
+
+Therefore:
+
+evolution + control =
+passive filtering + active optimization
+in constrained stochastic systems.
+
+--------------------------------------------------
+END — LEVEL 13.2
+--------------------------------------------------

@@ -1,0 +1,248 @@
+--------------------------------------------------
+SURVIVAL–MEANING–GAIN (SMG) SYSTEM
+LEVEL 4 — META-THEORY (REGULATION)
+Final Canonical Version (Fully Corrected)
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Date: March 24, 2026
+--------------------------------------------------
+
+1. META-THEORETICAL ROLE
+
+This level defines regulatory mechanisms over the axiological system.
+
+Function:
+- Detect imbalance in evaluative outcomes
+- Adjust constraint weights (λ_S, λ_M)
+- Maintain system viability and coherence
+
+Output:
+- A regulated parameter system (λ_S(t), λ_M(t), τ_S(t))
+- Stability structure over evaluative dynamics
+
+Constraint:
+- No policy optimization
+- No Bellman recursion
+- No action selection
+- Regulation operates only on Level 3 outputs
+
+--------------------------------------------------
+2. INPUT FROM AXIOLOGY
+
+Given Level 3 system:
+
+𝒜_SMG = (A_b, Φ, G, R_S, D_M, Ĉ, λ_S, λ_M, τ_S, J)
+
+Define observable evaluative signals:
+
+- r_t := R_S(a_t)        (risk signal)
+- d_t := D_M(a_t)        (identity deviation signal)
+- g_t := G(a_t)          (gain signal)
+
+Assumption (Measurability):
+All signals (r_t, d_t, g_t) are measurable with respect to the underlying filtration.
+
+--------------------------------------------------
+3. REGULATED PARAMETERS
+
+Define time-indexed parameters:
+
+- λ_S(t) ∈ [λ_min, λ_max] ⊂ (0, ∞)
+- λ_M(t) ∈ [λ_min, λ_max] ⊂ (0, ∞)
+- τ_S(t) ∈ [0, 1]
+
+These represent adaptive constraint weights and feasibility thresholds.
+
+--------------------------------------------------
+4. IMBALANCE DETECTION
+
+Define target bounds:
+
+- Survival constraint: r_t ≤ τ_S(t)
+- Meaning constraint:  d_t ≤ ε_M
+
+Define imbalance signals:
+
+- Δ_S(t) := r_t − τ_S(t)
+- Δ_M(t) := d_t − ε_M
+
+Interpretation:
+- Δ > 0 ⇒ constraint violation
+- Δ ≤ 0 ⇒ acceptable regime
+
+--------------------------------------------------
+5. REGULATION DYNAMICS
+
+Constraint weights evolve via projected stochastic approximation:
+
+λ_S(t+1) =
+ Π_[λ_min, λ_max] [
+   λ_S(t) + α_t · f_S(Δ_S(t)) + ξ_t^S
+ ]
+
+λ_M(t+1) =
+ Π_[λ_min, λ_max] [
+   λ_M(t) + α_t · f_M(Δ_M(t)) + ξ_t^M
+ ]
+
+Where:
+- α_t > 0, with Σ α_t = ∞, Σ α_t² < ∞
+- f_S, f_M are Lipschitz, monotone increasing
+- f_S(0) = 0, f_M(0) = 0
+- ξ_t^S, ξ_t^M are bounded martingale difference sequences
+- Π denotes projection onto admissible bounds
+
+--------------------------------------------------
+6. FEASIBILITY REGULATION
+
+Threshold evolves as:
+
+τ_S(t+1) =
+ Π_[0,1] [
+   τ_S(t) − β_t · h_S(Δ_S(t))
+ ]
+
+Where:
+- β_t > 0, Σ β_t = ∞, Σ β_t² < ∞
+- h_S is Lipschitz and monotone increasing
+- h_S allows both tightening and relaxation depending on Δ_S(t)
+
+Interpretation:
+- High risk ⇒ tighten feasibility (lower τ_S)
+- Low risk ⇒ relax feasibility (increase τ_S)
+
+--------------------------------------------------
+7. REGULATORY OBJECTIVE
+
+The meta-system enforces constraint satisfaction:
+
+Maintain:
+- r_t ≤ τ_S(t)
+- d_t ≤ ε_M
+- λ_min ≤ λ_S(t), λ_M(t) ≤ λ_max
+
+Define viability region:
+
+𝒱 :=
+{ (r, d, λ_S, λ_M) |
+  r ≤ τ_S,
+  d ≤ ε_M,
+  λ_min ≤ λ_S, λ_M ≤ λ_max
+ }
+
+𝒱 is a closed set intended to be forward-invariant under regulation dynamics.
+
+--------------------------------------------------
+8. EQUILIBRIUM AND STABILITY
+
+Equilibrium is defined by:
+
+- Δ_S = 0
+- Δ_M = 0
+- λ_S*, λ_M* ∈ (λ_min, λ_max)
+
+Under standard stochastic approximation conditions:
+
+(A1) Step sizes:
+ Σ α_t = ∞, Σ α_t² < ∞
+
+(A2) Regularity:
+ f_S, f_M, h_S are Lipschitz
+
+(A3) Noise:
+ martingale difference, bounded variance
+
+(A4) Feasibility:
+ A_b ≠ ∅
+
+Then:
+
+(λ_S(t), λ_M(t), τ_S(t))
+converge almost surely to an internally chain transitive invariant set
+of the associated limiting ODE.
+
+If the ODE admits a globally asymptotically stable equilibrium:
+⇒ convergence to (λ_S*, λ_M*, τ_S*)
+
+--------------------------------------------------
+9. REGIMES OF OPERATION
+
+Survival-dominant:
+ λ_S >> λ_M
+ → conservative, risk-averse
+
+Meaning-dominant:
+ λ_M >> λ_S
+ → identity-rigid
+
+Gain-dominant:
+ λ_S, λ_M → λ_min
+ → unstable, constraint-violating
+
+Balanced regime:
+ λ_S, λ_M > 0 and adaptive
+ → stable operation
+
+--------------------------------------------------
+10. FAILURE MODES
+
+(1) Survival Collapse:
+ λ_S → λ_min while Δ_S > 0 persists
+
+(2) Meaning Collapse:
+ λ_M → λ_min while Δ_M > 0 persists
+
+(3) Constraint Lock:
+ λ_S, λ_M → λ_max
+ → loss of flexibility
+
+(4) Oscillation:
+ improper step sizes ⇒ non-convergent cycling
+
+--------------------------------------------------
+11. META-THEORETICAL CLOSURE
+
+Define regulatory system:
+
+ℛ_SMG :=
+(λ_S(t), λ_M(t), τ_S(t), f_S, f_M, h_S, α_t, β_t)
+
+This fully specifies:
+- imbalance detection
+- constraint adaptation
+- stability structure
+
+No additional primitives are required.
+
+--------------------------------------------------
+12. RELATION TO OTHER LEVELS
+
+Level 3 (Axiology):
+ defines evaluation (J)
+
+Level 4 (Meta-Theory):
+ regulates constraints governing J
+
+Level 5 (Paradigms):
+ stabilizes recurring parameter regimes
+
+Thus:
+
+Evaluation → Regulation → Stabilization
+
+--------------------------------------------------
+13. INTERPRETATION
+
+At Level 4:
+
+- Survival becomes a regulated feasibility constraint
+- Meaning becomes a dynamically enforced identity boundary
+- Gain is indirectly controlled via constraint tuning
+
+This level explains:
+- shifts in motivation over time
+- adaptation under pressure
+- emergence of stable behavioral regimes
+
+--------------------------------------------------
+END — LEVEL 4 (META-THEORY)
+--------------------------------------------------

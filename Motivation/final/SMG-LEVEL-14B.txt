@@ -1,0 +1,289 @@
+--------------------------------------------------
+LEVEL 14B — LEARNING / EVOLUTIONARY DYNAMICS
+Convergence to Equilibrium in Adaptive Systems (Canonical)
+--------------------------------------------------
+
+0. PURPOSE
+
+Extend Levels 13–14A by introducing dynamics that govern
+how agents and systems evolve over time.
+
+Establish that:
+
+learning dynamics are the processes through which
+selection, control, interaction, and design are realized.
+
+--------------------------------------------------
+
+1. BASE SYSTEM
+
+Given a designed multi-agent system:
+
+ω' = (X, ℬ(X), {A_i}, Φ, ℛ, {r_i})
+
+Let:
+
+Π_eq(ω') := set of (soft) Nash equilibria
+
+--------------------------------------------------
+
+2. POLICY SPACE AND DYNAMICS
+
+Let Π be the space of admissible policy profiles.
+
+Let 𝓣 be a class of admissible learning rules.
+
+A learning dynamic:
+
+𝒯 ∈ 𝓣,   𝒯: Π → Π
+
+induces:
+
+π_{t+1} = 𝒯(π_t, observations_t)
+
+subject to informational and computational constraints.
+
+--------------------------------------------------
+
+3. STOCHASTIC EVOLUTION
+
+Learning induces a joint stochastic process over:
+
+- states: X_t
+- policies: π_t
+
+Evolution:
+
+X_{t+1} ~ Φ^{π_t}(X_t)
+π_{t+1} = 𝒯(π_t, observations_t)
+
+Thus:
+
+state and policy co-evolve.
+
+--------------------------------------------------
+
+4. FIXED POINTS
+
+A policy π* is stationary if:
+
+𝒯(π*) = π*
+
+If additionally:
+
+π* ∈ Π_eq(ω')
+
+then π* is an equilibrium fixed point.
+
+--------------------------------------------------
+
+5. CLASSES OF LEARNING DYNAMICS
+
+Canonical classes include:
+
+(1) BEST-RESPONSE DYNAMICS
+    π_{t+1} ≈ argmax V_i(·, π_{-i,t})
+
+(2) GRADIENT / POLICY GRADIENT
+    π_{t+1} = π_t + η ∇ V_i(π_t)
+
+(3) REPLICATOR DYNAMICS
+    growth proportional to relative payoff
+
+(4) BAYESIAN UPDATES
+    posterior-based policy adaptation
+
+(5) NO-REGRET DYNAMICS
+    time-averaged regret → 0
+
+--------------------------------------------------
+
+6. ENTROPY-REGULARIZED DYNAMICS
+
+In entropy-regularized settings:
+
+π_{t+1}(a|x) ∝ exp( Q^{π_t}(x,a) / τ )
+
+Thus:
+
+learning corresponds to iterative exponential tilting.
+
+This form does not apply universally,
+only under entropy-regularized objectives.
+
+--------------------------------------------------
+
+7. CONVERGENCE
+
+A learning dynamic converges if:
+
+π_t → π* as t → ∞
+
+Types:
+
+- pointwise convergence
+- convergence in distribution
+- time-average convergence
+
+Convergence is not guaranteed in general,
+and depends on:
+
+- payoff structure (e.g., potential games)
+- contraction properties
+- noise and exploration
+
+--------------------------------------------------
+
+8. STABILITY
+
+An equilibrium π* is:
+
+- Lyapunov stable if nearby trajectories remain close
+- asymptotically stable if trajectories converge to π*
+- stochastically stable if robust under noise
+
+Stability depends on:
+
+- learning rule 𝒯
+- system structure
+- perturbations
+
+--------------------------------------------------
+
+9. SELECTION VIA DYNAMICS
+
+Learning induces selection:
+
+- unstable equilibria are not observed
+- stable equilibria persist
+
+Thus:
+
+Π_eq(ω') is refined to dynamically stable subsets.
+
+--------------------------------------------------
+
+10. NO-REGRET AND EQUILIBRIA
+
+Under no-regret dynamics:
+
+time-averaged play converges to:
+
+- coarse correlated equilibrium (general case)
+- Nash equilibrium (in specific settings)
+
+Thus:
+
+different dynamics select different solution concepts.
+
+--------------------------------------------------
+
+11. PATH DEPENDENCE
+
+Outcomes may depend on:
+
+- initial condition π_0
+- stochastic fluctuations
+- exploration processes
+
+Thus:
+
+multiple equilibria imply history-dependent outcomes.
+
+--------------------------------------------------
+
+12. TIMESCALE AND ADAPTATION
+
+Let η denote learning rate.
+
+Trade-off:
+
+- high η → rapid adaptation, possible instability
+- low η → stability, slower convergence
+
+Thus:
+
+timescale affects both convergence and equilibrium selection.
+
+--------------------------------------------------
+
+13. META-DYNAMICS
+
+Let 𝓣 be the set of admissible learning rules.
+
+Define:
+
+𝓣* := { 𝒯 ∈ 𝓣 : induces desirable outcomes }
+
+subject to:
+
+- informational constraints
+- computational feasibility
+- implementability
+
+Under evolution:
+
+- learning rules compete
+- stable/adaptive dynamics persist
+
+Thus:
+
+selection operates over dynamics.
+
+--------------------------------------------------
+
+14. UNIFIED VIEW
+
+- Level 13: selection (existence)
+- Level 13.1: distributions (variational structure)
+- Level 13.2: control (agents)
+- Level 13.3: equilibrium (interaction)
+- Level 14A: design (institutions)
+- Level 14B: learning (dynamics)
+
+Thus:
+
+adaptive systems evolve through iterative processes
+toward structured equilibria under constraints.
+
+--------------------------------------------------
+
+15. CORE LAW (DYNAMIC FORM)
+
+Adaptive systems evolve via:
+
+π_{t+1} = 𝒯(π_t)
+
+and, when convergence holds:
+
+π_t → π* ∈ Π_eq(ω')
+
+subject to:
+
+- learning dynamics 𝒯 ∈ 𝓣
+- mechanism constraints M ∈ 𝓜
+- viability constraints ℛ
+
+In entropy-regularized cases:
+
+𝒯 approximates exponential tilting of Q-functions.
+
+--------------------------------------------------
+
+16. CONCLUSION
+
+Learning dynamics are the temporal realization of:
+
+- selection (Level 13)
+- control (Level 13.2)
+- interaction (Level 13.3)
+- design (Level 14A)
+
+Therefore:
+
+adaptive systems evolve through constrained,
+iterative dynamics toward stable equilibria.
+
+--------------------------------------------------
+END — LEVEL 14B
+--------------------------------------------------

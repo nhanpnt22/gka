@@ -1,0 +1,249 @@
+--------------------------------------------------
+SURVIVAL–MEANING–GAIN (SMG) SYSTEM
+LEVEL 2 — EPISTEMOLOGY (KNOWLEDGE)
+
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Date: March 24, 2026
+--------------------------------------------------
+
+1. EPISTEMIC ROLE
+
+This level defines the representation of ontological structure.
+
+Function:
+- Construct representations of Level 1 elements and relations
+- Encode uncertainty over states, mappings, and identity
+
+Output:
+- Structured epistemic objects (beliefs, models, representations)
+
+Constraint:
+- No optimization, evaluation, or action selection
+- No value-based comparison (axiology begins at Level 3)
+- No adaptive or time-evolving learning dynamics
+
+--------------------------------------------------
+
+2. EPISTEMIC PRIMITIVES
+
+2.1 Observation Space
+
+Let:
+𝒪 be a non-empty set of observations
+
+--------------------------------------------------
+
+2.2 Information Space
+
+Let:
+ℐ denote the set of admissible information states (histories), where:
+
+ℐ ⊆ ⋃_{t≥0} (𝒪 × A)^t × 𝒪
+
+Each element ℐ_t ∈ ℐ is a finite sequence of observations and actions.
+
+ℐ ≠ ∅
+
+--------------------------------------------------
+
+2.3 Belief Space
+
+Let:
+𝒫(S) denote the set of probability measures over S
+
+Elements:
+b ∈ 𝒫(S)
+
+--------------------------------------------------
+
+2.4 Representation Space
+
+Let:
+ℳ_rep denote a class of admissible representations such that:
+
+- Each element is a measurable function or correspondence
+- Domains and codomains are consistent with Level 1 structures
+
+ℳ_rep contains representations of:
+Ω, V_raw, Risk_S, Deviation_M
+
+--------------------------------------------------
+
+3. BELIEF REPRESENTATION
+
+Define the belief mapping:
+
+b : ℐ → 𝒫(S)
+
+such that:
+
+b(ℐ_t) = P(S_t | ℐ_t)
+
+Interpretation:
+- b encodes uncertainty over the true ontological state
+- Beliefs depend on accumulated information histories
+
+No assumption of correctness, optimality, or convergence is imposed.
+
+--------------------------------------------------
+
+4. REPRESENTATION OF STRUCTURAL MAPPINGS
+
+The system admits epistemic representations of Level 1 mappings:
+
+- Feasibility representation:
+  Ω̂ : S ⇉ A
+
+- Value representation:
+  V̂_raw : S × A → V
+
+- Risk representation:
+  R̂isk_S : S × A → ℝ_{≥0}
+
+- Deviation representation:
+  D̂eviation_M : V → ℝ_{≥0}
+
+Each of the above belongs to ℳ_rep.
+
+These are internal representations of ontological mappings:
+(Ω, V_raw, Risk_S, Deviation_M)
+
+No requirement of accuracy, consistency, or convergence is imposed.
+
+--------------------------------------------------
+
+5. IDENTITY REPRESENTATION
+
+Define an epistemic identity representation:
+
+M̂ ⊆ V
+
+such that:
+- M̂ ≠ ∅ (optional but typical)
+- M̂ represents a perceived or inferred identity structure
+- M̂ may differ from the ontological identity M
+
+Projection representation:
+
+Proĵ_M : V ⇉ M̂
+
+such that:
+
+Proĵ_M(v) ∈ argmin_{u ∈ M̂} ||u − v||
+
+This defines epistemic access to identity constraints.
+
+--------------------------------------------------
+
+6. KNOWLEDGE STRUCTURE
+
+An epistemic configuration is defined as:
+
+K = (b, Ω̂, V̂_raw, R̂isk_S, D̂eviation_M, M̂)
+
+where:
+
+- b ∈ 𝒫(S)
+- Ω̂, V̂_raw, R̂isk_S, D̂eviation_M ∈ ℳ_rep
+- M̂ ⊆ V
+
+K is a representation of the ontological system, not the system itself.
+
+No component of K is assumed to be derivable from another at this level.
+
+--------------------------------------------------
+
+7. UNCERTAINTY STRUCTURE
+
+Uncertainty is intrinsic and multi-layered:
+
+- State uncertainty:
+  represented by b ∈ 𝒫(S)
+
+- Structural uncertainty:
+  discrepancy between (Ω̂, V̂_raw, …) and true mappings
+
+- Identity uncertainty:
+  discrepancy between M̂ and M
+
+Uncertainty is represented but not resolved at this level.
+
+--------------------------------------------------
+
+8. EPISTEMIC RELATIONS
+
+The epistemic layer is characterized by the following mappings:
+
+Information → Belief:
+ℐ_t ↦ b(ℐ_t)
+
+Value representation:
+(s, a) ↦ V̂_raw(s, a)
+
+Risk representation:
+(s, a) ↦ R̂isk_S(s, a)
+
+Deviation representation:
+v ↦ D̂eviation_M(v)
+
+Identity projection:
+v ↦ Proĵ_M(v)
+
+These relations describe how knowledge represents structure,
+without implying transformation, learning, or control.
+
+--------------------------------------------------
+
+9. EPISTEMIC CONSTRAINTS
+
+At Level 2, the following are excluded:
+
+- Objective functions or utility
+- Optimization or maximization
+- Action selection or policies
+- Constraint enforcement
+- Adaptive learning or parameter updates
+- Normative or evaluative judgments
+
+All constructs are descriptive and representational only.
+
+--------------------------------------------------
+
+10. EPISTEMIC CLOSURE
+
+The SMG epistemic system is fully defined by:
+
+𝒦_SMG =
+(𝒪, ℐ, 𝒫(S), ℳ_rep, b, Ω̂, V̂_raw, R̂isk_S, D̂eviation_M, M̂)
+
+This specifies:
+
+- observation structure
+- information structure
+- belief representation
+- structural representations
+- identity representation
+- uncertainty encoding
+
+No additional epistemic primitives are required.
+
+--------------------------------------------------
+
+11. INTERPRETATION
+
+Level 2 defines knowledge as structured representation of ontology:
+
+- States are not directly accessed, but inferred via beliefs
+- Structural mappings are not given, but represented
+- Identity is not fixed, but epistemically constructed
+
+Thus:
+
+Level 1 (Ontology) defines what exists  
+Level 2 (Epistemology) defines what is known about what exists  
+
+No decision, value judgment, or behavior is implied.
+
+--------------------------------------------------
+END — LEVEL 2 (EPISTEMOLOGY)
+--------------------------------------------------

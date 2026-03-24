@@ -1,0 +1,281 @@
+--------------------------------------------------
+LEVEL 14A — MECHANISM / INSTITUTION DESIGN
+Equilibrium Shaping under Constraints (Canonical)
+--------------------------------------------------
+
+0. PURPOSE
+
+Extend Level 13.3 by introducing mechanisms that
+modify incentives, information, and constraints
+to shape equilibrium outcomes.
+
+Establish that:
+
+institutions are admissible transformations that
+induce desired equilibria within feasibility limits.
+
+--------------------------------------------------
+
+1. BASE SYSTEM
+
+A multi-agent system:
+
+ω = (X, ℬ(X), {A_i}_{i=1}^N, Φ, ℛ, {r_i})
+
+Let:
+
+Π_eq(ω) := set of (soft) Nash equilibria
+
+--------------------------------------------------
+
+2. MECHANISM CLASS
+
+Let 𝓜 be a set of admissible mechanisms.
+
+Each mechanism:
+
+M ∈ 𝓜 : ω ↦ ω'
+
+where:
+
+ω' = (X, ℬ(X), {A_i'}, Φ', ℛ', {r_i'})
+
+subject to feasibility constraints:
+
+- limited control over rewards, dynamics, or information
+- enforceability constraints
+- observability constraints
+- resource / budget constraints
+
+--------------------------------------------------
+
+3. OBJECTIVES
+
+Let O be a desired outcome set:
+
+O ⊂ X   or   O ⊂ Δ(X)
+
+Let J be a system-level objective functional:
+
+J: trajectories or distributions → ℝ
+
+Design goal:
+
+Find M ∈ 𝓜 such that induced equilibria optimize J
+and/or concentrate probability mass on O.
+
+--------------------------------------------------
+
+4. IMPLEMENTATION CONCEPTS
+
+Let Π_eq(ω') be equilibria under M.
+
+Weak implementation:
+
+∃ π* ∈ Π_eq(ω') such that:
+P^{π*}(outcome ∈ O) > 0
+
+Full implementation:
+
+∀ π* ∈ Π_eq(ω'):
+P^{π*}(outcome ∈ O) = 1
+
+Robust implementation:
+
+implementation persists under perturbations of ω' and agents.
+
+--------------------------------------------------
+
+5. INCENTIVE COMPATIBILITY
+
+A mechanism M is incentive-compatible if:
+
+∀ i, ∀ π* ∈ Π_eq(ω'):
+
+π_i* ∈ argmax_{π_i} V_i^{ω'}(π_i, π_{-i}*)
+
+Thus:
+
+desired behavior must be individually optimal.
+
+--------------------------------------------------
+
+6. ENTROPY-REGULARIZED FORM
+
+Under entropy regularization:
+
+π_i*(a_i|x) ∝ exp(
+Q_i^{ω'}(x,a_i,·) / τ
+)
+
+Thus:
+
+mechanism design operates by shaping Q_i^{ω'}.
+
+--------------------------------------------------
+
+7. DESIGN LEVERS
+
+Mechanisms act through four minimal channels:
+
+(1) PAYOFF SHAPING
+    r_i → r_i'
+    (taxes, subsidies, penalties)
+
+(2) INFORMATION STRUCTURE
+    modify signals / observability
+    affects beliefs and expectations
+
+(3) ACTION CONSTRAINTS
+    A_i → A_i'
+    restrict feasible strategies
+
+(4) DYNAMICS / ENVIRONMENT
+    Φ → Φ', ℛ → ℛ'
+    alter transition structure or feasibility
+
+--------------------------------------------------
+
+8. POTENTIAL / ALIGNMENT STRUCTURE
+
+In structured settings (e.g., potential or aligned systems):
+
+∃ Φ_potential such that:
+
+equilibrium behavior corresponds to optimization
+of a shared objective.
+
+In such cases:
+
+P^{π} ∝ exp(
+Σ_{t=0}^∞ γ^t Φ_potential(X_t,a_t) / τ
+)
+
+Otherwise:
+
+no global objective representation is required.
+
+--------------------------------------------------
+
+9. PERFORMANCE LOSS (PRICE OF ANARCHY)
+
+Let J be a system-level objective.
+
+Define:
+
+PoA :=
+(supremum of J over feasible trajectories) /
+(infimum of J over equilibrium-induced trajectories)
+
+Mechanism design aims to:
+
+reduce PoA by aligning incentives with J.
+
+--------------------------------------------------
+
+10. VIABILITY-CONSTRAINED DESIGN
+
+Let:
+
+𝒱 := { x : ∃ π such that
+P_x^{π}(X_t ∈ ℛ ∀ t ≥ 0) > 0 }
+
+Admissible mechanisms must satisfy:
+
+equilibria π* preserve viability:
+
+P_x^{π*}(X_t ∈ ℛ ∀ t ≥ 0) > 0
+
+Thus:
+
+design operates within survival constraints.
+
+--------------------------------------------------
+
+11. DYNAMICAL IMPLEMENTATION
+
+Let adaptation dynamics:
+
+π_{t+1} = 𝒯(π_t)
+
+A mechanism is dynamically implementable if:
+
+π_t → Π_eq(ω') and induced behavior achieves O
+or optimizes J.
+
+Thus:
+
+design must consider convergence, not only equilibria.
+
+--------------------------------------------------
+
+12. META-SELECTION OVER MECHANISMS
+
+Let 𝓜 be the space of admissible mechanisms.
+
+Define:
+
+𝓜* := { M ∈ 𝓜 : M yields desirable equilibria }
+
+Under system evolution:
+
+- mechanisms compete
+- stable mechanisms persist
+
+Thus:
+
+selection operates over institutions.
+
+--------------------------------------------------
+
+13. UNIFIED VIEW
+
+- Level 13: selection over states
+- Level 13.1: selection over distributions
+- Level 13.2: control over trajectories
+- Level 13.3: equilibrium over strategies
+- Level 14A: design over equilibria
+
+Thus:
+
+adaptive systems can be shaped by modifying
+their structural rules.
+
+--------------------------------------------------
+
+14. CORE LAW (DESIGN FORM)
+
+An optimal mechanism M ∈ 𝓜 satisfies:
+
+Π_eq(ω') ⊂ argmax_{π} J(P^{π})
+
+subject to:
+
+- incentive compatibility
+- viability constraints
+- feasibility of M
+
+and induces:
+
+π_i*(a_i|x) ∝ exp( Q_i^{ω'} / τ )
+
+--------------------------------------------------
+
+15. CONCLUSION
+
+Institutions are constrained transformations of
+multi-agent systems that reshape incentives,
+information, and feasibility to select equilibria.
+
+Therefore:
+
+design = constrained control over interaction
+
+and:
+
+evolutionary systems are not only adaptive,
+but governable through mechanism design.
+
+--------------------------------------------------
+END — LEVEL 14A
+--------------------------------------------------

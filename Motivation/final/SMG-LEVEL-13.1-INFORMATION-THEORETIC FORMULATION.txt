@@ -1,0 +1,219 @@
+--------------------------------------------------
+LEVEL 13.1 — INFORMATION-THEORETIC FORMULATION
+Dual of Evolutionary Selection (Canonical)
+--------------------------------------------------
+
+0. PURPOSE
+
+Provide an information-theoretic dual to Level 13,
+showing that evolutionary selection is equivalent
+to entropy-regularized concentration under survival constraints.
+
+--------------------------------------------------
+
+1. WORLD
+
+A world is a constrained stochastic dynamical system:
+
+ω = (X, ℬ(X), Φ, ℛ)
+
+Where:
+
+X        := measurable state space
+ℬ(X)     := σ-algebra on X
+Φ        := Markov kernel Φ: X × ℬ(X) → [0,1]
+ℛ ⊂ X    := non-empty measurable feasible region
+
+Let μ_t ∈ Δ(X) denote a population distribution.
+
+--------------------------------------------------
+
+2. SURVIVAL FUNCTIONAL
+
+Let A ⊂ ℛ be a persistent set.
+
+Define:
+
+F(x) := P_x( X_t ∈ A ∀ t ≥ 0 )
+
+Assume:
+
+∫_X F(x) μ_t(dx) > 0
+
+Define:
+
+f(x) := log F(x), with F(x) = 0 ⇒ f(x) = -∞
+
+--------------------------------------------------
+
+3. ENTROPY
+
+Let λ be a σ-finite reference measure on (X, ℬ(X)).
+
+Assume:
+
+μ ≪ λ
+
+Define:
+
+H(μ) := - ∫_X log(dμ/dλ) dμ
+
+Thus H is finite and well-defined.
+
+--------------------------------------------------
+
+4. FREE ENERGY
+
+For τ > 0, define:
+
+ℱ(μ) := - ∫_X f(x) μ(dx) + τ H(μ)
+
+Equivalently:
+
+ℱ(μ) = -E_μ[log F(x)] + τ H(μ)
+
+--------------------------------------------------
+
+5. VARIATIONAL CHARACTERIZATION
+
+Consider:
+
+sup_{μ ∈ Δ(X), μ ≪ λ} [ E_μ[f(x)] - τ H(μ) ]
+
+Assume:
+
+∫_X exp(f(x)/τ) dλ(x) < ∞
+
+Then a maximizer μ* exists and satisfies:
+
+dμ*/dλ (x) = exp(f(x)/τ) / Z
+
+where:
+
+Z := ∫_X exp(f(x)/τ) dλ(x)
+
+Hence:
+
+μ*(x) ∝ F(x)^{1/τ}
+
+--------------------------------------------------
+
+6. STRUCTURE
+
+- μ* concentrates on high-survival states
+- τ controls exploration–concentration trade-off
+
+Limits:
+
+τ → 0  ⇒  support(μ*) ⊂ argmax_x F(x)
+τ > 0  ⇒  soft concentration over near-optimal states
+
+--------------------------------------------------
+
+7. DYNAMICS
+
+Define:
+
+μ_{t+1}(A) =
+∫_X F(x) Φ(x, A) μ_t(dx)
+--------------------------------
+∫_X F(x) μ_t(dx)
+
+Equivalently:
+
+μ_{t+1} ∝ F ⋅ (Φ_* μ_t)
+
+--------------------------------------------------
+
+8. VARIATIONAL INTERPRETATION
+
+Let ν_t := Φ_* μ_t.
+
+Then μ_{t+1} satisfies:
+
+μ_{t+1} ∈ argmin_{μ ≪ λ} [
+D(μ || ν_t) - E_μ[f(x)]
+]
+
+where:
+
+D(μ || ν) := ∫ log(dμ/dν) dμ
+
+Thus:
+
+evolution = KL projection under exponential tilting.
+
+--------------------------------------------------
+
+9. ENTROPY BALANCE
+
+- Selection (F) concentrates mass
+- Propagation (Φ) disperses mass
+
+Entropy evolution reflects this competition;
+it is not monotone in general.
+
+--------------------------------------------------
+
+10. FIXED POINTS
+
+A stationary μ* satisfies:
+
+μ*(A) =
+∫_X F(x) Φ(x, A) μ*(dx)
+--------------------------------
+∫_X F(x) μ*(dx)
+
+Such μ* concentrate on high-survival regions.
+
+--------------------------------------------------
+
+11. EQUIVALENCE WITH LEVEL 13
+
+Level 13:
+
+selection induces preorder via F
+
+Level 13.1:
+
+selection induces variational structure via ℱ
+
+Thus:
+
+ordering by survival ⇔ entropy-regularized optimization of log-survival.
+
+--------------------------------------------------
+
+12. INTERPRETATION
+
+Evolution corresponds to:
+
+reweighting probability mass toward higher-survival states
+subject to entropy constraints.
+
+--------------------------------------------------
+
+13. CORE LAW (INFORMATION FORM)
+
+Evolution is governed by:
+
+ℱ(μ) = -E_μ[log F(x)] + τ H(μ)
+
+with dynamics implementing entropy-regularized
+concentration of survival probability.
+
+--------------------------------------------------
+
+14. CONCLUSION
+
+Selection is equivalent to
+entropy-regularized inference over survival.
+
+Therefore:
+
+evolution = constrained information processing
+in stochastic dynamical systems.
+
+--------------------------------------------------
+END — LEVEL 13.1
+--------------------------------------------------

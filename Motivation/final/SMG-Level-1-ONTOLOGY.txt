@@ -1,0 +1,194 @@
+SURVIVAL–MEANING–GAIN (SMG) SYSTEM
+LEVEL 1 — ONTOLOGY (STRUCTURE)
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Date: March 24, 2026
+
+--------------------------------------------------
+1. ONTOLOGICAL ROLE
+
+This level defines the minimal structural ontology of the SMG system.
+
+Function:
+- Specify primitive sets and structural correspondences
+
+Output:
+- A closed, static set-theoretic structure within which higher-level processes operate
+
+Constraint:
+- No dynamics, inference, optimization, evaluation, or causality is permitted
+
+--------------------------------------------------
+2. PRIMITIVE SPACES
+
+The system is defined over the following primitive sets:
+
+State space:
+S, where S ≠ ∅
+
+Action space:
+A, where A ≠ ∅
+
+Value space:
+V, a normed vector space with norm ||·||
+
+These spaces are ontologically independent.
+
+--------------------------------------------------
+3. DERIVED STRUCTURES
+
+3.1 Feasible Action Correspondence
+
+Ω : S ⇉ A
+
+such that for all s ∈ S:
+- Ω(s) ≠ ∅
+- Ω(s) ⊆ A
+
+Ω is a set-valued correspondence with non-empty values.
+
+--------------------------------------------------
+3.2 Identity Structure
+
+M ⊆ V
+
+such that:
+- M ≠ ∅
+- M is closed
+
+Assumption (Projection Well-Posedness):
+For all v ∈ V, the set
+
+    argmin_{u ∈ M} ||u − v||
+
+is non-empty.
+
+(This holds, for example, if V is a Hilbert space or M is closed and convex.)
+
+--------------------------------------------------
+3.3 Constraint Parameters
+
+λ_S ∈ ℝ_{≥0}  
+λ_M ∈ ℝ_{≥0}  
+τ_S ∈ [0, 1]
+
+These are scalar parameters associated with constraint structures.
+They have no operational role at this level.
+
+--------------------------------------------------
+4. VALUE STRUCTURE
+
+4.1 Raw Value Mapping
+
+V_raw : S × A → V
+
+--------------------------------------------------
+4.2 Identity Projection Correspondence
+
+Proj_M : V ⇉ M
+
+defined by:
+
+    Proj_M(v) = argmin_{u ∈ M} ||u − v||
+
+Note:
+Proj_M may be set-valued unless uniqueness conditions are imposed.
+
+--------------------------------------------------
+5. CONSTRAINT STRUCTURE
+
+5.1 Survival Mapping
+
+Risk_S : S × A → [0, 1]
+
+--------------------------------------------------
+5.2 Meaning Mapping
+
+Deviation_M : V → ℝ_{≥0}
+
+(Deviation_M is assumed to be induced by a norm or divergence on V.)
+
+These mappings define constraint-relevant quantities without enforcement.
+
+--------------------------------------------------
+6. FEASIBILITY SUBSTRUCTURE
+
+Define the survival-feasible correspondence:
+
+Ω_S(s) = { a ∈ Ω(s) | Risk_S(s, a) ≤ τ_S }
+
+This induces a partition of Ω(s) into:
+- feasible actions Ω_S(s)
+- infeasible actions Ω(s) \ Ω_S(s)
+
+--------------------------------------------------
+7. FUNDAMENTAL CORRESPONDENCES
+
+The ontology is fully specified by the following mappings:
+
+Feasibility:
+s ↦ Ω(s)
+
+Risk assignment:
+(s, a) ↦ Risk_S(s, a)
+
+Value generation:
+(s, a) ↦ V_raw(s, a)
+
+Identity projection:
+v ↦ Proj_M(v)
+
+Deviation measurement:
+v ↦ Deviation_M(v)
+
+Constraint parameter space:
+(λ_S, λ_M, τ_S) ∈ ℝ_{≥0}² × [0,1]
+
+These define all admissible structural relations.
+
+--------------------------------------------------
+8. STRUCTURAL INDEPENDENCE
+
+At Level 1, the following are excluded:
+
+- Temporal indexing
+- State transitions
+- Probability or belief structures
+- Optimization or objective functions
+- Policies or action selection
+- Learning or adaptation
+- Any causal or dynamical interpretation
+
+All elements are static and purely structural.
+
+--------------------------------------------------
+9. ONTOLOGICAL CLOSURE
+
+The SMG ontology is fully defined by the tuple:
+
+𝒪_SMG =
+(S, A, Ω, V, M, λ_S, λ_M, τ_S, V_raw, Risk_S, Deviation_M)
+
+This tuple specifies:
+
+- admissible states and actions
+- value representation structure
+- identity-constrained subset
+- constraint-related mappings
+- feasibility relations
+
+No additional primitives or relations are required.
+
+--------------------------------------------------
+10. INTERPRETATION (STRICTLY STRUCTURAL)
+
+The SMG ontology defines a constrained set-theoretic structure in which:
+
+- Survival induces feasibility over actions via Ω_S
+- Meaning induces admissibility over values via M and Proj_M
+- Constraint parameters (λ_S, λ_M, τ_S) exist as scalar descriptors
+
+No behavior, evaluation, or dynamics is implied.
+
+--------------------------------------------------
+END — LEVEL 1 (ONTOLOGY)
+--------------------------------------------------

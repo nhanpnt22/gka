@@ -1,0 +1,238 @@
+SURVIVAL–MEANING–GAIN MOTIVATION LOOP (SMG Loop)
+A Unified Closed-Loop Constrained Optimization Theory of Motivation
+
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Date: March 24, 2026
+
+--------------------------------------------------
+1. FUNDAMENTAL AXIOM
+
+All motivated behavior emerges from a closed-loop constrained optimization process governed by three irreducible components:
+
+- Survival (S): enforces system viability over time
+- Meaning (M): constrains admissible value structures via identity
+- Gain (G): selects actions by maximizing expected net value
+
+These components are not independent objectives, but interacting constraints and operators within a unified dynamical system.
+
+--------------------------------------------------
+2. SYSTEM CLASS
+
+The SMG Loop is a:
+
+Partially Observable Constrained Markov Decision Process (PO-CMDP)
+with endogenous value projection and adaptive constraint weights.
+
+Key properties:
+- Partial observability via belief P_t
+- State-dependent action space Ω(S_t)
+- Endogenous constraints (Survival, Meaning)
+- Time-varying weights λ_S(t), λ_M(t)
+
+State transition:
+S_{t+1} ~ P(· | S_t, a_t)
+
+--------------------------------------------------
+3. SYSTEM DYNAMICS
+
+Closed-loop evolution:
+
+S_t → M_t → π_t → a_t → S_{t+1} → (update) → (P_{t+1}, M_{t+1}, λ_{t+1})
+
+Where:
+- S_t: viability state
+- M_t: identity-constrained value structure
+- π_t: policy induced by optimization
+
+Causal chain:
+Survival → Feasibility → Meaning → Value → Gain → Action → Transition → Survival
+
+--------------------------------------------------
+4. FORMAL FRAMEWORK
+
+State & Action:
+- S_t ∈ S
+- a_t ∈ Ω(S_t), where Ω(S_t) ≠ ∅ and is compact
+
+Belief:
+- P_t(s): probability distribution over states
+
+Value:
+- Raw: V_raw(s, a_t)
+
+Meaning-constrained:
+V_M(a_t) = E_{s ~ P_t}[ Proj_{M_t}(V_raw(s, a_t)) ]
+
+--------------------------------------------------
+5. OBJECTIVE FUNCTION
+
+J(a_t) =
+    V_M(a_t)
+    − C(a_t)
+    − λ_S(t) · Risk_S(a_t)
+    − λ_M(t) · Deviation_M(a_t)
+
+Policy:
+π_t(S_t, M_t) = argmax_{a ∈ Ω(S_t)} J(a_t)
+
+Existence:
+If Ω(S_t) is compact and J(a_t) is continuous ⇒ optimal action exists.
+
+--------------------------------------------------
+6. CORE COMPONENTS
+
+6.1 Survival (S) — Feasibility Constraint
+
+Survival Functional:
+Ψ(S_t) = E [ Σ_{k=0}^∞ γ^k · P(Survival_{t+k} | a_{t:t+k}) ]
+
+Risk:
+Risk_S(a_t) = 1 − E[ P(Survival_{t+1} | a_t) ]
+
+Role:
+- Defines feasible set Ω(S_t)
+- Constrains transitions and resource usage
+
+--------------------------------------------------
+6.2 Meaning (M) — Identity Constraint
+
+Projection operator:
+Proj_{M_t}: V_raw → V_M
+
+Formal definition:
+Proj_{M_t}(V) = argmin_{v ∈ ℳ_t} ||v − V||
+
+Where:
+ℳ_t ⊂ ℝ^n is the identity-consistent value manifold.
+
+Properties:
+- Idempotent
+- Bounded
+- Order-preserving
+
+Deviation:
+Deviation_M(a_t) = D(V_M(a_t), V_identity)
+
+Role:
+- Filters value space
+- Enforces identity coherence
+
+--------------------------------------------------
+6.3 Gain (G) — Optimization Operator
+
+G ≡ argmax_a J(a_t)
+
+Role:
+- Selects optimal action under constraints
+- Produces policy π_t
+
+--------------------------------------------------
+7. ADAPTIVE CONSTRAINT DYNAMICS
+
+λ_S(t) = f_S(risk_t, uncertainty_t)
+λ_M(t) = f_M(identity pressure_t, context_t)
+
+Properties:
+- λ_S(t), λ_M(t) ≥ 0
+- Bounded, time-varying, state-dependent
+
+Constraints are endogenous and adaptive.
+
+--------------------------------------------------
+8. LEARNING AND UPDATE DYNAMICS
+
+Belief update (Bayesian):
+P_{t+1} = Bayes(P_t, a_t, S_{t+1})
+
+Identity update:
+M_{t+1} = g(M_t, S_{t+1})
+
+Constraint adaptation:
+λ_S(t+1) = f_S(observed risk)
+λ_M(t+1) = f_M(observed deviation)
+
+These updates complete the closed-loop adaptive system.
+
+--------------------------------------------------
+9. FUNDAMENTAL TRADE-OFFS
+
+- Gain vs Survival: value ↑ ⇒ risk ↑
+- Gain vs Meaning: efficiency ↑ ⇒ identity violation
+- Meaning vs Survival: identity ⇒ costly sacrifice
+
+No system eliminates trade-offs — only balances them.
+
+--------------------------------------------------
+10. SYSTEM LAW
+
+π_t = argmax_{a ∈ Ω(S_t)} J(a_t)
+
+Subject to:
+- Survival feasibility
+- Meaning consistency
+
+--------------------------------------------------
+11. STABILITY CONDITIONS
+
+System is stable iff:
+- Ψ(S_t) ≥ S_min
+- Deviation_M(a_t) ≤ ε_M
+- 0 < λ_S(t), λ_M(t) < ∞
+- Ω(S_t) ≠ ∅
+- Policy is Bellman-consistent
+
+--------------------------------------------------
+12. FAILURE MODES
+
+- Survival Collapse: Risk_S → 1
+- Meaning Collapse: Deviation_M → ∞
+- Gain Runaway: λ_S, λ_M → 0
+- Constraint Lock: λ → ∞
+
+--------------------------------------------------
+13. CRITICAL BALANCE LAW
+
+- Survival-dominant → stagnation
+- Meaning-dominant → extremism
+- Gain-dominant → collapse
+
+Stability requires:
+λ_S(t), λ_M(t) > 0 and dynamically balanced
+
+--------------------------------------------------
+14. MEASURABILITY
+
+Survival:
+- continuation probability
+- risk exposure
+- resilience
+
+Meaning:
+- value coherence
+- entropy
+- identity stability
+
+Gain:
+- expected utility
+- reward accumulation
+- efficiency
+
+--------------------------------------------------
+15. MASTER THEOREM
+
+Motivation is not a force — it is an emergent policy of a system that:
+- must survive
+- must remain identity-coherent
+- maximizes value under constraints
+
+--------------------------------------------------
+16. CANONICAL FORM
+
+π_t = argmax_{a ∈ Ω(S_t)} [
+    E_{s ~ P_t}[ Proj_{M_t}(V_raw(s, a)) ]
+    − C(a)
+    − λ_S(t) · (1 − P(Survival_{t+1} | a))
+    − λ_M(t) · D(V_M(a), V_identity)
+]
+
+--------------------------------------------------

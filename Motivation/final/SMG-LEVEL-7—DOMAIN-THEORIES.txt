@@ -1,0 +1,262 @@
+SURVIVAL–MEANING–GAIN (SMG) SYSTEM
+LEVEL 7 — DOMAIN THEORIES (SPECIFICATION)
+Final Canonical Version (10/10 Rigor — Corrected)
+
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Date: March 24, 2026
+
+--------------------------------------------------
+
+1. ROLE OF LEVEL 7
+
+Level 7 defines the specialization of abstract frameworks (Level 6) into domain-specific theories.
+
+Function:
+- Map invariant SMG structure into real-world contexts
+- Define concrete variables, constraints, and measurable quantities
+- Enable empirical modeling and falsifiability
+
+Output:
+- A set of domain theories 𝒟
+- Each theory is a fully specified, context-bound SMG system
+
+Constraint:
+- Must preserve Level 6 invariants
+- Must remain measurable and well-defined
+- No policy optimization or execution (Level 8)
+
+--------------------------------------------------
+
+2. INPUT FROM LEVEL 6
+
+Given framework:
+
+F = (Φ, Θ, Σ, Supp)
+
+Where:
+- Φ = (G, −R, −D)
+- Θ = (Λ_S, Λ_M, Τ_S)
+- Σ = covariance structure
+- Supp = admissible support
+
+Define specialization operator:
+
+𝒮_domain : ℱ → 𝒟
+
+--------------------------------------------------
+
+3. DOMAIN THEORY DEFINITION
+
+A domain theory D ∈ 𝒟 is defined as:
+
+D :=
+(S_d, A_d, Ω_d, V_d, M_d, P_d, C_d, R_d, D_d, Θ_d)
+
+Where:
+
+State Space:
+S_d ≠ ∅
+
+Action Space:
+A_d ≠ ∅
+
+Feasibility:
+Ω_d : S_d ⇉ A_d, Ω_d(s) ≠ ∅
+
+Value Space:
+V_d (normed vector space)
+
+Identity Constraint:
+M_d ⊆ V_d, closed, non-empty
+
+Dynamics / Belief:
+P_d defined as either:
+- Transition kernel: P_d(· | s, a), or
+- Belief distribution: P_d(s)
+
+Cost:
+C_d : A_d → ℝ₊
+
+Survival (Risk):
+R_d : S_d × A_d → [0,1]
+
+Meaning (Deviation):
+D_d : V_d → ℝ₊
+
+Parameters:
+Θ_d = (λ_S, λ_M, τ_S)
+
+--------------------------------------------------
+
+4. DOMAIN VALUE CONSTRUCTION
+
+Raw value:
+V_d : S_d × A_d → V_d
+
+Meaning projection:
+Proj_{M_d}(v) ∈ argmin_{u ∈ M_d} ||u − v||
+
+Projected value:
+V_M^d(a) =
+E_{s ~ P_d}[ Proj_{M_d}(V_d(s, a)) ]
+
+Objective function (axiological instantiation):
+
+J_d(a) =
+E_{s ~ P_d}[ Proj_{M_d}(V_d(s,a)) ]
+− C_d(a)
+− λ_S · E_{s ~ P_d}[ R_d(s,a) ]
+− λ_M · D_d( E_{s ~ P_d}[Proj_{M_d}(V_d(s,a))] )
+
+Note:
+J_d is a domain-instantiated realization of the Level 3 axiological functional J.
+
+--------------------------------------------------
+
+5. DOMAIN CONSISTENCY CONDITIONS
+
+A valid domain theory must satisfy:
+
+(D1) Measurability of all mappings
+(D2) Non-empty feasibility: Ω_d(s) ≠ ∅ ∀ s
+(D3) Projection well-defined (existence of minimizer)
+(D4) Finite objective: J_d(a) < ∞
+(D5) Structural invariance with Level 6
+
+--------------------------------------------------
+
+6. DOMAIN SPECIALIZATION TYPES
+
+Domains instantiate SMG by assigning meanings to S, M, G:
+
+(1) Artificial Intelligence
+- S: system stability, constraint satisfaction
+- M: alignment, objective correctness
+- G: reward / performance
+Insight: Optimization without alignment ⇒ unsafe behavior
+
+(2) Economic Systems
+- S: solvency, risk exposure
+- M: legal/institutional constraints
+- G: profit, growth
+Insight: Markets optimize efficiency, not externalities
+
+(3) Cognitive Systems
+- S: physical/mental stability
+- M: identity, beliefs, coherence
+- G: reward, satisfaction
+Insight: Identity constrains perceived value
+
+(4) Social / Political Systems
+- S: stability, regime survival
+- M: ideology, legitimacy
+- G: power, influence
+Insight: Cohesion ↑ ⇒ conflict ↑
+
+(5) Biological Systems
+- S: survival, homeostasis
+- M: genetic constraints
+- G: reproduction, energy efficiency
+Insight: Evolution optimizes reproduction, not well-being
+
+--------------------------------------------------
+
+7. IDENTIFIABILITY
+
+A domain theory is identifiable if:
+
+D₁ ≠ D₂ ⇒
+Law_{P_d} (G(a), R(a), D(a)) differs
+
+Ensures:
+- empirical distinguishability
+- falsifiability
+
+--------------------------------------------------
+
+8. DOMAIN TRANSFORMATIONS
+
+Define:
+
+𝒯_d : 𝒟 → 𝒟
+
+Such that:
+- preserves SMG structure
+- allows reparameterization
+
+Examples:
+- scaling transformations
+- coordinate changes
+- unit normalization
+
+--------------------------------------------------
+
+9. RELATION TO LEVEL 8
+
+Level 7 defines:
+- variables
+- constraints
+- value structure
+
+Level 8 defines:
+- policies
+- decisions
+- execution dynamics
+
+--------------------------------------------------
+
+10. LIMITATIONS
+
+Level 7 excludes:
+- policy optimization
+- sequential decision-making
+- learning/adaptation
+- execution
+
+--------------------------------------------------
+
+11. DOMAIN THEORY SPACE
+
+𝒟 := set of all valid domain theories
+
+Properties:
+- non-empty
+- structured by Level 6 equivalence
+- empirically testable
+
+--------------------------------------------------
+
+12. INTERPRETATION
+
+At Level 7:
+
+- Survival → domain-specific feasibility constraint
+- Meaning → domain-specific admissibility constraint
+- Gain → domain-specific objective
+
+Motivation becomes:
+
+Context-dependent constrained optimization
+
+--------------------------------------------------
+
+13. CORE LAW (LEVEL 7)
+
+A motivation system becomes operationally meaningful
+only when its variables, constraints, and value functions
+are fully specified within a domain.
+
+--------------------------------------------------
+
+14. FINAL SYNTHESIS
+
+Level 7 is the bridge:
+
+Framework (Level 6) → Domain Theory (Level 7) → Execution (Level 8)
+
+All real systems—AI, economies, cognition, societies, biology—
+are domain-specific instantiations of the same SMG structure.
+
+--------------------------------------------------
+END — LEVEL 7 (DOMAIN THEORIES)
+--------------------------------------------------

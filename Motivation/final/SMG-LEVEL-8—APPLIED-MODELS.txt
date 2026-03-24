@@ -1,0 +1,284 @@
+--------------------------------------------------
+SURVIVAL–MEANING–GAIN (SMG) SYSTEM
+LEVEL 8 — APPLIED MODELS (EXECUTION)
+Final Canonical Version (10/10 Rigor — Fully Revised)
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Date: March 24, 2026
+--------------------------------------------------
+
+1. ROLE OF LEVEL 8
+
+Level 8 defines the execution layer of the SMG system.
+
+Function:
+- Operationalize domain theories into sequential decision processes
+- Realize behavior via policy-driven action selection
+- Implement closed-loop constrained control
+
+Output:
+- Executable policy π_t
+- Action sequence {a_t}
+- State trajectory {X_t}
+
+Constraint:
+- Must respect Level 7 structural specification
+- Must obey Level 4 regulatory constraints
+- Must maintain feasibility and identity consistency
+
+--------------------------------------------------
+
+2. INPUT FROM LEVEL 7
+
+Given domain theory:
+
+D := (S, A, Ω, V, M, P, C, R, D_M, Θ)
+
+Where:
+- Θ = (λ_S(t), λ_M(t), τ_S(t))
+- P is a stochastic kernel or belief model
+
+--------------------------------------------------
+
+3. EXECUTION STATE
+
+Define augmented state:
+
+X_t := (S_t, M_t, P_t, λ_S(t), λ_M(t), τ_S(t))
+
+Where:
+- S_t ∈ S
+- M_t ⊆ V (closed, non-empty)
+- P_t ∈ 𝒫(S)
+- λ_S(t), λ_M(t) ∈ [λ_min, λ_max]
+- τ_S(t) ∈ [0,1]
+
+--------------------------------------------------
+
+4. FEASIBLE ACTION SET
+
+Define survival-feasible correspondence:
+
+Ω_S(X_t) := { a ∈ Ω(S_t) | R(S_t, a) ≤ τ_S(t) }
+
+Assume:
+- Ω(S_t) is non-empty and compact
+- R(S_t, a) is lower semicontinuous in a
+
+⇒ Ω_S(X_t) is non-empty and compact (when feasible)
+
+Fallback rule:
+If Ω_S(X_t) = ∅:
+    a_t := argmin_{a ∈ Ω(S_t)} R(S_t, a)
+
+--------------------------------------------------
+
+5. VALUE CONSTRUCTION
+
+5.1 Projection Operator
+
+Proj_{M_t}(v) ∈ argmin_{u ∈ M_t} ||u − v||
+
+Assume:
+- V is a Hilbert space OR M_t is closed and convex
+⇒ projection exists
+⇒ measurable selector exists
+
+--------------------------------------------------
+
+5.2 Meaning-Projected Value
+
+V_M(a) := E_{s ~ P_t}[ Proj_{M_t}(V(s,a)) ]
+
+--------------------------------------------------
+
+5.3 Objective Function
+
+J_t(a) := V_M(a)
+          − C(a)
+          − λ_S(t) · R(S_t,a)
+          − λ_M(t) · D_M(V_M(a))
+
+--------------------------------------------------
+
+5.4 Exploration-Augmented Objective (Optional but Recommended)
+
+J'_t(a) := J_t(a) + β_t · H(P_{t+1}(· | S_t,a))
+
+Where:
+- H(P) = −Σ P log P
+- β_t ≥ 0
+- β_t → 0, Σ β_t = ∞, Σ β_t² < ∞
+
+--------------------------------------------------
+
+6. VALUE FUNCTION AND POLICY
+
+6.1 Bellman Operator
+
+Define:
+
+(TV)(X_t) := sup_{a ∈ Ω_S(X_t)} [ J_t(a) + γ E[V(X_{t+1})] ]
+
+Assume:
+- γ ∈ (0,1)
+- J_t bounded
+- Ω_S(X_t) compact
+
+⇒ T is a contraction
+
+--------------------------------------------------
+
+6.2 Existence and Uniqueness
+
+⇒ There exists a unique V* such that:
+
+V* = T V*
+
+--------------------------------------------------
+
+6.3 Optimal Policy
+
+Define:
+
+π_t(X_t) ∈ argmax_{a ∈ Ω_S(X_t)} Q_t(X_t,a)
+
+Where:
+
+Q_t(X_t,a) = J_t(a) + γ E[V*(X_{t+1})]
+
+Assume:
+- Q_t measurable
+- Ω_S measurable
+
+⇒ measurable selector π_t exists
+
+--------------------------------------------------
+
+7. SYSTEM DYNAMICS
+
+Closed-loop evolution:
+
+X_{t+1} ~ P_X(· | X_t, a_t)
+
+Execution pipeline:
+
+1. Observe X_t
+2. Construct Ω_S(X_t)
+3. Compute J_t(a) (or J'_t)
+4. Select:
+   a_t = π_t(X_t)
+5. Transition:
+   S_{t+1} ~ P(·|S_t,a_t)
+6. Update:
+   - P_{t+1}
+   - M_{t+1}
+   - λ_S(t+1), λ_M(t+1), τ_S(t+1)
+
+--------------------------------------------------
+
+8. IDENTITY DYNAMICS
+
+Identity evolves via:
+
+M_{t+1} = g(M_t, S_{t+1})
+
+Assume:
+- g is measurable
+- d_H(M_{t+1}, M_t) ≤ δ (bounded drift)
+
+⇒ identity evolves smoothly
+
+Coupling:
+- large deviation D_M ⇒ λ_M increases (Level 4)
+⇒ feedback stabilizes identity
+
+--------------------------------------------------
+
+9. EXECUTION PROPERTIES
+
+(E1) Closed-loop control:
+X_{t+1} depends on (X_t, a_t)
+
+(E2) Constraint enforcement:
+- Survival via Ω_S
+- Meaning via λ_M penalty
+
+(E3) Time consistency:
+Bellman recursion holds
+
+(E4) Adaptivity:
+λ_S(t), λ_M(t), τ_S(t) evolve via Level 4
+
+(E5) Exploration:
+Ensures asymptotic optimality under uncertainty
+
+--------------------------------------------------
+
+10. REGIMES
+
+- Survival-dominant: λ_S >> λ_M
+- Meaning-dominant: λ_M >> λ_S
+- Gain-dominant: λ_S, λ_M → λ_min
+- Balanced: λ_S, λ_M > 0
+
+--------------------------------------------------
+
+11. FAILURE MODES
+
+(F1) Feasibility collapse:
+Ω_S(X_t) = ∅ frequently
+
+(F2) Identity drift:
+d_H(M_t, M_ref) → large
+
+(F3) Policy degeneracy:
+insufficient exploration
+
+(F4) Instability:
+feedback loops amplify error
+
+--------------------------------------------------
+
+12. EXECUTIONAL CLOSURE
+
+Define:
+
+𝒠_SMG := (X_t, π_t, Ω_S, J_t, P_X)
+
+This fully specifies:
+- dynamics
+- decision rule
+- constraint enforcement
+- adaptation
+
+--------------------------------------------------
+
+13. RELATION TO OTHER LEVELS
+
+Level 7 → defines system
+Level 8 → executes decisions
+Level 9 → produces real-world impact
+
+--------------------------------------------------
+
+14. CORE LAW (LEVEL 8)
+
+Behavior = Optimal policy under dynamically regulated constraints
+
+--------------------------------------------------
+
+15. FINAL SYNTHESIS
+
+At Level 8:
+
+- Survival → real-time feasibility
+- Meaning → identity-consistent projection
+- Gain → optimization objective
+
+Motivation becomes:
+
+A dynamically executed, identity-constrained, survival-bounded control policy.
+
+--------------------------------------------------
+END — LEVEL 8 (EXECUTION)
+--------------------------------------------------

@@ -1,0 +1,229 @@
+SURVIVAL–MEANING–GAIN OPERATIONAL MODEL (SMG-OM)
+An Applied Decision System for Constrained Motivation Execution
+
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Date: March 24, 2026
+
+--------------------------------------------------
+1. PURPOSE
+
+The SMG-OM operationalizes the SMG theory into a real-time sequential decision system.
+
+Core Question:
+“What is the optimal action given state, uncertainty, identity, and constraints?”
+
+The system selects actions by jointly optimizing:
+- Survival (viability)
+- Meaning (identity coherence)
+- Gain (value maximization)
+
+--------------------------------------------------
+2. SYSTEM STATE
+
+At time t, the system is defined by:
+
+- State: S_t ∈ S
+- Belief: P_t(s), a probability distribution over S (partial observability)
+- Identity Model: M_t ⊂ V, the identity-consistent value manifold
+- Constraint Weights: λ_S(t), λ_M(t) ≥ 0
+- Action Space: Ω(S_t)
+
+State transition:
+S_{t+1} ~ P(· | S_t, a_t)
+
+--------------------------------------------------
+3. SURVIVAL FEASIBILITY
+
+Define survival-feasible action set:
+
+Ω_S(S_t) = { a ∈ Ω(S_t) | Risk_S(a) ≤ τ_S(t) }
+
+Where:
+- Risk_S(a) = 1 − P(Survival_{t+1} | S_t, a)
+- τ_S(t): maximum tolerable survival risk
+
+Fallback rule:
+If Ω_S(S_t) = ∅:
+    a_t = argmin_{a ∈ Ω(S_t)} Risk_S(a)
+
+All optimization is restricted to Ω_S(S_t) unless fallback is triggered.
+
+--------------------------------------------------
+4. VALUE CONSTRUCTION
+
+Raw value:
+V_raw(s, a)
+
+Meaning-projected value:
+V_M(a) = E_{s ~ P_t} [ Proj_{M_t}(V_raw(s, a)) ]
+
+Projection operator:
+Proj_{M_t}(V) = argmin_{v ∈ M_t} || v − V ||
+
+Where:
+- M_t is the identity-consistent value manifold
+- ||·|| is a norm (e.g., L2 or information-theoretic metric)
+
+Interpretation:
+M_t encodes admissible values under identity constraints.
+
+--------------------------------------------------
+5. OBJECTIVE FUNCTION
+
+Immediate objective:
+
+J(a) =
+    V_M(a)
+    − C(a)
+    − λ_S(t) · Risk_S(a)
+    − λ_M(t) · Deviation_M(a)
+
+Where:
+- C(a): resource cost function
+- V_identity ∈ M_t: reference identity-consistent value
+- Deviation_M(a) = D(V_M(a), V_identity)
+- D(·,·): divergence metric (e.g., L2, KL, entropy-based)
+
+--------------------------------------------------
+6. VALUE FUNCTION (BELLMAN FORM)
+
+Define optimal value function:
+
+V*(S_t) =
+    max_{a ∈ Ω_S(S_t)} [
+        J(a)
+        + γ · E_{S_{t+1} ~ P(· | S_t, a)} [ V*(S_{t+1}) ]
+    ]
+
+Where:
+- γ ∈ (0,1): temporal discount factor
+
+--------------------------------------------------
+7. POLICY
+
+Define action-value function:
+
+Q(S_t, a) =
+    J(a)
+    + γ · E_{S_{t+1} ~ P(· | S_t, a)} [ V*(S_{t+1}) ]
+
+Optimal policy:
+
+π_t(S_t, M_t) =
+    argmax_{a ∈ Ω_S(S_t)} Q(S_t, a)
+
+--------------------------------------------------
+8. OPERATIONAL PIPELINE
+
+Step 1 — Feasibility Filter:
+    Construct Ω_S(S_t)
+
+Step 2 — Value Projection:
+    Compute V_M(a)
+
+Step 3 — Penalty Computation:
+    Compute Risk_S(a), Deviation_M(a)
+
+Step 4 — Objective Evaluation:
+    Compute J(a)
+
+Step 5 — Optimization:
+    Select optimal action a_t* via π_t
+
+--------------------------------------------------
+9. EXECUTION
+
+Execute optimal action a_t*
+
+Observe next state:
+S_{t+1}
+
+--------------------------------------------------
+10. ADAPTIVE UPDATE LOOP
+
+Belief Update (Bayesian):
+P_{t+1} = Bayes(P_t, a_t*, S_{t+1})
+
+Identity Update:
+M_{t+1} = g(M_t, S_{t+1})
+
+Constraint Adaptation:
+λ_S(t+1) = f_S(observed survival risk, uncertainty)
+λ_M(t+1) = f_M(observed identity deviation, context)
+
+--------------------------------------------------
+11. EXPLORATION EXTENSION (OPTIONAL)
+
+Augmented objective:
+
+J'(a) = J(a) + β · H(P_{t+1}(· | S_t, a))
+
+Where:
+- H(P) = − Σ_s P(s) log P(s)
+- β ≥ 0: exploration coefficient
+
+--------------------------------------------------
+12. RUNTIME REGIMES
+
+Survival-Dominant:
+λ_S >> λ_M → conservative behavior
+
+Meaning-Dominant:
+λ_M >> λ_S → identity rigidity
+
+Gain-Dominant:
+λ_S, λ_M → 0 → unstable optimization
+
+Balanced Regime:
+λ_S, λ_M > 0 → adaptive optimal behavior
+
+--------------------------------------------------
+13. FAILURE HANDLING
+
+If Risk_S(a) → 1:
+    increase λ_S
+
+If Deviation_M(a) is high:
+    increase λ_M
+
+If stagnation detected:
+    decrease dominant constraint weight
+
+If collapse risk detected:
+    restrict Ω(S_t)
+
+--------------------------------------------------
+14. SYSTEM PROPERTIES
+
+- Closed-loop adaptive system
+- Constrained stochastic optimal control
+- Identity-projected value space
+- Time-consistent (Bellman recursion)
+- Trade-off balancing (Survival–Meaning–Gain)
+- Guaranteed action existence if Ω(S_t) is compact
+
+--------------------------------------------------
+15. OUTPUT
+
+At each time step, the system produces:
+
+- Optimal action: a_t*
+- Value estimate: V*(S_t)
+- Updated belief: P_{t+1}
+- Updated identity: M_{t+1}
+- Updated constraints: λ_S(t+1), λ_M(t+1)
+
+--------------------------------------------------
+16. INTERPRETATION
+
+The SMG-OM is a general-purpose decision engine where:
+
+- Survival defines feasibility
+- Meaning defines admissibility
+- Gain drives optimization
+
+Motivation emerges as the policy of a constrained, identity-consistent, survival-bounded optimization process.
+
+--------------------------------------------------
+END OF MODEL
+--------------------------------------------------

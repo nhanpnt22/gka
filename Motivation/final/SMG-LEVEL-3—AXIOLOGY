@@ -1,0 +1,280 @@
+--------------------------------------------------
+SURVIVAL–MEANING–GAIN (SMG) SYSTEM
+LEVEL 3 — AXIOLOGY (VALUE)
+Final Canonical Version
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Date: March 24, 2026
+--------------------------------------------------
+
+1. AXIOLOGICAL ROLE
+
+This level defines value as an evaluative structure imposed on epistemic representations.
+
+Function:
+- Introduce ordering over epistemic objects
+- Define preference, comparison, and trade-offs
+- Formalize Survival, Meaning, and Gain as evaluative functionals
+
+Output:
+- A partially ordered multi-objective value space
+- A scalar objective functional J
+- A complete preference relation over admissible actions
+
+Constraint:
+- No temporal dynamics
+- No policies or execution
+- No learning or adaptation
+- No recursive evaluation (no Bellman structure)
+
+--------------------------------------------------
+2. INPUT FROM EPISTEMOLOGY
+
+Given epistemic configuration:
+    K = (b, Ω̂, V̂_raw, R̂isk_S, D̂eviation_M, M̂, Ĉ)
+
+Where:
+- b ∈ 𝒫(S)
+- Ω̂ : S ⇉ A is measurable with non-empty values
+- V̂_raw : S × A → V is measurable
+- R̂isk_S : S × A → ℝ_{≥0} is measurable
+- D̂eviation_M : V → ℝ_{≥0} is measurable
+- M̂ ⊆ V is non-empty, closed
+- Ĉ : A → ℝ_{≥0} is measurable
+
+Define the belief-supported action domain:
+    A_b := { a ∈ A | b({ s ∈ S : a ∈ Ω̂(s) }) > 0 }
+
+All evaluation is defined on A_b.
+
+--------------------------------------------------
+3. VALUE SPACE AND ORDER
+
+3.1 Multi-Objective Evaluation
+
+Define:
+    Φ : A_b → ℝ³
+
+    Φ(a) :=
+        ( G(a),
+         −R_S(a),
+         −D_M(a) )
+
+--------------------------------------------------
+3.2 Pareto Order
+
+Define:
+    a₁ ≽_P a₂  ⇔  Φ(a₁) ≥ Φ(a₂) component-wise
+
+This induces:
+- Pareto dominance
+- A partial (incomplete) order on A_b
+
+--------------------------------------------------
+3.3 Scalarization
+
+Let:
+    U : V → ℝ
+
+be a measurable functional such that:
+    U(V̂_raw(s,a)) is integrable under b for all a ∈ A_b.
+
+--------------------------------------------------
+4. CORE EVALUATIVE FUNCTIONALS
+
+4.1 Gain
+
+    G : A_b → ℝ
+
+    G(a) :=
+        E_{s ~ b}[ U(V̂_raw(s, a)) ]
+
+--------------------------------------------------
+4.2 Survival
+
+    R_S : A_b → ℝ_{≥0}
+
+    R_S(a) :=
+        E_{s ~ b}[ R̂isk_S(s, a) ]
+
+--------------------------------------------------
+4.3 Meaning
+
+Assume:
+    Proĵ_M : V ⇉ M̂ admits a measurable selector.
+
+Let:
+    v_M(s, a) :=
+        Proĵ_M( V̂_raw(s, a) )
+
+Define projected value:
+    V̂_M(a) :=
+        E_{s ~ b}[ v_M(s, a) ]
+
+Reference selection:
+    Let ψ : 2^V → V be measurable with ψ(M̂) ∈ M̂.
+
+    V̂_ref := ψ(M̂)
+
+Deviation:
+    D_M : A_b → ℝ_{≥0}
+
+    D_M(a) :=
+        D( V̂_M(a), V̂_ref )
+
+Where:
+    D : V × V → ℝ_{≥0}
+is a measurable divergence satisfying:
+    D(v,v) = 0,   D ≥ 0
+
+--------------------------------------------------
+5. SCALARIZED SMG OBJECTIVE
+
+Define:
+    J : A_b → ℝ
+
+    J(a) :=
+        G(a)
+        − λ_S · R_S(a)
+        − λ_M · D_M(a)
+        − Ĉ(a)
+
+Where:
+    λ_S, λ_M ∈ [0, ∞)
+
+Then:
+    J induces a complete preorder on A_b.
+
+--------------------------------------------------
+6. PREFERENCE STRUCTURE
+
+Weak preference:
+    a₁ ≽ a₂  ⇔  J(a₁) ≥ J(a₂)
+
+Strict preference:
+    a₁ ≻ a₂  ⇔  J(a₁) > J(a₂)
+
+Indifference:
+    a₁ ~ a₂  ⇔  J(a₁) = J(a₂)
+
+--------------------------------------------------
+7. FEASIBILITY–EVALUATION INTERACTION
+
+Define:
+    Ω̂_S(b) :=
+        { a ∈ A_b | R_S(a) ≤ τ_S }
+
+Evaluation domain:
+
+- If Ω̂_S(b) ≠ ∅:
+      restrict all comparisons to Ω̂_S(b)
+
+- If Ω̂_S(b) = ∅:
+      define fallback preorder:
+          a₁ ≽ a₂  ⇔  R_S(a₁) ≤ R_S(a₂)
+
+This defines ordering only (no selection rule).
+
+--------------------------------------------------
+8. TRADE-OFF STRUCTURE
+
+The system encodes irreducible trade-offs:
+
+- Gain vs Survival:
+      Increasing G(a) typically increases R_S(a)
+
+- Gain vs Meaning:
+      Increasing G(a) may increase D_M(a)
+
+- Meaning vs Survival:
+      Reducing D_M(a) may increase R_S(a)
+
+Thus:
+    No globally dominant action exists in general.
+
+--------------------------------------------------
+9. WELL-POSEDNESS CONDITIONS
+
+Assume:
+
+(A1) Measurability:
+- All primitives are measurable
+- Proĵ_M admits measurable selection
+- J is measurable on A_b
+
+(A2) Integrability:
+- G(a), R_S(a), D_M(a), Ĉ(a) are finite ∀ a ∈ A_b
+
+(A3) Non-emptiness:
+- A_b ≠ ∅
+
+(A4) Parameter bounds:
+- λ_S, λ_M ∈ [0, ∞)
+
+Optional strengthening:
+- Continuity of J
+- Convexity of Φ(A_b)
+
+--------------------------------------------------
+10. AXIOLOGICAL CLOSURE
+
+The axiological system is fully specified by:
+
+    𝒜_SMG :=
+    (A_b, Φ, U, R_S, D_M, Ĉ, λ_S, λ_M, τ_S, J)
+
+This defines:
+- evaluation domain
+- multi-objective structure
+- scalarization mechanism
+- induced preference relation
+
+--------------------------------------------------
+11. LIMITATIONS OF LEVEL 3
+
+Not defined at this level:
+- Policies π
+- Time index t
+- State transitions
+- Belief updates
+- Learning or adaptation
+- Bellman recursion
+- Convergence or stability
+
+Thus:
+    Level 3 defines evaluation,
+    not decision or dynamics.
+
+--------------------------------------------------
+12. TRANSITION TO LEVEL 4
+
+Level 4 introduces:
+- Time-dependent weights λ_S(t), λ_M(t)
+- Feedback and regulation dynamics
+- Stability and constraint adaptation
+
+Level 3 provides the static functional J
+that is dynamically regulated.
+
+--------------------------------------------------
+13. INTERPRETATION
+
+At Level 3:
+
+- Survival → penalty on expected risk
+- Meaning → penalty on identity deviation
+- Gain → expected scalarized value
+
+These combine into:
+    J(a)
+
+Thus:
+
+    Level 2 → representation  
+    Level 3 → evaluation  
+    Level 4+ → regulation and action  
+
+Motivation emerges only once dynamics are introduced.
+
+--------------------------------------------------
+END — LEVEL 3 (AXIOLOGY)
+--------------------------------------------------

@@ -1,0 +1,275 @@
+--------------------------------------------------
+LEVEL 13.3 — MULTI-AGENT / GAME-THEORETIC SYSTEMS
+Interactive Evolution and Strategic Control (Canonical)
+--------------------------------------------------
+
+0. PURPOSE
+
+Extend Levels 13–13.2 to systems with multiple agents
+whose policies interact through shared dynamics.
+
+Establish that:
+
+- selection generalizes to equilibrium selection
+- control generalizes to strategic optimization
+- evolution emerges from interacting adaptive agents
+
+--------------------------------------------------
+
+1. MULTI-AGENT WORLD
+
+A multi-agent world is:
+
+ω = (X, ℬ(X), {A_i}_{i=1}^N, Φ, ℛ)
+
+Where:
+
+X        := measurable state space
+ℬ(X)     := σ-algebra on X
+A_i      := measurable action space of agent i
+A        := ∏_{i=1}^N A_i (joint action space)
+Φ        := transition kernel:
+            Φ: X × A × ℬ(X) → [0,1]
+ℛ ⊂ X    := non-empty measurable feasible region
+
+State evolution:
+
+X_{t+1} ~ Φ(X_t, a_t^1, ..., a_t^N)
+
+--------------------------------------------------
+
+2. POLICIES
+
+Each agent i has a measurable policy:
+
+π_i: X → Δ(A_i)
+
+Joint policy:
+
+π(a|x) = ∏_{i=1}^N π_i(a_i | x)
+
+Induced transition:
+
+Φ^π(x, B) := ∫_A Φ(x, a, B) π(da | x)
+
+--------------------------------------------------
+
+3. OBJECTIVES
+
+Each agent i has bounded measurable reward:
+
+r_i: X × A → ℝ
+
+For γ ∈ (0,1), define:
+
+V_i^{π}(x) :=
+E_x^{π} [ Σ_{t=0}^∞ γ^t r_i(X_t, a_t) ]
+
+Each agent solves:
+
+sup_{π_i} V_i^{(π_i, π_{-i})}(x)
+
+--------------------------------------------------
+
+4. ENTROPY REGULARIZATION
+
+Define:
+
+H(π_i(·|x)) := - ∫_{A_i} log π_i(a_i|x) π_i(da_i|x)
+
+For τ > 0:
+
+V_{i,τ}^{π}(x) :=
+E_x^{π} [
+Σ_{t=0}^∞ γ^t ( r_i(X_t,a_t) + τ H(π_i(·|X_t)) )
+]
+
+--------------------------------------------------
+
+5. ASSUMPTIONS (EXISTENCE)
+
+Assume:
+
+- each A_i is compact or σ-finite
+- r_i bounded measurable
+- Φ measurable in (x,a)
+- policies measurable
+
+Then:
+
+- best responses exist
+- mixed-strategy equilibria exist under standard conditions
+
+--------------------------------------------------
+
+6. EQUILIBRIUM (SOFT NASH)
+
+A policy profile π* = (π_1*, ..., π_N*) is a
+(soft) Nash equilibrium if:
+
+∀ i:
+
+π_i* ∈ argmax_{π_i} V_{i,τ}^{(π_i, π_{-i}*)}(x)
+
+--------------------------------------------------
+
+7. ENTROPY-REGULARIZED BEST RESPONSE
+
+Define:
+
+Q_i^{π}(x,a) :=
+r_i(x,a) + γ E_{x'} V_i^{π}(x')
+
+Under entropy regularization, best responses satisfy:
+
+π_i*(a_i|x) ∝ exp(
+E_{a_{-i} ~ π_{-i}*} [ Q_i^{π*}(x,a_i,a_{-i}) ] / τ
+)
+
+provided integrability and measurability conditions hold.
+
+--------------------------------------------------
+
+8. COUPLED FIXED POINT
+
+Equilibrium is a fixed point of the coupled system:
+
+π_i ↔ Q_i ↔ V_i ↔ Φ^π
+
+Thus:
+
+policies, values, and induced dynamics are jointly determined.
+
+--------------------------------------------------
+
+9. VIABILITY CONSTRAINTS
+
+Define the viability kernel:
+
+𝒱 := { x ∈ X : ∃ π such that
+P_x^{π}( X_t ∈ ℛ ∀ t ≥ 0 ) > 0 }
+
+Admissible equilibria must satisfy:
+
+P_x^{π*}( X_t ∈ ℛ ∀ t ≥ 0 ) > 0
+
+Thus:
+
+equilibrium behavior is constrained by survival feasibility.
+
+--------------------------------------------------
+
+10. TRAJECTORY FORMULATION
+
+Let P^{π} denote the trajectory measure induced by π.
+
+In general-sum games:
+
+- each agent induces its own tilted objective
+- no single global exponential representation is required
+
+In aligned or potential settings (∃ Φ_potential):
+
+dP^{π} ∝ exp(
+Σ_{t=0}^∞ γ^t Φ_potential(X_t,a_t) / τ
+)
+
+Thus:
+
+joint exponential tilting holds in structured cases.
+
+--------------------------------------------------
+
+11. SELECTION AS EQUILIBRIUM
+
+Level 13:
+
+selection = ordering over states
+
+Level 13.3:
+
+selection = equilibrium over interacting strategies
+
+Thus:
+
+only mutually consistent policies persist.
+
+--------------------------------------------------
+
+12. META-SELECTION (STRATEGY LEVEL)
+
+Let Π be the space of policy profiles.
+
+Define:
+
+Π_eq := { π : π is equilibrium }
+
+Under adaptive or learning dynamics:
+
+- equilibria are fixed points
+- stable equilibria are candidates for persistence
+
+Thus:
+
+selection operates over strategies via dynamics.
+
+--------------------------------------------------
+
+13. EMERGENT STRUCTURE
+
+From interaction and equilibrium:
+
+- stable configurations (equilibria)
+- cycles and non-stationarity
+- specialization and niches
+- cooperation and coalition formation
+- competitive exclusion
+
+These emerge from Φ^π, not imposed externally.
+
+--------------------------------------------------
+
+14. UNIFIED VIEW
+
+- Level 13: selection on states
+- Level 13.1: selection on distributions
+- Level 13.2: control over trajectories
+- Level 13.3: equilibrium over interacting policies
+
+All governed by:
+
+probability ∝ exp(objective / τ)
+
+(at appropriate structural level)
+
+--------------------------------------------------
+
+15. CORE LAW (INTERACTION FORM)
+
+At equilibrium:
+
+π_i*(a_i|x) ∝ exp( expected Q_i*(x,a_i,·) / τ )
+
+and jointly induce dynamics consistent with:
+
+- strategic optimality
+- entropy regularization
+- viability constraints
+
+--------------------------------------------------
+
+16. CONCLUSION
+
+In multi-agent systems:
+
+evolution = equilibrium selection under interaction
+
+Thus:
+
+evolution = selection + control + interaction
+
+in constrained stochastic dynamical systems.
+
+--------------------------------------------------
+END — LEVEL 13.3
+--------------------------------------------------
