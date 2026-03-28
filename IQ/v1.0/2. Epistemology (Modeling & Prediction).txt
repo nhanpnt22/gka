@@ -1,0 +1,235 @@
+2. EPISTEMOLOGY (MODELING & PREDICTION — PROBABILISTIC, ADAPTIVE)
+------------------------------------------------------------------
+
+Model Set:
+M = {m_i}, with weights w_i,t
+
+Each model:
+P_i(Y | Ŝ_t, a, ĉ_t, θ_i)
+
+--------------------------------------------------
+
+Ensemble Prediction:
+
+P(Y | Ŝ_t, a) = Σ_i w_i,t · P_i(Y | Ŝ_t, a, ĉ_t, θ_i)
+
+Constraint:
+∑_i w_i,t = 1
+
+--------------------------------------------------
+
+Loss Function (Survival-Aligned):
+
+loss_i,t = L(Y_t, Ŷ_i,t, ĉ_t)
+
+Properties:
+- asymmetric:
+  underestimation of downside risk penalized more than overestimation
+- constraint-aware:
+  violations or underestimation of ĉ_t incur disproportionately large loss
+
+Implication:
+models that ignore tail risk or constraints decay faster
+
+--------------------------------------------------
+
+Weight Update:
+
+w_i,t+1 ∝ w_i,t · exp(−loss_i,t)
+
+Normalization:
+∑_i w_i,t+1 = 1
+
+--------------------------------------------------
+
+Effective Diversity (Correlation-Aware):
+
+N_eff,t = 1 / Σ_i w_i,t^2
+
+Constraint:
+If N_eff,t ↓ (due to correlation or dominance):
+→ reduce confidence
+→ increase exploration
+→ expand model set M
+
+--------------------------------------------------
+
+Uncertainty Representation:
+
+U_t = U_epistemic,t + U_aleatoric,t
+
+Where:
+
+U_epistemic,t:
+- model uncertainty (M, w_i,t, θ_i)
+- state uncertainty (Ŝ_t, ĉ_t)
+
+U_aleatoric,t:
+- irreducible randomness from P_real,t
+
+--------------------------------------------------
+
+Epistemic Limit (Critical):
+
+U_t ≥ U_min > 0
+
+Sources:
+- latent variables (z_t unobserved)
+- state error (Ŝ_t ≠ S_t)
+- observation distortion (O_t ≠ S_t)
+- model incompleteness
+- adversarial effects
+
+Implication:
+perfect prediction is impossible
+
+--------------------------------------------------
+
+Calibration & Error:
+
+Prediction Error:
+ε_t = Y_t − Ŷ_t
+
+Calibration Condition:
+E[predicted] ≈ E[realized]
+
+Calibration Error:
+ε_cal,t tracks deviation over time
+
+--------------------------------------------------
+
+Error Attribution (Defensive Order):
+
+When ε_t ↑:
+
+1. assume state error (Ŝ_t invalid or incomplete)
+2. then model misspecification
+3. then regime shift (P_real,t changed)
+
+Action:
+→ increase uncertainty U_t first
+→ delay structural changes unless persistence confirmed
+
+--------------------------------------------------
+
+Confidence (Decision Interface):
+
+c_t = f(U_t, ε_cal,t, model disagreement, N_eff,t)
+
+Monotonicity:
+c_t ↓ as:
+- U_t ↑
+- ε_cal,t ↑
+- model disagreement ↑
+- N_eff,t ↓
+
+Upper Bound:
+c_t ≤ f(observation quality, state reliability, regime stability)
+
+Role:
+c_t → input to action sizing (Level 4)
+
+--------------------------------------------------
+
+Model Disagreement:
+
+D_t = dispersion across {P_i}
+
+Use:
+- proxy for epistemic uncertainty
+- trigger for exploration when high
+
+--------------------------------------------------
+
+Endogeneity (Embedded):
+
+Models must account for action-dependent dynamics:
+
+a_t influences:
+- future state S_{t+k}
+- inferred state Ŝ_{t+k}
+- constraints C_{t+k}, ĉ_{t+k}
+- model validity
+
+Implication:
+P_i must be conditional on action path assumptions
+
+--------------------------------------------------
+
+Model Risk (Explicit):
+
+Sources:
+- latent variable error (z_t unobserved)
+- state error (Ŝ_t misspecified)
+- observation bias (O_t distorted)
+- non-stationarity (model decay)
+- endogeneity (post-action invalidation)
+- constraint misestimation (ĉ_t ≠ C_t)
+
+Asymmetry:
+underestimation of constraints >> overestimation
+
+Implication:
+uncertainty and risk are structurally underestimated
+
+--------------------------------------------------
+
+Model Set Limitation (Critical):
+
+∄ m_i ∈ M such that:
+P_i = P_real,t
+
+All models:
+- incomplete
+- temporary
+- regime-dependent
+
+--------------------------------------------------
+
+Adaptive Update:
+
+Trigger:
+- persistent ε_t
+- calibration drift (ε_cal,t ↑)
+- model disagreement ↑
+- N_eff,t ↓
+
+Actions:
+→ update weights w_i,t
+→ update parameters θ_i
+→ expand / replace model set M
+→ request state revision (Level 1)
+
+Constraint:
+adaptation speed ≥ instability × exposure
+else:
+→ reduce exposure
+
+--------------------------------------------------
+
+Output:
+
+- predictive distribution:
+  P(Y | Ŝ_t, a)
+
+- uncertainty:
+  U_t = (U_epistemic,t, U_aleatoric,t)
+
+- model weights:
+  {w_i,t}
+
+--------------------------------------------------
+
+Diagnostics:
+
+- prediction error ε_t
+- calibration error ε_cal,t
+- model disagreement D_t
+- effective diversity N_eff,t
+- confidence level c_t
+
+--------------------------------------------------
+
+One-Line Essence:
+
+A multi-model, probabilistic prediction system that operates on an imperfect state representation, maintains diversity under correlated failure, adapts under error and regime change, and produces calibrated forecasts with explicitly bounded confidence under irreducible uncertainty and structural model incompleteness.

@@ -1,0 +1,3 @@
+ONE-LINE ESSENCE
+
+A survival-first, multi-level system operating under partial observability, endogeneity, delay, and irreducible uncertainty—controlling risk, preventing irreversible loss, and adapting via probabilistic modeling and feedback, while ensuring exposure never exceeds validated understanding.

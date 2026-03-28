@@ -1,0 +1,120 @@
+Reality Alignment Loop (RAL)
+===========================
+
+Definition
+----------
+Reality Alignment Loop (RAL) is a minimal, self-correcting decision system that aligns beliefs, decisions, and problem framing with reality through a closed loop of probabilistic prediction, action, observation, and error-driven adaptation.
+
+A system qualifies as RAL only if, over sufficient time horizons, predictive accuracy and real-world outcomes measurably improve.
+
+--------------------------------------------------
+
+Core Mechanism (Irreducible Loop)
+--------------------------------
+
+Predict → Act → Observe → Update
+
+Predict:
+- State expected outcomes with explicit probabilities
+
+Act:
+- Choose action via:
+  - Protect (limit downside)
+  - Explore (reduce uncertainty)
+  - Exploit (maximize expected value)
+
+Observe:
+- Record actual real-world outcomes
+- Use proxy metrics only if explicitly defined and validated against real outcomes
+
+Update:
+- Compare prediction vs outcome to compute error
+- Adjust models and problem framing based on error
+
+If any step is skipped:
+→ learning fails
+→ misalignment compounds
+
+--------------------------------------------------
+
+Core Properties
+---------------
+
+1. Reality as Final Authority
+- Truth is determined only by observable outcomes
+- Beliefs without predictive performance have zero authority
+
+2. Error-Driven Learning
+- Learning occurs only through prediction–outcome mismatch
+- Persistent error forces revision or removal of models
+
+3. Probabilistic Structure
+- All predictions are probabilistic
+- Uncertainty is explicit and updated over time
+
+4. Self-Correcting Dynamics
+- Models are continuously reweighted by predictive accuracy
+- Inaccurate models lose influence; accurate models gain influence
+
+5. Adaptive Framing
+- Objectives, variables, constraints, and assumptions are continuously tested
+- Persistent mismatch triggers reframing of the problem
+
+6. Adaptive Action Selection
+- High downside → Protect
+- High uncertainty or rising error → Explore
+- Stable accuracy → Exploit
+
+7. Model Competition
+- Multiple models compete implicitly
+- Survival is determined by predictive performance over time
+
+--------------------------------------------------
+
+System Behavior
+---------------
+
+RAL makes error unstable and accuracy self-reinforcing:
+
+- Inaccurate models → poor predictions → error → reduced influence → correction
+- Accurate models → better predictions → increased influence → reinforcement
+
+Sustained misalignment becomes structurally unstable and is forced to correct or collapse.
+
+--------------------------------------------------
+
+Validity Conditions (Strict)
+---------------------------
+
+RAL is valid only if, over time:
+
+1. Predictive accuracy improves
+2. Real-world outcomes improve (not just proxies)
+3. Adaptation measurably responds to new information and change
+
+If not:
+- The system is misapplied
+- Or mismeasured
+- Or operating under insufficient/low-quality feedback
+
+--------------------------------------------------
+
+Explicit Limits
+---------------
+
+RAL does not guarantee:
+- Immediate correctness
+- Immunity to noisy, delayed, or manipulated feedback
+- Stability under extreme uncertainty
+
+Performance must be evaluated over sufficient time horizons.
+
+It guarantees only:
+- Progressive alignment with reality given sufficient feedback, iteration, and time
+
+--------------------------------------------------
+
+One-Line Essence
+---------------
+
+RAL is a closed-loop system that uses probabilistic prediction and error feedback to continuously enforce alignment between thinking and reality.

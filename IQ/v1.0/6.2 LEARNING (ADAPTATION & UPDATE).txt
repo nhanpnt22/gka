@@ -1,0 +1,135 @@
+6.2 LEARNING (ADAPTATION & UPDATE)
+------------------------------------------------------------------
+
+Function:
+- converts prediction error and weighted observations into system updates
+- adjusts models, state estimates, and strategies under uncertainty, delay, and distortion
+
+--------------------------------------------------
+
+Inputs:
+
+- weighted observations: Õ_t
+- latent outcome (partially observed): Y_t
+- predictive distribution: P(Y | Ŝ_t, a_t)
+- prior state: Ŝ_t
+- model set: M = {m_i}, weights w_i,t
+- uncertainty: U_t
+- diagnostics: ε_t, ε_cal,t, D_t, N_eff,t
+
+--------------------------------------------------
+
+Error Definition:
+
+Prediction error:
+ε_t = Y_t − Ŷ_t
+
+Where:
+- Ŷ_t = E[Y | Ŝ_t, a_t]
+- Y_t is inferred through Õ_t (not directly observed)
+
+--------------------------------------------------
+
+Error Properties:
+
+- noisy, delayed, and filtered (via Õ_t)
+- ambiguous source:
+ • state error (Ŝ_t ≠ S_t)
+ • model misspecification
+ • regime shift (P_real,t change)
+ • observation distortion (Õ_t bias)
+
+Implication:
+- error attribution is fundamentally uncertain → updates must be conservative
+
+--------------------------------------------------
+
+Update Targets:
+
+1. Model Weights:
+- update w_i,t based on survival-aligned loss:
+ w_i,t+1 ∝ w_i,t · exp(−loss_i,t)
+
+2. Model Parameters:
+- adjust θ_i to improve calibration and robustness
+
+3. State Estimate:
+- update Ŝ_t using Õ_t and model-consistent inference
+
+4. Strategies / Policies:
+- adjust decision rules (Level 4) only under persistent, validated error
+
+--------------------------------------------------
+
+Update Rules:
+
+1. Conservative Adaptation:
+- avoid overfitting to recent or noisy error
+- require persistence and cross-signal confirmation before structural change
+
+2. Persistent Error Response:
+If ε_t remains large and consistent:
+→ reduce confidence c_t  
+→ increase uncertainty U_t  
+→ reweight or replace models  
+→ increase exploration (Level 4)  
+
+3. Exposure Constraint:
+- d(exposure)/dt ≤ learning rate
+
+Implication:
+- exposure growth is bounded by validated learning speed
+
+--------------------------------------------------
+
+Uncertainty Update:
+
+- increase U_epistemic,t when:
+ • model disagreement D_t ↑
+ • sustained error ε_t ↑
+ • calibration error ε_cal,t ↑
+ • observation reliability ↓
+
+- propagate:
+ U_t → directly constrains confidence c_t and action size
+
+--------------------------------------------------
+
+Failure Modes:
+
+- overreaction to noise (overfitting Õ_t)
+- underreaction to regime shift (adaptation lag)
+- incorrect error attribution (state vs model vs observation)
+- model convergence (N_eff,t ↓ → correlated failure risk)
+
+--------------------------------------------------
+
+Stability Constraint:
+
+adaptation speed ≥ environment change × exposure  
+else:
+→ enforce exposure reduction
+
+--------------------------------------------------
+
+Output:
+
+- updated model set: M, w_i,t+1, θ_i
+- updated state estimate: Ŝ_{t+1}
+- updated uncertainty: U_{t+1}
+- updated diagnostics: ε_t, ε_cal,t, D_t, N_eff,t
+
+--------------------------------------------------
+
+Interface to System:
+
+- feeds back into:
+ • Level 1 (state reconstruction)
+ • Level 2 (modeling)
+ • Level 4 (decision via updated c_t, U_t)
+
+--------------------------------------------------
+
+One-Line Essence:
+
+Learning updates models, state, and strategy using noisy, delayed, and partially observed error signals—constraining adaptation by uncertainty and exposure while preventing overreaction to noise and underreaction to structural change.

@@ -1,0 +1,121 @@
+3. VALUE & OBJECTIVE (HIERARCHICAL, SURVIVAL-CONSTRAINED — FINAL)
+------------------------------------------------------------------
+
+Objective:
+Select action a_t to maximize long-term system viability and performance:
+max_a J(a | Ŝ_t, ĉ_t)
+
+--------------------------------------------------
+
+Hierarchical Constraints (Strict Priority):
+
+1. Survival (Hard Constraint):
+P(irreversible loss within horizon H | Ŝ_t, ĉ_t, a) < δ
+
+Definition:
+- irreversible loss = state where recovery to viable operation is infeasible under constraints ĉ_t
+- includes delay-induced irreversibility:
+ if Δt_feedback > Δt_recovery → treat action as irreversible
+
+--------------------------------------------------
+
+2. Constraint Respect (Hard Constraint, Non-Terminal):
+P(non-recoverable constraint violation | Ŝ_t, ĉ_t, a) < ε_c
+
+Where:
+- constraints defined by ĉ_t (risk, liquidity, irreversibility, delay, resources)
+
+--------------------------------------------------
+
+Feasible Set:
+
+A_safe = {a : satisfies (1) and (2)}
+
+All subsequent objectives are evaluated only over A_safe.
+
+--------------------------------------------------
+
+Second-Order Objectives (Within Feasible Set):
+
+3. Optionality Preservation:
+maximize Ω(a)
+
+Where:
+Ω(a) = E[ |A_{t+1}| | S_{t+1} ~ P(· | Ŝ_t, a), ĉ_{t+1} ]
+
+--------------------------------------------------
+
+4. Learning (Information Gain):
+maximize IG(a)
+
+Where:
+IG(a) = E[ U_epistemic,t − U_epistemic,t+1 | a ]
+
+--------------------------------------------------
+
+5. Risk-Adjusted Optimization:
+maximize E_{P(Y | Ŝ_t, a)}[Y] − λ · Risk(a)
+
+--------------------------------------------------
+
+Full Objective (Operational Form):
+
+max_{a ∈ A_safe} E_{P(Y | Ŝ_t, a)}[Y]
+
+with preference ordering (within A_safe):
+- higher Ω(a)
+- higher IG(a)
+- lower Risk(a)
+
+--------------------------------------------------
+
+Uncertainty Integration:
+
+All evaluations conditioned on:
+P(Y | Ŝ_t, a), U_t
+
+Implications:
+- high U_t → shrink effective differentiation between actions
+- high U_t → penalize aggressive or irreversible actions
+
+--------------------------------------------------
+
+Confidence Adjustment (Ranking Only):
+
+J_eff(a) = c_t · E[Y | Ŝ_t, a] − (1 − c_t) · DownsideRisk(a)
+
+Where:
+c_t = f(U_t, ε_cal,t, disagreement, N_eff,t)
+
+Role:
+- used only to rank actions within A_safe
+- cannot override feasibility or hierarchy
+
+--------------------------------------------------
+
+Endogeneity Awareness:
+
+a_t → (S_{t+k}, C_{t+k}) → A_safe,t+k
+
+--------------------------------------------------
+
+Robustness Requirement:
+
+min_{P ∈ U(Ŝ_t, U_t)} E_P[Y | a] ≥ τ
+
+Constraint:
+- robustness cannot admit actions that violate (1) or (2)
+- τ reflects minimum acceptable performance under worst-case plausible model
+
+--------------------------------------------------
+
+Output:
+
+- feasible action set: A_safe
+- ranked actions within set: J(a), J_eff(a)
+
+--------------------------------------------------
+
+One-Line Essence:
+
+A survival-first objective system that restricts actions to a probabilistically safe set under uncertain and evolving constraints, then optimizes value, optionality, and learning within that set—while ranking actions by confidence-adjusted outcomes and enforcing robustness under model and state uncertainty.

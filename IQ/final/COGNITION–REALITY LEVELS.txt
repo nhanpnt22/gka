@@ -1,0 +1,161 @@
+COGNITION–REALITY LEVELS (Optimized v2.2)
+=========================================
+
+0. Generative Reality
+Function:
+- underlying process generating all states and change
+
+Output:
+- conditions and constraints of reality
+
+--------------------------------------------------
+
+1. Ontology (State Space)
+Function:
+- defines what exists and the minimal sufficient variables required for decision-making
+
+Output:
+- structured state representation
+
+--------------------------------------------------
+
+2. Epistemology (Modeling & Prediction)
+Function:
+- builds representations of reality (models)
+- generates explicit, probabilistic predictions
+
+Includes:
+- beliefs
+- hypotheses
+- competing models
+- uncertainty representation
+
+Output:
+- predictive models
+- testable expectations (with probabilities)
+
+--------------------------------------------------
+
+3. Value & Objective (Selection)
+Function:
+- defines goals and what matters
+- selects outcomes to optimize
+
+Output:
+- objective functions aligned with real-world outcomes
+
+--------------------------------------------------
+
+4. Decision & Control (Policy)
+Function:
+- selects actions under:
+  - uncertainty
+  - constraints
+  - time horizons
+
+Includes:
+- protect (limit downside)
+- explore (reduce uncertainty)
+- exploit (maximize expected value)
+- irreversibility handling
+- action sizing (based on confidence, evidence, risk)
+
+Output:
+- chosen actions
+
+--------------------------------------------------
+
+5. Execution & Interaction
+Function:
+- executes actions in real environments
+- interacts with systems and agents (including adversarial actors)
+
+Output:
+- real-world effects and consequences
+
+--------------------------------------------------
+
+6. Feedback & Adaptation (Learning Loop)
+Function:
+- converts real-world outcomes into system improvement
+
+--------------------------------------------------
+
+6.1 Observation (Reality Capture)
+- record actual outcomes
+- validate proxy vs real outcomes
+- assign confidence weights:
+  - source reliability
+  - manipulation risk
+
+Output:
+- weighted observations
+
+--------------------------------------------------
+
+6.2 Learning (Error Correction)
+- compute prediction vs outcome error
+- update:
+  - models
+  - probabilities
+  - strategies
+  - problem framing
+
+Rule:
+- persistent error → model replacement + increased exploration
+
+Output:
+- updated system components
+
+--------------------------------------------------
+
+6.3 Meta-Learning (System Regulation)
+- evaluate over time:
+  - calibration (confidence vs reality)
+  - model performance trends
+  - signal quality
+  - adaptation speed
+
+- detect:
+  - regime shifts
+  - metric failure
+  - structural breakdown
+
+Actions:
+→ reduce confidence  
+→ increase exploration  
+→ reassess assumptions  
+
+Output:
+- system-level adjustments
+
+--------------------------------------------------
+
+Final Output:
+- improved system aligned with reality over time
+
+--------------------------------------------------
+
+SYSTEM DYNAMICS
+---------------
+
+Forward Flow:
+0 → 1 → 2 → 3 → 4 → 5 → 6
+
+Core Loop Mapping:
+State (1) → Model & Predict (2) → Decide (4) → Act (5) → Observe & Update (6)
+
+Recursive Adaptation:
+6 → 1 (state redefined)  
+6 → 2 (models updated)  
+6 → 3 (objectives refined)  
+
+Closed System:
+continuous, recursive alignment with reality over time
+
+--------------------------------------------------
+
+ONE-LINE ESSENCE
+----------------
+
+A multi-level system that transforms reality into decisions and continuously corrects itself through prediction, action, feedback, and adaptation.

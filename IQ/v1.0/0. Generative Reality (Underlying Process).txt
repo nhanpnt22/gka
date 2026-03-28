@@ -1,0 +1,101 @@
+0. GENERATIVE REALITY (GROUND TRUTH PROCESS — FINAL, STRICT FORM)
+------------------------------------------------------------------
+
+State–Outcome Transition:
+(S_{t+1}, Y_t) ~ P_real,t(· | S_t, a_t, C_t)
+
+Constraints (True, Unobserved):
+C_t = C(S_t, a_t)
+
+Observation Process:
+O_t ~ g_t(· | S_t, Y_{t-k}, a_{t-k})
+
+--------------------------------------------------
+
+Where:
+
+P_real,t:
+- unknown, non-stationary, action-dependent generative process
+
+C_t:
+- true constraints (risk, liquidity, irreversibility, delay, resources)
+
+Y_t:
+- realized outcome(s) of interest (jointly generated with state transition)
+
+g_t:
+- observation function (partial, noisy, delayed, manipulable)
+
+--------------------------------------------------
+
+Core Properties:
+
+1. Partial Observability:
+S_t = (x_t, z_t)
+- x_t: observed components
+- z_t: latent components
+
+2. Non-Stationarity (Regime Dynamics):
+P_real,t ≠ P_real,t+1
+- structural change with unobservable timing
+
+3. Endogeneity (Action Feedback):
+a_t → P_real,t+k
+a_t → C_{t+k}
+
+4. Observation Distortion & Delay:
+O_t ≠ (S_t, Y_t)
+- observations are partial, noisy, delayed, and manipulable
+- outcome signal propagates with delay:
+  Y_t → O_{t+k}
+
+5. State Aliasing:
+g_t(S_t^(1)) ≈ g_t(S_t^(2))
+- distinct states may induce indistinguishable observations
+
+6. Heavy-Tailed & Non-Ergodic Risk:
+- outcomes dominated by rare, high-impact events
+- time averages ≠ ensemble averages
+
+7. Path Dependence & Irreversibility:
+S_{t+1} ∈ ℛ(S_t, a_t, C_t)
+- reachable states constrained by prior transitions and constraints
+
+8. Constraint Evolution & Activation:
+C_{t+k} = C(S_{t+k}, a_{t+k})
+- constraints evolve endogenously and may bind nonlinearly and abruptly
+
+9. Delayed & Asymmetric Feedback:
+Δt_impact < Δt_feedback
+- actions can cause damage before feedback is observed
+
+10. Structural Uncertainty (Irreducible):
+∄ P̂ such that P̂ = P_real,t
+- exact representation of the true process is impossible
+
+--------------------------------------------------
+
+Survival-Critical Implications:
+
+- S_t, C_t, and risk are systematically underestimated
+- O_t is not ground truth and may mislead inference
+- Y_t is only indirectly observed with delay and distortion
+- P_real,t is non-stationary → model validity is temporary
+- learning lags impact → actions can exceed understanding
+- constraint violations are nonlinear and potentially irreversible
+
+--------------------------------------------------
+
+Output (Interface to Higher Levels):
+
+- latent state: S_t
+- outcomes: Y_t
+- observations: O_t
+- true constraints: C_t
+- structural signals: regime shifts, instability, constraint activation
+
+--------------------------------------------------
+
+One-Line Essence:
+
+An unknown, non-stationary, and action-dependent generative process produces states, constraints, and outcomes that are only partially and delay-distorted through observations—under heavy-tailed risk, irreversible dynamics, and endogenously evolving constraints—making exact representation impossible and enforcing persistent uncertainty.

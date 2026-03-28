@@ -1,0 +1,79 @@
+5. EXECUTION & INTERACTION (ENVIRONMENTAL INTERFACE)
+------------------------------------------------------------------
+
+Function:
+- implements actions within a dynamic, partially observable, and adversarial environment
+- maps decisions (a_t) to realized transitions under P_real,t
+
+--------------------------------------------------
+
+Execution Mapping:
+
+(S_{t+1}, Y_t, C_{t+1}) ~ P_real,t(· | S_t, a_t, C_t)
+
+Note:
+- execution depends on true (unobserved) state S_t and constraints C_t
+- Ŝ_t, ĉ_t only inform a_t, not realized outcomes
+
+--------------------------------------------------
+
+Environment Characteristics:
+
+- adaptive agents: other actors update strategies in response to a_t
+- adversarial behavior: manipulation, competition, strategic response
+- second-order effects: indirect consequences via feedback loops
+- endogenous instability: actions may amplify volatility or trigger constraint activation
+
+--------------------------------------------------
+
+Execution Risks:
+
+- implementation error: a_t ≠ executed action
+- slippage / friction: costs, delays, liquidity impact
+- model–reality gap: Ŝ_t, ĉ_t ≠ S_t, C_t
+- coordination failure: multi-agent misalignment
+- hidden constraint activation: C_t binds nonlinearly and unexpectedly
+
+--------------------------------------------------
+
+Control Constraints:
+
+- global exposure ≤ risk budget
+- execution size and speed constrained by:
+ • environment capacity (liquidity, bandwidth)
+ • feedback delay (Δt_feedback)
+ • system stability
+
+- d(exposure)/dt ≤ learning rate
+- avoid concentration that increases correlation, fragility, or systemic risk
+
+--------------------------------------------------
+
+Endogeneity Awareness (Critical):
+
+a_t impacts:
+- future state S_{t+k}
+- constraint evolution C_{t+k}
+- behavior of other agents
+- stability of P_real,t
+
+Implication:
+- execution must account for feedback effects, not just immediate outcomes
+
+--------------------------------------------------
+
+Output:
+
+- realized next state: S_{t+1}
+- latent outcome: Y_t
+- updated constraints: C_{t+1}
+- interaction signals:
+ • agent responses
+ • slippage / execution quality
+ • instability / stress indicators
+
+--------------------------------------------------
+
+One-Line Essence:
+
+Execution maps actions into outcomes within an adaptive, adversarial, and constraint-driven environment—where results depend on latent state and feedback dynamics, making implementation itself a source of risk, endogeneity, and instability.

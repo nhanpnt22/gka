@@ -1,0 +1,296 @@
+COGNITION–REALITY SYSTEM (FINAL — UNIFIED, SURVIVAL-FIRST, HARDENED, RESOURCE-AWARE)
+
+A closed-loop adaptive system for decision-making under uncertainty, delay, endogeneity, and adversarial dynamics—designed to preserve survival, maintain optionality, and compound performance under enforceable constraints, bounded by adaptation and resource capacity.
+
+--------------------------------------------------
+
+0. GENERATIVE REALITY (GROUND TRUTH PROCESS)
+
+(S_{t+1}, Y_t) ~ P_real,t(· | S_t, a_t, C_t)
+O_t ~ g_t(· | S_t, Y_{t-k}, a_{t-k})
+
+Properties:
+- Partial observability: O_t ≠ S_t
+- Non-stationarity: P_real,t ≠ P_real,t+1
+- Endogeneity: a_t → S_{t+k}, C_{t+k}
+- Heavy-tailed, path-dependent, non-ergodic with irreversible transitions
+- Constraints evolve, drift, and bind nonlinearly
+
+Implication:
+Reality is unknown, shifting, and indirectly observed → uncertainty is irreducible and persistent
+
+--------------------------------------------------
+
+1. ONTOLOGY (STATE REPRESENTATION)
+
+Ŝ_t = {x_t, ẑ_t, ĉ_t, h_t}
+
+Properties:
+- Biased, lossy reconstruction
+- Latent risk and constraints systematically underestimated
+- Path-dependent and action-dependent
+
+Operational Rule (Hard):
+If state confidence ↓ or instability ↑
+→ reduce exposure AND reduce complexity
+
+--------------------------------------------------
+
+2. EPISTEMOLOGY (MODELING & PREDICTION)
+
+P(Y | Ŝ_t, a) = Σ w_i,t · P_i(Y | Ŝ_t, a)
+
+- Multi-model ensemble (no dominance)
+- Weights updated via survival-aligned loss
+- Effective diversity monitored via N_eff
+
+Uncertainty:
+U_t = U_epistemic + U_aleatoric, U_t ≥ U_min > 0
+
+Confidence:
+c_t = f(U_t, ε_cal,t, D_t, N_eff,t)
+
+Model Invalidity Trigger (Hard):
+If persistent:
+- calibration error ↑
+- disagreement ↑
+- early warning active
+→ force PROTECT + reset / replace model set
+
+Causal Sanity Constraint (New — Minimal):
+If action a materially changes system dynamics (endogeneity high):
+→ treat P(Y | Ŝ_t, a) as unreliable proxy for intervention effect
+→ reduce exposure OR increase exploration
+→ do not assume correlation = causation
+
+Implication:
+All models are temporary → calibration over accuracy
+
+--------------------------------------------------
+
+3. VALUE & OBJECTIVE (HIERARCHICAL, ENFORCED)
+
+Hard Constraints:
+
+Survival:
+P(irreversible loss within H_t | a) < δ
+
+Constraint Feasibility:
+E_t · L_worst ≤ Buffer_t
+
+Correlation Stress:
+All actions must remain feasible under ρ → 1
+
+Feasible Set:
+A_safe = {a: satisfies all constraints}
+
+Within A_safe:
+- maximize optionality Ω(a)
+- maximize learning IG(a)
+- maximize E[Y | Ŝ_t, a] − λ · Risk(a)
+
+Ranking:
+J_eff(a) = c_t · E[Y] − (1 − c_t) · DownsideRisk(a)
+
+Notes:
+- H_t adapts to uncertainty
+- Optimization strictly within A_safe
+
+--------------------------------------------------
+
+4. DECISION & CONTROL (POLICY)
+
+Modes:
+- PROTECT
+- EXPLORE
+- EXPLOIT
+
+Survival Gate:
+
+Reject actions if:
+- irreversible loss risk
+- delay dominance: Δt_feedback > Δt_damage
+- hidden / latent exposure
+- systemic / correlation amplification
+- constraint violation probability
+- destabilizing endogeneity
+
+Sizing Rule:
+E_t ∝ c_t · evidence · stability
+
+Constraints:
+- E_t ≤ E_max
+- dE_t/dt ≤ k · d(validated knowledge)/dt
+- U_t ↑ ⇒ E_t ↓
+
+Complexity Coupling:
+If Comp_t → Comp_budget
+→ cap or reduce exposure
+
+--------------------------------------------------
+
+5. EXECUTION & INTERACTION
+
+(S_{t+1}, Y_t, C_{t+1}) ~ P_real,t
+
+Environment:
+- adaptive, adversarial agents
+- second-order, reflexive effects
+
+Endogeneity:
+a_t → behavior_others → P_real,t+1
+
+Risks:
+- slippage, delay
+- hidden constraint activation
+- crowding and decay
+
+--------------------------------------------------
+
+6. FEEDBACK & ADAPTATION
+
+6.1 Observation:
+Õ_t = W(O_{1:t})
+
+Weighted by:
+- reliability
+- manipulation risk
+- delay
+
+6.2 Learning:
+ε_t = Y_t − Ŷ_t
+
+Updates:
+- models, weights, parameters
+- state estimate
+- uncertainty
+
+Rule:
+Persistent error →
+- confidence ↓
+- uncertainty ↑
+- exploration ↑
+
+6.3 Meta-Learning:
+
+Escalate if:
+- ε_cal,t ↑ for k periods
+- N_eff,t ↓
+- disagreement ↑
+
+Actions:
+- reduce exposure
+- reset confidence
+- restructure Ŝ_t, M, J
+- enforce PROTECT
+
+6.4 Early Warning:
+
+Monitor:
+- volatility spikes
+- correlation spikes
+- trend breaks
+- proxy divergence
+- constraint tightening
+
+Rule:
+Act before confirmation
+
+--------------------------------------------------
+
+XII. COMPLEXITY & RESOURCE CONSTRAINT (HARD)
+
+Definition:
+
+Comp_t = f(|M|, dim(Ŝ_t), update latency, decision latency)
+
+Resource State (New):
+R_t = {compute, memory, latency, time_budget}
+
+Constraints:
+
+Comp_t ≤ Comp_budget
+All operations must satisfy R_t
+
+Critical Condition:
+
+decision latency < Δt_critical_response
+
+Failure Mode:
+
+If:
+- latency ≥ critical threshold
+OR
+- complexity reduces adaptation speed
+OR
+- resource limits bind
+
+THEN:
+→ treat as survival risk
+→ force PROTECT
+→ reduce |M|
+→ compress Ŝ_t
+→ reduce update frequency
+→ prioritize speed over accuracy
+
+Dynamic Rule:
+
+If instability ↑ or uncertainty ↑:
+→ Comp_budget ↓
+→ effective R_t tightens
+
+If stable + validated:
+→ Comp_budget ↑ (bounded)
+
+Principle (Hard):
+
+Complexity must scale slower than:
+- adaptation capacity
+- resource capacity
+
+--------------------------------------------------
+
+FINAL OUTPUT (SYSTEM OBJECTIVE)
+
+A system that:
+- survives under uncertainty, delay, irreversible risk
+- enforces strict survival and constraint bounds
+- preserves optionality and flexibility
+- learns under noisy, delayed feedback
+- improves calibration and risk-adjusted outcomes
+- scales exposure only with validated understanding
+- detects instability early and reacts preemptively
+- remains robust to model error and regime shifts
+
+--------------------------------------------------
+
+SYSTEM DYNAMICS
+
+Forward Flow:
+0 → 1 → 2 → 3 → 4 → 5 → 6
+
+Core Loop:
+Ŝ_t → Predict → Decide → Act → Observe → Update → Ŝ_{t+1}
+
+Recursive Adaptation:
+6 → state, models, objectives, policy
+
+--------------------------------------------------
+
+STABILITY CONSTRAINT (ENFORCED)
+
+adaptation speed ≥ environment change × exposure
+
+AND
+
+complexity ≤ adaptation capacity
+complexity ≤ resource capacity
+
+Else:
+→ mandatory exposure reduction + complexity reduction
+
+--------------------------------------------------
+
+ONE-LINE ESSENCE
+
+A survival-first adaptive system under partial observability, delay, endogeneity, and irreducible uncertainty—enforcing strict survival constraints, while ensuring both exposure and system complexity remain bounded by validated understanding, adaptation capacity, and real-world resource limits.

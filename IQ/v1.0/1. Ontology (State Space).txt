@@ -1,0 +1,134 @@
+1. ONTOLOGY (STATE REPRESENTATION — DEFENSIVE, FILTERED)
+------------------------------------------------------------------
+
+Constructed State:
+Ŝ_t = {x_t, ẑ_t, ĉ_t, h_t}
+
+State Construction (Filtering / Inference):
+Ŝ_t = f_t(· | O_{1:t}, a_{1:t-1}, M_f)
+
+--------------------------------------------------
+
+Where:
+
+x_t:
+- observed variables (directly extracted from O_t)
+
+ẑ_t:
+- inferred latent variables (hidden state proxies)
+
+ĉ_t:
+- inferred constraints (risk, liquidity, irreversibility, delay, resources)
+
+h_t:
+- compressed history (path dependence, regime context)
+
+M_f:
+- filtering model/class (defines inference assumptions and structure)
+
+f_t:
+- filtering / inference operator under noise, delay, distortion, and model assumptions
+
+--------------------------------------------------
+
+Information Structure (Inherited from Level 0):
+
+- O_t ~ g_t(· | S_t, Y_{t-k}, a_{t-k})
+- S_t, C_t, Y_t are not directly observable
+- observations are partial, noisy, delayed, and manipulable
+
+Implication:
+Ŝ_t is a lossy, biased reconstruction of S_t
+
+--------------------------------------------------
+
+Requirements:
+
+1. Approximate Sufficiency:
+P(Y | Ŝ_t, a) ≈ P(Y | history, a)
+
+2. Minimality:
+dim(Ŝ_t) minimized subject to sufficiency
+
+3. Defensive Completeness:
+Ŝ_t must include:
+- latent risk proxies (ẑ_t)
+- constraint proxies (ĉ_t)
+
+4. Validity (Temporal):
+Ŝ_t valid only while predictive performance holds
+
+--------------------------------------------------
+
+Structural Properties:
+
+1. Partial Observability:
+ẑ_t ≠ z_t
+
+2. Constraint Misestimation:
+ĉ_t ≠ C_t
+
+3. State Aliasing:
+g_t(S_t^(1)) ≈ g_t(S_t^(2)) ⇒ Ŝ_t^(1) ≈ Ŝ_t^(2)
+
+4. Path Dependence:
+Ŝ_t = f_t(Ŝ_{t-1}, a_{t-1}, O_t | M_f)
+
+5. Endogeneity:
+a_t → S_{t+k} → Ŝ_{t+k}
+
+6. Filtering Error Persistence:
+errors in Ŝ_t propagate via delay, distortion, and model bias
+
+--------------------------------------------------
+
+Uncertainty in State:
+
+U_state,t = U(ẑ_t) + U(ĉ_t)
+
+Properties:
+- reducible but never eliminated
+- increases under:
+  - observation noise / distortion
+  - delay (k ↑)
+  - regime instability
+  - adversarial manipulation
+
+Lower Bound:
+U_state,t ≥ U_state,min > 0
+(due to partial observability, delay, aliasing, and structural uncertainty)
+
+--------------------------------------------------
+
+Failure Modes:
+
+- missing latent risk (ẑ_t incomplete)
+- constraint underestimation (ĉ_t << C_t)
+- overcompression of history (h_t insufficient)
+- proxy drift (features lose meaning)
+- regime shift invalidates f_t
+
+--------------------------------------------------
+
+Operational Rule (Critical):
+
+If Ŝ_t is incomplete, unstable, or low-confidence:
+→ reduce action size
+→ do NOT increase model complexity
+
+--------------------------------------------------
+
+Interface to Level 2:
+
+(Ŝ_t, ĉ_t) → P_i(Y | Ŝ_t, a, ĉ_t)
+
+Carries forward:
+- state uncertainty U_state,t
+- observation distortion bias
+- constraint estimation error
+
+--------------------------------------------------
+
+One-Line Essence:
+
+A filtered, model-dependent, and biased reconstruction of the latent state—built from delayed and distorted observations—designed to be minimally sufficient for prediction while defensively capturing hidden risk and constraints under irreducible uncertainty.

@@ -1,0 +1,137 @@
+6.3 META-LEARNING (SYSTEM-LEVEL ADAPTATION & GOVERNANCE)
+------------------------------------------------------------------
+
+Function:
+- evaluates performance of the entire system across time
+- detects structural breakdowns beyond local model or state errors
+- governs global adjustments to state representation, models, objectives, and policy
+
+--------------------------------------------------
+
+Inputs:
+
+- prediction diagnostics: ε_t, ε_cal,t
+- uncertainty: U_t
+- model metrics: D_t (disagreement), N_eff,t (effective diversity)
+- performance history: realized Y_{1:t}, drawdowns, recovery speed
+- state estimates: Ŝ_t
+- weighted observations: Õ_t
+- execution diagnostics (Level 5)
+
+--------------------------------------------------
+
+Evaluation Dimensions:
+
+1. Calibration:
+- alignment between predicted and realized distributions
+- stability of ε_cal,t over time
+
+2. Performance Trends:
+- cumulative outcomes vs expectations
+- drawdowns, volatility, and recovery dynamics
+
+3. Adaptation Speed:
+- responsiveness to changing conditions
+- lag between regime change and model adjustment
+
+4. Signal Integrity:
+- reliability of Õ_t
+- proxy stability (feature–outcome relationships)
+
+--------------------------------------------------
+
+Detection Layer:
+
+Identify structural issues beyond local noise:
+
+1. Regime Shift:
+- persistent ε_t
+- rising U_t and instability
+- breakdown in model calibration
+
+2. Proxy Failure:
+- divergence between Õ_t and realized outcomes
+- loss of predictive power in state variables
+
+3. Structural Instability:
+- increased volatility, correlation, or constraint activation
+- shrinking feasible action space
+
+4. Model Degeneracy:
+- N_eff,t ↓ (loss of diversity)
+- convergence to correlated failure modes
+
+--------------------------------------------------
+
+Decision Rules (System-Level):
+
+If structural deterioration detected:
+
+→ reduce confidence c_t globally  
+→ reduce total exposure  
+→ increase exploration rate  
+→ tighten risk constraints  
+
+If severe or persistent:
+
+→ reframe state representation Ŝ_t (Level 1)  
+→ expand / replace model set M (Level 2)  
+→ adjust objective priorities J(a) (Level 3)  
+→ enforce PROTECT mode (Level 4)
+
+--------------------------------------------------
+
+Adaptation Constraints:
+
+- avoid overreaction to short-term noise
+- require persistence for structural changes
+- adaptation speed ≥ environment change × exposure
+
+If violated:
+→ force exposure reduction
+
+--------------------------------------------------
+
+Global Consistency Check:
+
+Ensure alignment across levels:
+
+- state (Ŝ_t) remains predictive
+- models (M) remain calibrated
+- objectives (J) remain feasible under constraints
+- decisions (a_t) remain survival-consistent
+
+--------------------------------------------------
+
+Failure Modes:
+
+- delayed recognition of regime shift
+- overfitting meta-signals (false positives)
+- failure to escalate from local to global correction
+- persistence in invalid state/model structure
+
+--------------------------------------------------
+
+Output:
+
+- system-level corrections:
+  • updated confidence c_t
+  • adjusted exposure limits
+  • revised exploration/exploitation balance
+  • structural updates to Ŝ_t, M, J
+
+--------------------------------------------------
+
+Interface to System:
+
+- feeds back into:
+  • Level 1 (state redesign)
+  • Level 2 (model restructuring)
+  • Level 3 (objective adjustment)
+  • Level 4 (policy override)
+
+--------------------------------------------------
+
+One-Line Essence:
+
+Meta-learning monitors the entire system for structural failure—detecting regime shifts, proxy breakdowns, and instability—and enforces global corrections to maintain survival, calibration, and alignment with reality.

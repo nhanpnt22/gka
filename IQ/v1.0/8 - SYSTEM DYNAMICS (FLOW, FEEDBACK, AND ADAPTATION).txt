@@ -1,0 +1,170 @@
+SYSTEM DYNAMICS (FLOW, FEEDBACK, AND ADAPTATION)
+------------------------------------------------------------------
+
+Function:
+- defines how information, decisions, actions, and learning propagate through the system
+- ensures continuous alignment with an evolving, uncertain, and adversarial reality
+
+--------------------------------------------------
+
+Forward Flow (Causal Pipeline):
+
+0 → 1 → 2 → 3 → 4 → 5 → 6
+
+Where:
+
+0. Generative Reality:
+   produces true state S_t, outcomes Y_t, constraints C_t
+
+1. Ontology:
+   constructs Ŝ_t, ĉ_t from O_t (filtered, imperfect state)
+
+2. Epistemology:
+   generates P(Y | Ŝ_t, a), U_t (probabilistic prediction)
+
+3. Value & Objective:
+   defines A_safe and objective J(a) under constraints
+
+4. Decision & Control:
+   selects action a_t and size based on policy π
+
+5. Execution & Interaction:
+   implements a_t → realized (S_{t+1}, Y_t) under P_real,t
+
+6. Feedback & Adaptation:
+   processes O_t, Y_t → updates state, models, and policy
+
+--------------------------------------------------
+
+Core Loop (Operational Cycle):
+
+Ŝ_t → Model → Predict → Decide → Act → Observe → Update → Ŝ_{t+1}
+
+Expanded:
+
+Ŝ_t 
+→ P(Y | Ŝ_t, a), U_t 
+→ a_t ∈ A_safe 
+→ (S_{t+1}, Y_t) ~ P_real,t 
+→ O_{t+1} ~ g(·) 
+→ Õ_{t+1} → learning (ε_t, updates) 
+→ Ŝ_{t+1}
+
+--------------------------------------------------
+
+Feedback Structure:
+
+- delayed:
+  Y_t → O_{t+k}
+
+- distorted:
+  O_t ≠ S_t, Y_t
+
+- partial:
+  only subset of state observed
+
+Implication:
+- learning lags impact
+- system must act under incomplete feedback
+
+--------------------------------------------------
+
+Recursive Adaptation (Cross-Level Updates):
+
+6 → 1:
+- update state reconstruction:
+  Ŝ_t → Ŝ_{t+1}
+
+6 → 2:
+- update model set:
+  M, w_i,t, θ_i
+
+6 → 3:
+- refine objectives / constraints if persistent mismatch
+
+6 → 4:
+- adjust policy via c_t, U_t, diagnostics
+
+--------------------------------------------------
+
+Coupling & Endogeneity:
+
+a_t influences:
+
+- future state:
+  S_{t+k}
+
+- constraints:
+  C_{t+k}, ĉ_{t+k}
+
+- model validity:
+  P_real,t+k
+
+- observation structure:
+  O_{t+k}
+
+Implication:
+- decisions reshape future decision environment
+
+--------------------------------------------------
+
+Stability Constraint (Critical):
+
+adaptation speed ≥ environment change × exposure
+
+Else:
+→ model becomes invalid faster than it updates  
+→ accumulated error + exposure → system failure  
+→ must reduce exposure immediately
+
+--------------------------------------------------
+
+Flow Control Rules:
+
+- uncertainty propagation:
+  U_t flows forward into decisions and sizing
+
+- constraint propagation:
+  ĉ_t limits A_safe and action feasibility
+
+- error propagation:
+  ε_t feeds back into all upstream layers
+
+--------------------------------------------------
+
+Closed-Loop Property:
+
+The system is closed and self-correcting:
+
+- actions generate outcomes
+- outcomes generate observations
+- observations update beliefs and models
+- updated beliefs drive new actions
+
+Constraint:
+- loop operates under persistent uncertainty and delay
+
+--------------------------------------------------
+
+Failure Modes (Dynamic):
+
+- acting faster than learning (exposure > adaptation)
+- feedback delay causing irreversible loss
+- model drift under non-stationarity
+- state misestimation propagating through loop
+- endogeneity amplifying instability
+
+--------------------------------------------------
+
+Output:
+
+- evolving state: Ŝ_t
+- evolving models: M, w_i,t
+- evolving policy: π_t
+- evolving exposure and performance
+
+--------------------------------------------------
+
+One-Line Essence:
+
+A closed-loop, survival-constrained dynamic system where actions, observations, and learning continuously interact under delay, uncertainty, and endogeneity—requiring adaptation speed to match environmental change while keeping exposure within the system’s evolving understanding.

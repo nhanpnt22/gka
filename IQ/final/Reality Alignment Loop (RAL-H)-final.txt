@@ -1,0 +1,179 @@
+Reality Alignment Loop (RAL-H)
+=============================
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Final Version: March 26, 2026
+
+Definition
+----------
+Reality Alignment Loop (RAL-H) is a minimal, self-correcting decision system that aligns beliefs, decisions, and problem framing with reality through a closed loop of probabilistic prediction, action, observation, and error-driven adaptation, augmented with constraints that ensure survival, robustness, and reliability under uncertainty.
+
+A system qualifies as RAL-H only if, over sufficient time horizons:
+- Predictive accuracy improves
+- Real-world outcomes measurably improve
+- Adaptation measurably responds to new information and environmental change
+
+--------------------------------------------------
+
+Core Mechanism (Irreducible Loop)
+--------------------------------
+
+Predict → Act → Observe → Update
+
+Predict:
+- State expected outcomes with explicit probabilities
+- Maintain irreducible uncertainty (no probability = 0 or 1)
+
+Act:
+- Choose action via:
+  - Protect (limit downside)
+  - Explore (reduce uncertainty)
+  - Exploit (maximize expected value)
+- Enforce:
+  → No action with irreversible downside
+  → Action size proportional to confidence and evidence quality
+
+Observe:
+- Record actual real-world outcomes
+- Use proxy metrics only if explicitly defined and validated against real outcomes
+- Assign confidence weights to observations based on source reliability and potential manipulation
+
+Update:
+- Compare prediction vs outcome to compute error
+- Reweight models by predictive accuracy over time (calibration and outcome alignment)
+- Adjust models and problem framing based on error
+
+If any step is skipped:
+→ learning fails
+→ misalignment compounds over time
+
+--------------------------------------------------
+
+Core Properties
+---------------
+
+1. Reality as Final Authority
+- Truth is determined only by observable real-world outcomes
+- Beliefs without predictive performance have zero authority
+
+2. Error-Driven Learning
+- Learning occurs only through prediction–outcome mismatch
+- Persistent error forces revision or removal of models
+
+3. Probabilistic Structure
+- All predictions are probabilistic
+- Uncertainty is explicit, bounded, and continuously updated
+
+4. Self-Correcting Dynamics
+- Models are continuously reweighted by predictive accuracy over time
+- Inaccurate models lose influence; accurate models gain influence
+
+5. Adaptive Framing
+- Objectives, variables, constraints, and assumptions are continuously tested
+- Persistent mismatch triggers reframing of the problem
+
+6. Adaptive Action Selection
+- High downside → Protect
+- High uncertainty or rising error → Explore
+- Stable accuracy → Exploit
+
+7. Model Competition
+- Multiple models compete implicitly
+- Survival is determined by predictive performance over time
+
+--------------------------------------------------
+
+Hardening Layers (Resilience Constraints)
+----------------------------------------
+
+1. Uncertainty Floor
+- All probabilities are bounded away from 0 and 1
+
+2. Downside Constraint
+- Irreversible downside is defined as loss from which recovery is not feasible within the system’s operating time horizon
+- Actions violating this constraint are invalid
+
+3. Dual-Track Validation
+- Proxy metrics must remain aligned with real-world outcomes
+- Divergence invalidates the proxy
+
+4. Adversarial Awareness
+- Observations are weighted by reliability and potential manipulation
+- Low-confidence data reduces model update strength
+
+5. Regime Shift Detection
+- Sustained increase in error triggers:
+  → reduced model confidence
+  → increased exploration
+  → reassessment of assumptions
+
+6. Time Horizon Calibration
+- Each decision defines:
+  → evaluation window
+  → expected feedback delay
+
+7. Meta-Learning Loop
+- The system evaluates:
+  → prediction calibration
+  → metric validity
+  → feedback reliability
+  → adaptation speed and direction
+
+8. Action Size Control
+- Exposure scales with:
+  → confidence
+  → evidence quality
+  → downside risk
+
+9. Exploration Floor
+- A minimum level of exploration is always maintained to prevent stagnation
+
+--------------------------------------------------
+
+System Behavior
+---------------
+
+RAL-H makes error unstable and accuracy self-reinforcing:
+
+- Inaccurate models → poor predictions → error → reduced influence → correction
+- Accurate models → better predictions → increased influence → reinforcement
+
+Sustained misalignment becomes structurally unstable and is forced to correct or collapse.
+
+--------------------------------------------------
+
+Validity Conditions (Strict)
+---------------------------
+
+RAL-H is valid only if, over time:
+
+1. Predictive accuracy improves (calibration increases)
+2. Real-world outcomes improve (not just proxies)
+3. Adaptation measurably responds to new information and environmental change
+
+If not:
+- The system is misapplied
+- Or mismeasured
+- Or operating under insufficient or low-quality feedback
+
+--------------------------------------------------
+
+Explicit Limits
+---------------
+
+RAL-H does not guarantee:
+- Immediate correctness
+- Immunity to noisy, delayed, or adversarial feedback
+- Stability under extreme uncertainty or rare events
+
+Performance must be evaluated over sufficient time horizons to distinguish signal from noise.
+
+It guarantees only:
+- Progressive alignment with reality given sufficient feedback quality, iteration, and time
+- Survival under bounded risk constraints
+
+--------------------------------------------------
+
+One-Line Essence
+---------------
+
+RAL-H is a closed-loop system that uses probabilistic prediction, error feedback, and survival constraints to continuously enforce alignment between thinking and reality under real-world uncertainty.

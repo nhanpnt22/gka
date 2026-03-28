@@ -1,0 +1,120 @@
+6. FEEDBACK & ADAPTATION (LEARNING SYSTEM — DELAYED, DISTORTED)
+------------------------------------------------------------------
+
+Function:
+- converts latent outcomes and observed signals into system updates
+- improves state estimation, models, and decisions under delay and distortion
+- regulates adaptation under uncertainty and non-stationarity
+
+--------------------------------------------------
+
+Inputs:
+
+- latent outcome: Y_t
+- observations: O_t
+- prior predictive distribution: P(Y | Ŝ_t, a_t)
+- state: Ŝ_t
+- model outputs: P(Y | Ŝ_t, a_t), U_t
+- execution diagnostics (from Level 5)
+
+--------------------------------------------------
+
+Learning Reality:
+
+- feedback is:
+ • delayed (Y_t → O_{t+k})
+ • partial and noisy
+ • potentially manipulated (adversarial)
+
+- Y_t is not directly observed; inference relies on O_t as proxy
+
+Implication:
+- observations ≠ true state or outcome
+- learning occurs under structural uncertainty and bias
+
+--------------------------------------------------
+
+Core Loop:
+
+Observe → Evaluate → Update → Adapt
+
+--------------------------------------------------
+
+6.1 OBSERVATION (SIGNAL ACQUISITION)
+------------------------------------------------------------------
+
+Function:
+- collects and preprocesses observation signals
+- transforms raw feedback into usable inputs for learning
+
+--------------------------------------------------
+
+Inputs:
+
+- observation stream: O_t
+
+Where:
+- O_t ~ g_t(· | S_t, Y_{t-k}, a_{t-k})
+- O_t ≠ S_t, Y_t
+
+--------------------------------------------------
+
+Observation Properties:
+
+- partial: incomplete view of true state and outcome
+- noisy: corrupted by randomness and measurement error
+- delayed: feedback arrives after action impact
+- manipulable: subject to adversarial distortion
+
+--------------------------------------------------
+
+Weighting Mechanism:
+
+Each observation assigned weight w_obs based on:
+
+1. Reliability:
+- signal quality, source credibility
+
+2. Manipulation Risk:
+- likelihood of adversarial distortion
+
+3. Delay:
+- timeliness relative to decision horizon
+
+4. Consistency:
+- agreement with other signals and model predictions
+
+--------------------------------------------------
+
+Weighted Observation:
+
+Õ_t = W(O_{1:t})
+
+Where:
+- W(·) applies filtering, weighting, and aggregation
+
+- weighting error contributes to:
+ • U_state,t
+ • U_epistemic,t
+
+--------------------------------------------------
+
+Output:
+
+- weighted observations: Õ_t
+- associated reliability / confidence scores
+
+--------------------------------------------------
+
+Interface to 6.2:
+
+- Õ_t used for:
+ • error inference (ε_t)
+ • state update (Ŝ_t)
+ • model update (M, w_i,t)
+
+--------------------------------------------------
+
+One-Line Essence:
+
+Observation transforms delayed, noisy, and potentially manipulated signals into reliability-weighted inputs—recognizing that all feedback is an imperfect, biased proxy for latent outcomes and true state.

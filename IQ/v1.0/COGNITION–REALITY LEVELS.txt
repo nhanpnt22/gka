@@ -1,0 +1,331 @@
+COGNITION–REALITY LEVELS (ALIGNED — SURVIVAL-FIRST, INTERNALLY CONSISTENT)
+
+--------------------------------------------------
+
+0. GENERATIVE REALITY (GROUND TRUTH PROCESS)
+
+Function:
+- generates true states, outcomes, and constraints
+- defines the unknown causal process linking actions to consequences
+
+Structure:
+(S_{t+1}, Y_t, C_{t+1}) ~ P_real,t(· | S_t, a_t, C_t)
+O_t ~ g_t(· | S_t, Y_{t-k}, a_{t-k})
+
+Properties:
+- partial observability: O_t ≠ S_t (noisy, delayed, manipulable)
+- non-stationarity: P_real,t evolves with hidden regime shifts
+- endogeneity: a_t → S_{t+k}, C_{t+k}
+- adversarial dynamics: strategic agents distort signals
+- heavy-tailed & path-dependent: rare events dominate; irreversibility constrains transitions
+- constraint evolution: C_t changes and may bind nonlinearly
+
+Implications:
+- true state, constraints, and risk are systematically underestimated
+- observations are not ground truth
+- model validity is temporary
+- feedback delay creates risk of acting before learning
+
+Output:
+- latent state S_t, outcomes Y_t, observations O_t, constraints C_t
+
+--------------------------------------------------
+
+1. ONTOLOGY (STATE CONSTRUCTION)
+
+Function:
+- constructs decision-relevant state from imperfect observations
+
+State:
+Ŝ_t = {x_t, ẑ_t, ĉ_t, h_t}
+
+x_t: observed variables
+ẑ_t: latent proxies (biased, uncertain)
+ĉ_t: inferred constraints (risk, liquidity, irreversibility, delay, resources)
+h_t: compressed history (path dependence, regime context)
+
+Construction:
+Ŝ_t = f(O_{1:t}, a_{1:t-1})
+
+Principles:
+- approximate sufficiency: P(Y | Ŝ_t, a) ≈ P(Y | history, a)
+- minimality: dim(Ŝ_t) ↓ subject to sufficiency
+- defensive completeness: include latent risk + constraint proxies
+- validity: holds only while predictive performance is stable
+
+Properties:
+- partial observability (Ŝ_t ≠ S_t)
+- constraint misestimation (ĉ_t ≠ C_t)
+- state aliasing and compression loss
+- endogeneity: a_t → Ŝ_{t+k}
+
+Rule:
+If Ŝ_t is incomplete or unstable → reduce exposure (not increase complexity)
+
+Output:
+- decision state Ŝ_t, ĉ_t with uncertainty
+
+--------------------------------------------------
+
+2. EPISTEMOLOGY (MODEL SYSTEM)
+
+Function:
+- produces probabilistic predictions under uncertainty and instability
+
+Model Set:
+M = {m_i}, weights w_i,t
+
+P(Y | Ŝ_t, a) = Σ w_i,t · P_i(Y | Ŝ_t, a)
+
+Update:
+w_i,t+1 ∝ w_i,t · exp(−loss_i,t), Σ w_i,t = 1
+
+Constraints:
+- no single-model dominance
+- enforced diversity
+- correlated failure risk (N_eff,t < nominal)
+
+Uncertainty:
+U_t = U_epistemic + U_aleatoric
+U_t ≥ U_min > 0
+
+Calibration:
+E[predicted] ≈ E[realized]
+
+Confidence:
+c_t = f(U_t, ε_cal,t, D_t, N_eff,t)
+
+Implications:
+- models are incomplete and temporary
+- uncertainty and risk are structurally underestimated
+
+Adaptive Constraint:
+adaptation speed ≥ instability × exposure
+else → reduce exposure
+
+Output:
+- P(Y | Ŝ_t, a), U_t, {w_i,t}, diagnostics
+
+--------------------------------------------------
+
+3. VALUE & OBJECTIVE (HIERARCHICAL)
+
+Function:
+- defines survival-constrained optimization
+
+Hard Constraints:
+
+1. Survival:
+P(irreversible loss | Ŝ_t, ĉ_t, a) < δ
+
+2. Constraint Respect:
+P(non-recoverable violation | Ŝ_t, ĉ_t, a) < ε_c
+
+Feasible Set:
+A_safe = {a satisfying constraints}
+
+--------------------------------------------------
+
+Within A_safe:
+
+- maximize optionality Ω(a)
+- maximize learning IG(a)
+- maximize value E[Y | Ŝ_t, a] − λ·Risk(a)
+
+Ranking:
+J_eff(a) = c_t · E[Y | Ŝ_t, a] − (1 − c_t) · DownsideRisk(a)
+
+Rule:
+lower objectives cannot violate higher constraints
+
+Output:
+- A_safe, ranked actions
+
+--------------------------------------------------
+
+4. DECISION & CONTROL (POLICY)
+
+Function:
+- selects actions under uncertainty and constraints
+
+Policy:
+π(Ŝ_t) → a_t ∈ A_safe
+
+Modes:
+
+PROTECT:
+- high uncertainty / instability / constraint proximity
+→ minimize exposure
+
+EXPLORE:
+- disagreement or error rising
+→ small, diversified, information-seeking actions
+
+EXPLOIT:
+- stable regime, high confidence
+→ controlled optimization
+
+--------------------------------------------------
+
+Survival Gate:
+
+Reject or scale actions if:
+- irreversible loss risk
+- delay risk (Δt_feedback > Δt_recovery)
+- hidden / latent exposure
+- correlation / systemic risk
+- constraint violation
+- destabilizing endogeneity
+
+--------------------------------------------------
+
+Sizing:
+
+size(a) ∝ c_t × evidence × stability
+
+Constraints:
+- exposure ≤ risk budget
+- d(exposure)/dt ≤ learning rate
+- U_t ↑ → size ↓
+
+Output:
+- action a_t, size(a_t), exposure profile
+
+--------------------------------------------------
+
+5. EXECUTION & INTERACTION
+
+Function:
+- maps decisions into real outcomes under P_real,t
+
+(S_{t+1}, Y_t, C_{t+1}) ~ P_real,t
+
+Properties:
+- unknown, non-stationary
+- action-dependent
+- adversarial and feedback-driven
+
+Risks:
+- slippage, delay, hidden constraints
+- model–reality mismatch
+- endogenous instability
+
+Output:
+- realized state transition, outcome, constraint updates
+
+--------------------------------------------------
+
+6. FEEDBACK & ADAPTATION
+
+Function:
+- updates system under delayed, distorted feedback
+
+-------------------------
+
+6.1 Observation
+
+Õ_t = W(O_{1:t})
+
+- weighted by reliability, delay, manipulation risk
+- O_t ≠ S_t, Y_t
+
+-------------------------
+
+6.2 Learning
+
+ε_t = Y_t − Ŷ_t
+
+Updates:
+- model weights, parameters
+- state Ŝ_t
+- uncertainty U_t
+
+Rules:
+- persistent error → increase U_t, reduce c_t
+- reweight / replace models
+- increase exploration
+
+Constraint:
+adaptation speed ≥ instability × exposure
+
+-------------------------
+
+6.3 Meta-Learning
+
+Evaluate:
+- calibration
+- performance trends
+- adaptation speed
+- signal integrity
+
+Detect:
+- regime shifts
+- proxy failure
+- instability
+- model collapse
+
+Actions:
+→ reduce confidence
+→ reduce exposure
+→ increase exploration
+→ reframe Ŝ_t, M, J
+
+-------------------------
+
+6.4 Early Warning System
+
+Monitor L_t:
+- volatility shifts
+- trend breaks
+- behavioral changes
+- proxy divergence
+- constraint tightening
+
+Rule:
+deterioration → act before confirmation
+
+Response:
+- c_t ↓
+- U_t ↑
+- exposure ↓
+- shift to PROTECT / EXPLORE
+
+--------------------------------------------------
+
+FINAL OUTPUT
+
+A system that:
+- survives under uncertainty, delay, and irreversible risk
+- preserves optionality and future flexibility
+- adapts through noisy, delayed, and biased feedback
+- improves calibration and outcomes over time
+- scales exposure only with validated understanding
+- detects instability early and reacts preemptively
+
+--------------------------------------------------
+
+SYSTEM DYNAMICS
+
+Forward Flow:
+0 → 1 → 2 → 3 → 4 → 5 → 6
+
+Core Loop:
+Ŝ_t → Predict → Decide → Act → Observe → Update → Ŝ_{t+1}
+
+Recursive Adaptation:
+6 → 1 (state)
+6 → 2 (models)
+6 → 3 (objectives)
+6 → 4 (policy)
+
+Constraint:
+adaptation speed ≥ environment change × exposure
+
+Closed Loop:
+continuous survival-constrained alignment with reality
+
+--------------------------------------------------
+
+ONE-LINE ESSENCE
+
+A survival-first, multi-level adaptive system operating under partial observability, delay, endogeneity, and irreducible uncertainty—restricting actions to a safe set, controlling irreversible risk, and compounding performance through calibrated learning while ensuring exposure never exceeds validated understanding.

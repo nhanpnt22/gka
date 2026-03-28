@@ -1,0 +1,167 @@
+
+UNIFIED COGNITION–REALITY SYSTEM
+
+A minimal, self-correcting, and operational system that aligns decisions,
+models, and problem framing with reality through continuous feedback,
+while minimizing execution friction and maximizing real-world usability.
+
+Valid only if outcomes improve over time.
+
+--------------------------------------
+I. CORE LOOP (IRREDUCIBLE)
+--------------------------------------
+
+Predict → Act → Observe → Update
+
+Everything else is embedded inside this loop.
+
+If loop breaks → system fails
+
+--------------------------------------
+II. EMBEDDED STRUCTURE (IMPLICIT)
+--------------------------------------
+
+Each step contains:
+
+PREDICT:
+- define objective (implicitly)
+- assign probability
+
+ACT:
+- choose action based on:
+  protect / explore / exploit
+
+OBSERVE:
+- capture real outcome
+
+UPDATE:
+- compare prediction vs outcome
+- adjust model AND framing
+
+No separate steps required
+
+--------------------------------------
+III. DECISION LOGIC (AUTOMATIC)
+--------------------------------------
+
+IF high downside:
+   → protect
+
+ELSE IF uncertainty high OR error rising:
+   → explore
+
+ELSE:
+   → exploit
+
+--------------------------------------
+IV. SELF-CORRECTION (BUILT-IN)
+--------------------------------------
+
+Error = outcome − prediction
+
+System automatically:
+
+- reduces weight of inaccurate models
+- reinforces accurate ones
+- adjusts framing if mismatch persists
+
+No manual enforcement required
+
+--------------------------------------
+V. MODEL + FRAME EVOLUTION
+--------------------------------------
+
+- models compete via prediction accuracy
+- framings evolve via outcome quality
+
+Failure → loss of influence → replacement
+
+--------------------------------------
+VI. ADAPTIVE DEPTH (INVISIBLE)
+--------------------------------------
+
+System scales effort automatically:
+
+- low impact → fast
+- high impact / high error → deeper reasoning
+
+No explicit mode switching needed
+
+--------------------------------------
+VII. ANTI-DELUSION (STRUCTURAL)
+--------------------------------------
+
+IF:
+
+- confidence ↑ but accuracy ≠ ↑
+OR
+- outcomes worsen
+
+THEN:
+
+- confidence drops automatically
+- alternatives explored
+
+--------------------------------------
+VIII. EXPLORATION (NATURAL)
+--------------------------------------
+
+Triggered by:
+
+- uncertainty
+- disagreement
+- performance decline
+
+Must remain:
+
+- small
+- continuous
+
+--------------------------------------
+IX. REALITY LOCK
+--------------------------------------
+
+Only outcome performance matters
+
+- beliefs have no authority
+- models have no protection
+- framing has no permanence
+
+Reality determines survival
+
+--------------------------------------
+X. CONTROL SIGNALS (MINIMAL)
+--------------------------------------
+
+Track only:
+
+- outcome trend
+- prediction accuracy
+
+Everything else derives from these
+
+--------------------------------------
+XI. INVARIANTS
+--------------------------------------
+
+1. All predictions are probabilistic
+2. All models are temporary
+3. All framing is provisional
+4. Error drives all change
+5. Performance defines truth
+6. Adaptation ensures survival
+7. Reality overrides everything
+
+--------------------------------------
+XII. VALIDITY CONDITION
+--------------------------------------
+
+If outcomes improve over time:
+→ system works
+
+If not:
+→ system is failing and will self-correct or collapse
+
+--------------------------------------
+END
+--------------------------------------

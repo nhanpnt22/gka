@@ -1,0 +1,136 @@
+6.4 EARLY WARNING SYSTEM (PREEMPTIVE RISK DETECTION)
+------------------------------------------------------------------
+
+Function:
+- detects early signals of regime change, instability, or hidden risk
+- enables action BEFORE irreversible loss or constraint violation occurs
+- compensates for delayed and distorted feedback from Level 0
+
+--------------------------------------------------
+
+Inputs:
+
+- leading indicators: L_t
+- model diagnostics: ε_t, ε_cal,t, D_t, N_eff,t
+- state signals: Ŝ_t, ĉ_t
+- uncertainty: U_t
+- observation stream: Õ_t
+
+--------------------------------------------------
+
+Leading Indicators (L_t):
+
+Track deviations and structural signals in:
+
+1. Volatility / Variance Shifts:
+- sudden increase in dispersion or tail risk
+
+2. Trend / Regime Breaks:
+- breakdown of persistent patterns or correlations
+
+3. Behavioral Changes:
+- shifts in agent behavior (adversarial adaptation, crowding, feedback loops)
+
+4. Proxy Divergence:
+- decoupling between proxies (Ŝ_t components) and realized outcomes Y_t
+
+5. Liquidity / Constraint Signals:
+- tightening capacity, slippage, or constraint proximity (ĉ_t ↑)
+
+--------------------------------------------------
+
+Signal Properties:
+
+- leading (precede realized outcomes Y_t)
+- noisy and probabilistic (false positives possible)
+- partially observed and model-dependent
+- may conflict across indicators
+
+Implication:
+- signals increase uncertainty, not certainty
+
+--------------------------------------------------
+
+Detection Logic:
+
+If ANY of the following persist or co-occur:
+
+- L_t shows structural deviation from baseline
+- ε_t ↑ or ε_cal,t ↑ (early error drift)
+- model disagreement D_t ↑
+- effective diversity N_eff,t ↓
+- proxy instability or inconsistency in Ŝ_t
+
+Then:
+→ flag potential regime shift / instability
+
+--------------------------------------------------
+
+Response Rule (Preemptive):
+
+Upon deterioration signal:
+
+1. Reduce confidence:
+c_t ↓
+
+2. Increase uncertainty:
+U_t ↑
+
+3. Adjust decision mode (Level 4):
+→ shift toward EXPLORE or PROTECT
+
+4. Reduce exposure:
+- shrink position sizes
+- tighten risk limits
+
+5. Increase exploration:
+- prioritize IG(a)
+- test alternative models / hypotheses
+
+6. Trigger structural review (Level 6.3):
+- reassess Ŝ_t, M, and assumptions
+
+--------------------------------------------------
+
+Timing Principle (Critical):
+
+Act BEFORE confirmation:
+
+- do not wait for realized losses Y_t
+- treat early warnings as asymmetric signals:
+ downside risk of inaction > cost of precaution
+
+--------------------------------------------------
+
+Failure Modes:
+
+- ignoring early signals (late reaction)
+- overreacting to noise (false positives)
+- relying on lagging indicators only
+- suppressing signals due to recent success
+
+--------------------------------------------------
+
+Output:
+
+- warning state (normal / caution / critical)
+- updated confidence c_t and uncertainty U_t
+- preemptive adjustments:
+ • exposure reduction
+ • mode shift (EXPLORE / PROTECT)
+ • increased monitoring and exploration
+
+--------------------------------------------------
+
+Interface to System:
+
+- feeds into:
+ • Level 4 (decision mode switching)
+ • Level 6.2 (learning via error anticipation)
+ • Level 6.3 (meta-learning and structural adaptation)
+
+--------------------------------------------------
+
+One-Line Essence:
+
+A preemptive detection layer that monitors leading, imperfect signals of instability and regime change—triggering early reductions in confidence, exposure, and model trust to act before delayed feedback reveals irreversible damage.

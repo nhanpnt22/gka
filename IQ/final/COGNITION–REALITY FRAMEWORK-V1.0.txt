@@ -1,0 +1,191 @@
+COGNITION–REALITY FRAMEWORK (CRF) v1.0
+==========================================
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Final Version: March 26, 2026
+
+A continuous decision system that improves real-world outcomes over time
+by combining probabilistic modeling, controlled exploration, adversarial awareness,
+and adaptive feedback under constraint, uncertainty, and change.
+
+A system is valid only if performance improves over time.
+
+--------------------------------------
+I. CORE LOOP (ONLY ENGINE)
+--------------------------------------
+
+State → Model → Predict → Decide → Act → Observe → Update
+
+Everything reduces to this loop.
+
+--------------------------------------
+II. DECISION RULE (RUNTIME LOGIC)
+--------------------------------------
+
+For any decision:
+
+1. Define:
+   - State (key variables only)
+   - Objective (real outcome, not proxy)
+   - Constraints (time, risk, irreversibility)
+
+2. Use best current model(s)
+
+3. Estimate probabilities
+
+4. Choose action:
+
+   IF irreversible or high downside:
+       → prioritize safety (protect downside)
+
+   ELSE IF uncertainty high OR models disagree OR performance drops:
+       → explore (gain information)
+
+   ELSE:
+       → exploit (maximize expected value)
+
+5. Act
+
+6. Observe outcome
+
+--------------------------------------
+III. MODEL SYSTEM (ADAPTIVE SET)
+--------------------------------------
+
+- Maintain small set of competing models
+- Continuously test alternatives
+- Replace weak models
+
+Rule:
+If reality disagrees → model changes
+
+--------------------------------------
+IV. REALITY CHECKS (ALWAYS ON)
+--------------------------------------
+
+1. Calibration:
+   confidence ≈ reality?
+
+2. Objective validity:
+   metric ≈ real outcome?
+
+3. Signal integrity:
+   data real or manipulated?
+
+4. Environment stability:
+   is reality changing?
+
+--------------------------------------
+V. FAILURE HANDLING
+--------------------------------------
+
+If error occurs:
+
+- Decompose:
+  model / estimation / execution / paradigm
+
+- If persistent:
+  → increase exploration
+  → replace model
+
+--------------------------------------
+VI. ADVERSARIAL FILTER
+--------------------------------------
+
+Assume some signals are misleading
+
+Check:
+
+- source incentives
+- cross-source consistency
+- time consistency
+
+If suspicious:
+→ reduce trust
+
+--------------------------------------
+VII. TIME HORIZON CONTROL
+--------------------------------------
+
+Evaluate:
+
+- short-term outcome
+- long-term consequence
+
+Rule:
+Never trade long-term survival for short-term gain
+
+--------------------------------------
+VIII. IRREVERSIBILITY RULE
+--------------------------------------
+
+If decision is one-shot:
+
+- require higher confidence
+- limit downside
+- favor robustness over optimization
+
+--------------------------------------
+IX. ADAPTATION MECHANISM
+--------------------------------------
+
+Continuously:
+
+- update probabilities
+- update models
+- update strategies
+
+Advantage = speed × correctness of updates
+
+--------------------------------------
+X. MULTI-AGENT REALITY
+--------------------------------------
+
+Account for:
+
+- others’ incentives
+- strategic behavior
+- coordination risk
+
+--------------------------------------
+XI. MEASUREMENT (GROUND TRUTH)
+--------------------------------------
+
+Track:
+
+- outcome over time
+- prediction accuracy
+- calibration error
+- adaptation speed
+
+--------------------------------------
+XII. EXECUTION PRIORITY
+--------------------------------------
+
+1. Act
+2. Measure
+3. Update
+4. Explore (when needed)
+5. Iterate
+
+Speed > perfection
+
+--------------------------------------
+XIII. FINAL PRINCIPLES
+--------------------------------------
+
+1. All models are provisional
+2. All predictions are probabilistic
+3. Model set must evolve
+4. Exploration is required but controlled
+5. Some information is adversarial
+6. Objectives must match reality
+7. Metrics are imperfect proxies
+8. Errors are information
+9. Adaptation rate determines advantage
+10. Protect downside in irreversible decisions
+11. Optimize across time horizons
+12. Reality is the only judge
+
+--------------------------------------
+END
+--------------------------------------

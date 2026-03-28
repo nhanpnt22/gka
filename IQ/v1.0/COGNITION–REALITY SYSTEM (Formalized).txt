@@ -1,0 +1,319 @@
+COGNITION–REALITY SYSTEM (FORMALIZED — SURVIVAL-FIRST, HARDENED, CONSISTENT)
+
+--------------------------------------------------
+
+I. STATE (DEFENSIVE ONTOLOGY)
+
+Ŝ_t = {x_t, ẑ_t, ĉ_t, h_t}
+
+x_t: observable variables  
+ẑ_t: latent proxies (uncertain, biased, incomplete)  
+ĉ_t: inferred constraints (risk, liquidity, irreversibility, delay, resources)  
+h_t: compressed history (path dependence, regime context)
+
+Construction:
+Ŝ_t = f(O_{1:t}, a_{1:t-1})
+
+Requirements:
+- Approximate sufficiency: P(Y | Ŝ_t, a) ≈ P(Y | history, a)
+- Minimality: reduce dim(Ŝ_t) subject to sufficiency
+- Defensive completeness: include latent risk and constraint proxies
+- Validity: holds only while predictive performance remains stable
+
+Properties:
+- partial observability (Ŝ_t ≠ S_t)
+- constraint misestimation (ĉ_t ≠ C_t)
+- state aliasing and compression loss
+- endogeneity: a_t → Ŝ_{t+k}
+
+Operational Rule (Hard):
+If Ŝ_t reliability ↓ or instability ↑
+→ reduce exposure AND reduce complexity
+
+--------------------------------------------------
+
+II. MODEL SYSTEM (ENSEMBLE)
+
+M = {m_i}, weights w_i,t
+
+P(Y | Ŝ_t, a) = Σ w_i,t · P_i(Y | Ŝ_t, a)
+
+Update:
+w_i,t+1 ∝ w_i,t · exp(−loss_i,t), Σ w_i,t = 1
+
+Constraints:
+- no single-model dominance
+- enforced structural diversity
+- correlated failure risk (N_eff,t < nominal)
+- mandatory stress testing (regime, adversarial, tail)
+
+--------------------------------------------------
+
+III. PREDICTION (PROBABILISTIC)
+
+Outputs:
+- predictive distribution: P(Y | Ŝ_t, a)
+- uncertainty: U_t = U_epistemic + U_aleatoric
+- calibration error: ε_cal,t
+
+Constraints:
+- U_t ≥ U_min > 0
+- P ∈ (ε, 1−ε)
+
+Interpretation:
+- epistemic → reducible
+- aleatoric → irreducible (limits size)
+
+Calibration:
+E[predicted] ≈ E[realized]
+
+Confidence:
+c_t = f(U_t, ε_cal,t, D_t, N_eff,t)
+
+Monotonicity:
+- U_t ↑ → c_t ↓
+- disagreement ↑ → c_t ↓
+- instability ↑ → c_t ↓
+
+--------------------------------------------------
+
+IV. OBJECTIVE (HIERARCHICAL, ENFORCED)
+
+Hard Constraints:
+
+1. Survival:
+P(irreversible loss within H_t | Ŝ_t, ĉ_t, a) < δ
+
+2. Constraint Respect:
+P(non-recoverable violation | Ŝ_t, ĉ_t, a) < ε_c
+
+Feasible Set:
+A_safe = {a satisfying constraints}
+
+Within A_safe:
+- maximize optionality Ω(a)
+- maximize learning IG(a)
+- maximize E[Y | Ŝ_t, a] − λ·Risk(a)
+
+Ranking:
+J_eff(a) = c_t · E[Y] − (1 − c_t) · DownsideRisk(a)
+
+Notes:
+- H_t is adaptive (↓ under uncertainty, ↑ under stability)
+- hierarchy is strictly enforced
+
+--------------------------------------------------
+
+V. DECISION POLICY
+
+π(Ŝ_t) → a_t ∈ A_safe
+
+Modes:
+
+PROTECT:
+→ high uncertainty / instability
+→ minimize exposure
+
+EXPLORE:
+→ disagreement or rising error
+→ small, diversified probes
+
+EXPLOIT:
+→ stable regime, high confidence
+→ controlled optimization
+
+--------------------------------------------------
+
+Survival Gate:
+
+Reject / scale actions if:
+- irreversible loss risk
+- Δt_feedback > Δt_damage
+- hidden exposure
+- systemic/correlation amplification
+- constraint violation
+- destabilizing endogeneity
+
+--------------------------------------------------
+
+Sizing Rule:
+
+E_t ∝ c_t × evidence × stability
+
+Constraints:
+- E_t ≤ risk budget
+- dE_t/dt ≤ learning rate
+- U_t ↑ → E_t ↓
+
+Complexity Coupling:
+If Comp_t → Comp_budget
+→ reduce exposure regardless of confidence
+
+--------------------------------------------------
+
+VI. EXECUTION
+
+(S_{t+1}, Y_t, C_{t+1}) ~ P_real,t(· | S_t, a_t, C_t)
+
+Properties:
+- unknown, non-stationary
+- endogenous
+- heavy-tailed, path-dependent
+
+Risks:
+- slippage, delay
+- hidden constraints
+- model–reality mismatch
+
+--------------------------------------------------
+
+VII. OBSERVATION
+
+O_t ~ g_t(· | S_t, Y_{t-k}, a_{t-k})
+
+Properties:
+- partial, noisy, delayed, manipulable
+
+Õ_t = W(O_{1:t})
+
+Weights:
+- reliability
+- delay
+- manipulation risk
+- consistency
+
+Constraint:
+O_t ≠ S_t, Y_t
+
+--------------------------------------------------
+
+VIII. LEARNING
+
+ε_t = Y_t − Ŷ_t
+
+Updates:
+- weights w_i,t
+- parameters θ_i
+- state Ŝ_t
+
+Rules:
+- persistent error → U_t ↑, c_t ↓
+- reweight / replace models
+- increase exploration
+
+Constraint:
+adaptation speed ≥ instability × exposure
+else → reduce exposure
+
+--------------------------------------------------
+
+IX. META-LEARNING
+
+Track:
+- calibration
+- performance trend
+- adaptation speed
+- signal integrity
+
+Detect:
+- regime shifts
+- proxy failure
+- instability
+- model degeneracy
+
+Actions:
+- reduce confidence
+- reduce exposure
+- increase exploration
+- reframe Ŝ_t, M, J
+
+--------------------------------------------------
+
+X. REGIME SHIFT PROTOCOL
+
+Trigger:
+ε_t ↑, Var(ε_t) ↑, D_t ↑
+
+Response:
+- assume instability
+- reduce exposure
+- increase exploration
+- reset confidence
+
+--------------------------------------------------
+
+XI. EARLY WARNING
+
+Monitor:
+- volatility spikes
+- correlation spikes
+- trend breaks
+- proxy divergence
+- constraint tightening
+
+Rule:
+Act before outcome collapse
+
+Response:
+- c_t ↓
+- U_t ↑
+- exposure ↓
+- shift to PROTECT / EXPLORE
+
+--------------------------------------------------
+
+XII. GLOBAL RISK + COMPLEXITY CONTROL
+
+Exposure:
+E_t ≤ risk budget  
+dE_t/dt ≤ learning rate  
+
+Complexity:
+Comp_t ≤ Comp_budget
+
+Critical:
+decision latency < Δt_critical_response
+
+Failure Mode:
+If latency too high OR complexity slows adaptation:
+→ treat as survival risk
+→ reduce models and state complexity
+→ prioritize speed over accuracy
+
+Constraint:
+exposure ≤ validated understanding  
+complexity ≤ adaptation capacity  
+
+--------------------------------------------------
+
+XIII. SYSTEM VALIDITY
+
+Valid iff:
+- survival maintained
+- optionality preserved
+- calibration stable/improving
+- risk-adjusted performance improves
+- adaptation speed ≥ environment change × exposure
+
+Else:
+→ reduce exposure or redesign
+
+--------------------------------------------------
+
+XIV. SYSTEM DYNAMICS
+
+Core Loop:
+Ŝ_t → Predict → Decide → Act → Observe → Update → Ŝ_{t+1}
+
+Recursive Adaptation:
+learning updates:
+- state
+- models
+- objectives
+- policy
+
+--------------------------------------------------
+
+ONE-LINE ESSENCE
+
+A survival-first adaptive system under partial observability, delay, endogeneity, and irreducible uncertainty—enforcing strict survival constraints, controlling irreversible and systemic risk, and scaling both exposure and complexity only with validated understanding and adaptation capacity.

@@ -1,0 +1,306 @@
+COGNITION–REALITY SYSTEM (SURVIVAL-FIRST v2.0)
+================================================
+
+A closed-loop decision system designed to maximize survival and long-term compounding under uncertainty, delay, and adversarial conditions.
+
+A system is valid only if, over time:
+
+It survives
+
+It preserves optionality
+
+It improves predictive accuracy and outcomes
+
+I. CORE PRIORITY (OVERRIDE HIERARCHY)
+1. Survival
+→ avoid irreversible loss
+
+2. Optionality
+→ preserve ability to act in the future
+
+3. Learning
+→ improve models and decisions
+
+4. Optimization
+→ maximize expected value
+
+Optimization is allowed only if 1–3 are safe.
+
+II. CORE LOOP (UNCHANGED ENGINE)
+State → Model → Predict → Decide → Act → Observe → Update
+
+But now governed by survival constraints at every step
+
+III. SURVIVAL GATE (PRE-DECISION FILTER)
+Before ANY action:
+
+1. Irreversibility Check
+Can this decision cause loss that cannot be recovered within time horizon?
+
+IF yes:
+→ reduce size OR reject action
+
+2. Feedback Delay Check
+Will reality respond slower than the impact of this decision?
+
+IF yes:
+→ treat as irreversible
+→ reduce exposure drastically
+
+3. Unknowns Check
+Are there variables we do not understand or cannot observe?
+
+IF yes:
+→ assume hidden risk
+→ shift toward protect / explore
+
+4. Correlation Check
+Can multiple bets fail together?
+
+IF yes:
+→ reduce total exposure
+
+IV. STATE & FRAMING (DEFENSIVE ONTOLOGY)
+State must include:
+
+Observable variables
+
+Latent risk factors (even if estimated)
+
+Constraints:
+
+time
+
+capital
+
+irreversibility
+
+Feedback delays
+
+System boundaries
+
+Rule:
+
+If state is incomplete → act smaller, not smarter
+
+V. MODEL SYSTEM (DISTRUST-FIRST)
+Maintain competing models
+
+Continuously test alternatives
+
+But add:
+
+Mandatory Distrust Rule:
+The currently winning model is most dangerous
+
+Enforce:
+
+stress-test against:
+
+regime shift
+
+adversarial scenarios
+
+extreme tails
+
+VI. PREDICTION (WITH HUMILITY CONSTRAINT)
+All predictions probabilistic
+
+No probability = 0 or 1
+
+Add:
+
+Confidence Penalty:
+Reduce confidence when:
+
+environment unstable
+
+data sparse
+
+recent success streaks
+
+VII. DECISION RULE (SURVIVAL-AWARE)
+Choose action:
+
+IF:
+
+irreversible risk OR
+
+high uncertainty OR
+
+system instability detected
+
+→ PROTECT
+
+ELSE IF:
+
+model disagreement OR
+
+rising error
+
+→ EXPLORE (small scale)
+
+ELSE:
+
+→ EXPLOIT (controlled size)
+
+VIII. ACTION CONSTRAINTS (HARD LIMITS)
+Max Loss per Decision
+
+Strict cap on downside
+
+Exposure Scaling
+
+size ∝ confidence × evidence quality × system stability
+
+Global Risk Cap
+
+total exposure bounded across all actions
+
+Exploration Floor
+
+maintain small bets to detect change
+
+Kill Switch
+
+predefined conditions → immediate risk reduction
+
+IX. EARLY WARNING SYSTEM (CRITICAL ADDITION)
+Track leading indicators—not lagging outcomes:
+
+Startup:
+retention decay
+
+CAC trend vs LTV
+
+cohort behavior divergence
+
+Trading:
+volatility regime shift
+
+correlation drift
+
+liquidity changes
+
+Rule:
+
+Leading signal deterioration → act BEFORE outcome collapse
+
+X. OBSERVATION (DEFENSIVE)
+Record real outcomes
+
+Validate proxies continuously
+
+Add:
+
+weight observations by:
+
+reliability
+
+manipulation risk
+
+delay
+
+XI. UPDATE (SPEED VS SURVIVAL BALANCE)
+Update models and probabilities
+
+But:
+
+Constraint:
+Do not increase exposure faster than learning speed
+
+XII. REGIME SHIFT PROTOCOL (NEW)
+If:
+
+sustained prediction error
+
+multiple models fail simultaneously
+
+THEN:
+
+assume regime change
+
+reduce exposure sharply
+
+increase exploration
+
+reset model confidence
+
+XIII. CAPITAL & RESOURCE PRESERVATION
+Track:
+
+remaining capital
+
+burn rate
+
+recovery capacity
+
+Rule:
+
+If survival probability drops → system overrides all optimization
+
+XIV. META-LEARNING (SURVIVAL METRIC)
+Evaluate over time:
+
+survival duration
+
+drawdown size
+
+recovery speed
+
+adaptation lag
+
+Not just:
+
+accuracy
+
+performance
+
+XV. SYSTEM BEHAVIOR (UPDATED)
+The system enforces:
+
+overconfidence → reduced automatically
+
+success → triggers caution, not expansion
+
+uncertainty → reduces exposure
+
+instability → shifts to survival mode
+
+XVI. FAILURE MODES (EXPLICIT)
+System fails if:
+
+acts before feedback arrives
+
+scales on incomplete state
+
+trusts proxies over reality
+
+increases size faster than understanding
+
+ignores regime shifts
+
+XVII. FINAL PRINCIPLES (SURVIVAL VERSION)
+Survival > profit
+
+No irreversible downside
+
+Reality is the only judge
+
+All models are temporary
+
+Success increases risk
+
+Uncertainty reduces size
+
+Speed of learning must match risk exposure
+
+Protect before optimize
+
+Optionality is an asset
+
+The system must live to learn
+
+ONE-LINE ESSENCE
+A survival-first adaptive system that acts conservatively under uncertainty, learns from reality, and compounds only when it is safe to do so.
+

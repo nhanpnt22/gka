@@ -1,0 +1,177 @@
+4. DECISION & CONTROL (POLICY — SURVIVAL-CONSTRAINED, UNCERTAINTY-AWARE)
+------------------------------------------------------------------
+
+Function:
+- selects actions under uncertainty, constraints, and model limitations
+- maps state, predictions, and objectives into executable decisions
+
+--------------------------------------------------
+
+Inputs:
+
+- state: Ŝ_t, ĉ_t
+- predictive distribution: P(Y | Ŝ_t, a)
+- uncertainty: U_t
+- confidence: c_t
+- diagnostics: ε_t, ε_cal,t, disagreement D_t, N_eff,t
+- feasible set: A_safe (from Level 3)
+
+--------------------------------------------------
+
+Decision Structure:
+
+a_t ∈ A_safe
+
+--------------------------------------------------
+
+Regime Classification (Decision Modes):
+
+1. PROTECT (Capital Preservation Mode)
+
+Trigger if ANY of:
+- high irreversible risk (near survival boundary)
+- high uncertainty: U_t ↑
+- constraint proximity: ĉ_t near binding
+- instability / regime shift signals
+- low confidence: c_t ↓
+
+Action:
+- minimize exposure
+- prioritize reversibility and liquidity
+- avoid tail-risk amplification
+
+--------------------------------------------------
+
+2. EXPLORE (Information Acquisition Mode)
+
+Trigger if:
+- model disagreement: D_t ↑
+- rising prediction error: ε_t ↑
+- calibration drift: ε_cal,t ↑
+- moderate uncertainty with bounded downside risk
+
+Action:
+- prioritize actions with high IG(a) within A_safe
+- take small, diversified, low-risk positions
+
+Constraint:
+- exploration remains strictly within A_safe
+
+--------------------------------------------------
+
+3. EXPLOIT (Controlled Optimization Mode)
+
+Trigger if ALL of:
+- stable regime
+- low uncertainty: U_t ↓
+- high confidence: c_t ↑
+- low disagreement: D_t ↓
+- constraints non-binding
+
+Action:
+- allocate to highest-ranked actions
+- optimize risk-adjusted expected value
+
+Constraint:
+- size scaled by confidence and robustness
+
+--------------------------------------------------
+
+Survival Gate (Pre-Decision Filter):
+
+All candidate actions must pass:
+
+1. Irreversibility Check:
+- reject actions with material probability of irreversible loss
+
+2. Delay Risk Check:
+- if Δt_feedback > Δt_recovery → treat as irreversible
+
+3. Constraint Violation Check:
+- reject actions violating ĉ_t with high probability
+
+4. Hidden Risk Check:
+- penalize actions with significant latent exposure
+
+5. Correlation / Systemic Risk Check:
+- account for dependency across positions
+
+6. Endogeneity Check:
+- reject actions likely to degrade future state or constraints
+
+--------------------------------------------------
+
+Action Selection (Within A_safe):
+
+Step 1: Feasibility
+- restrict to A_safe
+
+Step 2: Hierarchical Filtering (Level 3 Consistency)
+- eliminate actions violating:
+ • survival
+ • constraint safety
+
+- among remaining, filter by:
+ • Ω(a) (optionality)
+ • IG(a) (learning)
+ • Risk(a)
+
+Step 3: Ranking
+
+J_eff(a) = c_t · E[Y | Ŝ_t, a] − (1 − c_t) · DownsideRisk(a)
+
+Step 4: Selection
+
+a_t = argmax over remaining set
+
+--------------------------------------------------
+
+Action Sizing Rule:
+
+size(a) ∝ c_t × Evidence(a) × Stability_t
+
+Where:
+- Evidence(a): strength and consistency of signal
+- Stability_t: inverse of regime instability
+
+Constraints:
+- U_t ↑ → size ↓
+- tail risk ↑ → size ↓
+- constraint proximity ↑ → size ↓
+
+--------------------------------------------------
+
+Portfolio / Exposure Constraints:
+
+- total exposure ≤ risk budget
+- marginal exposure respects constraint buffers
+- concentration limits enforced (correlation-aware)
+- d(exposure)/dt ≤ learning rate
+
+Implication:
+- exposure cannot grow faster than system understanding
+
+--------------------------------------------------
+
+Dynamic Adjustment:
+
+If diagnostics deteriorate:
+- ε_t ↑ or ε_cal,t ↑ or D_t ↑
+
+Then:
+→ reduce exposure
+→ shift toward EXPLORE or PROTECT modes
+
+--------------------------------------------------
+
+Output:
+
+- selected action: a_t ∈ A_safe
+- action size: size(a_t)
+- updated exposure profile
+
+--------------------------------------------------
+
+One-Line Essence:
+
+A regime-switching, survival-constrained decision policy that filters actions through strict safety gates, enforces hierarchical objectives, and applies confidence-adjusted ranking—scaling exposure with uncertainty while limiting irreversible risk and adapting to instability, error, and model disagreement.

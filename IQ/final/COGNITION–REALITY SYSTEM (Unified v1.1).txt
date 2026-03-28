@@ -1,0 +1,304 @@
+COGNITION–REALITY SYSTEM (Unified v1.1)
+======================================
+Author: Phạm Ngọc Thanh Nhân (Brian Pham)
+Final Version: March 26, 2026
+
+A continuous decision system that improves real-world outcomes over time
+by combining cognitive modeling, probabilistic prediction, controlled action,
+and error-driven adaptation under uncertainty, constraint, and adversarial conditions.
+
+A system is valid only if, over sufficient time horizons:
+- Predictive accuracy improves
+- Real-world outcomes measurably improve
+- Adaptation responds to change
+
+--------------------------------------------------
+
+I. CORE LOOP (IRREDUCIBLE ENGINE)
+--------------------------------
+
+State → Model → Predict → Decide → Act → Observe → Update
+
+Everything reduces to this loop.
+
+If any step is skipped:
+→ learning fails
+→ misalignment compounds
+
+--------------------------------------------------
+
+II. STATE & FRAMING
+-------------------
+
+For any decision:
+
+Define:
+- State = minimal sufficient variables required to make a decision
+- Objective (real outcome, not proxy)
+- Constraints:
+  - time
+  - risk
+  - irreversibility
+
+Framing is continuously tested and updated based on outcomes.
+
+--------------------------------------------------
+
+III. MODEL SYSTEM (ADAPTIVE COMPETITION)
+---------------------------------------
+
+- Maintain a small set of competing models
+- Continuously test alternatives
+- Replace weak models
+
+Models are reweighted by:
+- predictive accuracy (calibration)
+- outcome alignment
+
+Rule:
+If reality disagrees → model changes
+
+--------------------------------------------------
+
+IV. PREDICTION (PROBABILISTIC)
+------------------------------
+
+- State expected outcomes with explicit probabilities
+- Maintain irreducible uncertainty (no probability = 0 or 1)
+
+Uncertainty is:
+- explicit
+- bounded
+- continuously updated
+
+--------------------------------------------------
+
+V. DECISION RULE (ACTION LOGIC)
+-------------------------------
+
+Choose action based on:
+
+IF irreversible or high downside:
+→ Protect (limit downside)
+
+ELSE IF:
+- uncertainty high OR
+- models disagree OR
+- performance deteriorates
+→ Explore (gain information)
+
+ELSE:
+→ Exploit (maximize expected value)
+
+--------------------------------------------------
+
+VI. ACTION CONSTRAINTS (SURVIVAL LAYER)
+--------------------------------------
+
+Enforce:
+
+1. No irreversible downside
+   - Defined as loss not recoverable within operating time horizon
+
+2. Action size control:
+   - Scale exposure based on:
+     - confidence
+     - evidence quality
+     - downside risk
+
+3. Exploration floor:
+   - Maintain minimum exploration to avoid stagnation
+
+--------------------------------------------------
+
+VII. OBSERVATION (REALITY CAPTURE)
+---------------------------------
+
+- Record actual real-world outcomes
+- Use proxy metrics only if:
+  → explicitly defined
+  → validated against real outcomes
+
+- Assign confidence weights to observations based on:
+  - source reliability
+  - manipulation risk
+
+--------------------------------------------------
+
+VIII. UPDATE (ERROR-DRIVEN LEARNING)
+-----------------------------------
+
+- Compute error:
+  → prediction vs outcome
+
+- Update:
+  → probabilities
+  → model weights
+  → strategies
+  → problem framing
+
+Persistent error triggers:
+→ model replacement
+→ increased exploration
+
+--------------------------------------------------
+
+IX. REALITY CHECKS (REAL-TIME VALIDATION)
+-----------------------------------------
+
+Continuously evaluate:
+
+1. Calibration:
+   confidence ≈ reality?
+
+2. Objective validity:
+   metric ≈ real outcome?
+
+3. Signal integrity:
+   data reliable or manipulated?
+
+4. Environment stability:
+   is reality changing?
+
+--------------------------------------------------
+
+X. ADVERSARIAL & MULTI-AGENT AWARENESS
+--------------------------------------
+
+Assume:
+- some signals are misleading
+- other agents act strategically
+
+Evaluate:
+- incentives
+- cross-source consistency
+- time consistency
+
+Account for:
+- competition
+- coordination risk
+- strategic behavior
+
+Low-confidence signals:
+→ reduce update weight
+
+--------------------------------------------------
+
+XI. REGIME SHIFT DETECTION
+--------------------------
+
+If sustained increase in error:
+
+→ reduce model confidence  
+→ increase exploration  
+→ reassess assumptions and framing  
+
+--------------------------------------------------
+
+XII. TIME HORIZON CONTROL
+-------------------------
+
+Each decision defines:
+- evaluation window
+- expected feedback delay
+
+Rule:
+Never trade long-term survival for short-term gain
+
+Evaluate:
+- short-term outcomes
+- long-term consequences
+
+--------------------------------------------------
+
+XIII. META-LEARNING (SYSTEM-LEVEL EVALUATION)
+--------------------------------------------
+
+Continuously evaluate over time:
+
+- prediction calibration trends
+- model performance
+- metric validity
+- feedback reliability
+- adaptation speed and direction
+
+Advantage = speed × correctness of adaptation
+
+--------------------------------------------------
+
+XIV. MEASUREMENT (GROUND TRUTH)
+-------------------------------
+
+Track over time:
+
+- real-world outcomes
+- prediction accuracy
+- calibration error
+- adaptation speed
+
+System validity requires improvement across these dimensions.
+
+--------------------------------------------------
+
+XV. SYSTEM BEHAVIOR
+-------------------
+
+The system enforces:
+
+- inaccurate models → error → reduced influence → correction
+- accurate models → better predictions → increased influence
+
+Misalignment becomes unstable and is forced to correct or collapse.
+
+--------------------------------------------------
+
+XVI. VALIDITY CONDITIONS (STRICT)
+--------------------------------
+
+System is valid only if:
+
+1. Predictive accuracy improves
+2. Real-world outcomes improve (not just proxies)
+3. Adaptation responds to change
+
+If not:
+→ misapplied, mismeasured, or low-quality feedback
+
+--------------------------------------------------
+
+XVII. EXPLICIT LIMITS
+---------------------
+
+The system does not guarantee:
+
+- immediate correctness
+- immunity to noise, delay, or adversarial manipulation
+- stability under extreme uncertainty
+
+It guarantees only:
+
+- progressive alignment with reality over time
+- survival under bounded risk constraints
+
+--------------------------------------------------
+
+XVIII. FINAL PRINCIPLES
+-----------------------
+
+1. Reality is the only judge
+2. All models are provisional
+3. All predictions are probabilistic
+4. Errors are information
+5. Exploration is necessary but controlled
+6. Metrics are imperfect proxies
+7. Adaptation rate determines advantage
+8. Protect downside in irreversible decisions
+9. Optimize across time horizons
+10. Truth = predictive + outcome performance
+
+--------------------------------------------------
+
+ONE-LINE ESSENCE
+----------------
+
+A closed-loop intelligence system that models reality, acts under uncertainty, and continuously corrects itself through feedback to improve decisions and outcomes over time.

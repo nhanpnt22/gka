@@ -1,0 +1,200 @@
+COGNITION–REALITY SYSTEM (Formalized v1.1 — Survival-Hardened)
+
+I. STATE (S)
+
+Sₜ = {xₜ, zₜ, cₜ, hₜ}
+
+xₜ: observable variables  
+zₜ: latent variables (estimated)  
+cₜ: constraints (time, risk, irreversibility, resources, delay)  
+hₜ: compressed history  
+
+Requirements:
+- Sufficiency: Sₜ supports prediction
+- Minimality: exclude non-causal variables
+- Defensive completeness: include latent risk proxies
+
+
+II. MODEL SET (M)
+
+M = {m₁, ..., mₙ}, with weights wᵢₜ
+
+Each model:
+Pᵢ(Yₜ₊₁ | Sₜ, a)
+
+Constraints:
+∑ wᵢₜ = 1  
+wᵢₜ₊₁ ∝ wᵢₜ · exp(−lossᵢₜ)
+
+Mandatory:
+- model competition
+- no single-model dominance
+- continuous stress testing (shift, adversarial, tail)
+
+
+III. PREDICTION
+
+P(Y | Sₜ, a) = ∑ wᵢₜ Pᵢ(Y | Sₜ, a)
+
+Track:
+Uₜ (uncertainty), ε_cal (calibration error)
+
+Constraint:
+∀ P ∈ (ε, 1−ε)
+
+Adjustment:
+confidence ↓ under instability, sparse data, or recent success
+
+
+IV. OBJECTIVE FUNCTION (HIERARCHICAL)
+
+Maximize:
+J(a) = E[Y | Sₜ, a]
+
+Subject to:
+
+1. Survival:
+P(irreversible loss | a) < δ
+
+2. Optionality:
+future action space preserved
+
+3. Learning:
+IG(a) ≥ 0 when uncertainty high
+
+4. Risk Limits:
+exposure ≤ risk budget
+
+
+V. DECISION POLICY (π)
+
+π(Sₜ) → aₜ
+
+Selection:
+
+IF:
+irreversibility high OR
+uncertainty high OR
+system instability detected
+→ PROTECT
+
+ELSE IF:
+model disagreement high OR
+error rising
+→ EXPLORE (small size)
+
+ELSE:
+→ EXPLOIT (controlled)
+
+Action Size:
+
+size(aₜ) ∝ confidence × evidence × system stability
+
+Constraints:
+size(aₜ) ≤ risk budget
+d(size)/dt ≤ learning rate
+
+
+VI. EXECUTION
+
+Sₜ₊₁ ~ P_real(Sₜ, aₜ)
+
+Note:
+P_real unknown, non-stationary, action-dependent
+
+
+VII. OBSERVATION
+
+Oₜ₊₁ ~ g(Sₜ₊₁, a_{t-k})
+
+Weight:
+w_obs = f(reliability, manipulation risk, delay)
+
+Constraint:
+Oₜ ≠ Sₜ (partial, noisy, delayed)
+
+
+VIII. UPDATE (LEARNING)
+
+εₜ = Yₜ − Ŷₜ
+
+1. Model Weights:
+wᵢₜ₊₁ ∝ wᵢₜ · exp(−lossᵢₜ)
+
+2. Parameter Update:
+Bayesian / gradient / rule-based
+
+3. Structural Update:
+IF persistent error:
+→ replace models
+→ expand M
+→ reframe Sₜ
+
+Constraint:
+exposure growth ≤ learning speed
+
+
+IX. META-LEARNING
+
+Track:
+- calibration: E[pred] ≈ E[actual]
+- performance trend
+- adaptation speed dε/dt
+- signal integrity
+
+Trigger:
+degradation → reduce confidence + exposure
+
+
+X. REGIME SHIFT DETECTION
+
+IF:
+E[ε] ↑ OR Var(ε) ↑ OR model divergence ↑
+
+THEN:
+→ assume regime change
+→ reduce size
+→ increase exploration
+→ reset confidence
+
+
+XI. EARLY WARNING SYSTEM
+
+Monitor leading indicators Lₜ:
+
+- volatility shifts
+- trend breaks
+- behavioral changes
+- proxy divergence
+
+Rule:
+deterioration → act before outcome collapse
+
+
+XII. GLOBAL RISK CONTROL
+
+Total exposure Eₜ:
+
+Eₜ ≤ risk budget  
+dEₜ/dt ≤ learning rate  
+
+Prevent correlated failure + delayed feedback collapse
+
+
+XIII. SYSTEM VALIDITY
+
+Over time:
+- calibration improves
+- real outcomes improve
+- adaptation responds to change
+
+Else:
+→ system invalid → reset / redesign
+
+
+XIV. FULL LOOP
+
+Sₜ → M → Predict → π(Sₜ) → aₜ → Act  
+→ Observe Oₜ → Update → Sₜ₊₁
+
+Repeat.

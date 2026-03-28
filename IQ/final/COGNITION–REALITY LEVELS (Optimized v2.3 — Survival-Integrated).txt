@@ -1,0 +1,292 @@
+COGNITION–REALITY LEVELS (Optimized v2.3 — Survival-Integrated)
+===============================================================
+
+0. Generative Reality
+Function:
+
+underlying process generating all states, transitions, and outcomes
+
+defines causal structure linking actions to consequences
+
+Properties:
+
+partially observable
+
+uncertain, dynamic, and adversarial
+
+includes noise, delay, and regime shifts
+
+Output:
+
+realized states, outcomes, and feedback signals
+
+constraints governing the environment
+
+1. Ontology (State Space)
+Function:
+
+defines what exists and the minimal sufficient variables required for decision-making
+
+Includes:
+
+observable variables
+
+latent (hidden) variables
+
+constraints:
+
+time
+
+risk
+
+irreversibility
+
+resource limits
+
+feedback loops and system boundaries
+
+Principles:
+
+minimality
+
+sufficiency
+
+updateability
+
+defensive completeness (include critical unknowns when possible)
+
+Output:
+
+structured, decision-relevant state representation
+
+2. Epistemology (Modeling & Prediction)
+Function:
+
+builds representations of reality (models)
+
+generates explicit probabilistic predictions
+
+Includes:
+
+competing models
+
+uncertainty representation (no 0/1 probabilities)
+
+calibration tracking
+
+Added Constraints:
+
+confidence penalty under instability or sparse data
+
+mandatory model competition (no single-model dominance)
+
+Output:
+
+predictive models
+
+probability-weighted expectations
+
+3. Value & Objective (Selection)
+Function:
+
+defines what is optimized
+
+Hierarchy (CRITICAL ADDITION):
+
+Survival (no irreversible loss)
+
+Optionality (preserve future action)
+
+Learning
+
+Optimization (profit, performance)
+
+Rule:
+
+lower levels cannot violate higher levels
+
+Output:
+
+constrained objective functions aligned with reality
+
+4. Decision & Control (Policy)
+Function:
+
+selects actions under uncertainty, constraints, and time
+
+Includes:
+
+protect / explore / exploit
+
+irreversibility handling
+
+action sizing
+
+NEW: Survival Gate (Pre-Decision Filter)
+Before acting:
+
+Irreversibility check
+
+Feedback delay check
+
+Unknowns check
+
+Correlation / systemic risk check
+
+If any fail → shift to protect or reduce size
+
+Action Rules:
+size ∝ confidence × evidence × system stability
+
+uncertainty ↑ → size ↓
+
+Output:
+
+survival-constrained actions
+
+5. Execution & Interaction
+Function:
+
+executes actions in real environments
+
+interacts with agents (including adversarial ones)
+
+Includes:
+
+strategic behavior
+
+coordination effects
+
+adversarial responses
+
+Added Constraint:
+
+global exposure control (not just per action)
+
+Output:
+
+real-world consequences
+
+6. Feedback & Adaptation (Learning System)
+Function:
+
+converts outcomes into system improvement
+
+6.1 Observation (Reality Capture)
+record real outcomes
+
+validate proxies continuously
+
+weight observations by:
+
+reliability
+
+manipulation risk
+
+delay
+
+Output:
+
+weighted observations
+
+6.2 Learning (Error Correction)
+compute prediction vs outcome error
+
+update:
+
+models
+
+probabilities
+
+strategies
+
+framing
+
+Rule:
+
+persistent error → model replacement + exploration increase
+
+Constraint:
+
+do not scale exposure faster than learning speed
+
+Output:
+
+updated system components
+
+6.3 Meta-Learning (System Regulation)
+evaluate:
+
+calibration
+
+model performance
+
+signal integrity
+
+adaptation speed
+
+Detect:
+
+regime shifts
+
+proxy failure
+
+structural instability
+
+Actions:
+→ reduce confidence
+→ reduce exposure
+→ increase exploration
+→ reframe problem
+
+Output:
+
+system-level corrections
+
+6.4 Early Warning System (NEW CRITICAL LAYER)
+track leading indicators (not just outcomes)
+
+Examples:
+
+trend breaks
+
+volatility shifts
+
+behavioral changes
+
+metric divergence
+
+Rule:
+
+Act on deterioration before outcomes collapse
+
+Output:
+
+preemptive adjustments
+
+FINAL OUTPUT
+improved system that:
+
+survives
+
+adapts
+
+aligns with reality over time
+
+SYSTEM DYNAMICS
+Forward Flow:
+0 → 1 → 2 → 3 → 4 → 5 → 6
+
+Core Loop:
+State (1) → Model (2) → Decide (4) → Act (5) → Update (6)
+
+Recursive Adaptation:
+6 → 1 (state updated)
+6 → 2 (models updated)
+6 → 3 (objectives refined)
+
+Closed System:
+continuous survival-constrained adaptation
+
+ONE-LINE ESSENCE
+A survival-first, multi-level system that transforms reality into decisions and continuously adapts through probabilistic prediction, controlled action, and feedback—while preventing irreversible failure.
